@@ -190,3 +190,47 @@ FOREIGN KEY ("trip_id")
   [1m[36mTrip Load (1.0ms)[0m  [1m[34mSELECT "trips".* FROM "trips" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
   [1m[36mUserTrip Load (0.7ms)[0m  [1m[34mSELECT "user_trips".* FROM "user_trips" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3052146437406565380)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateFlights (20210928151602)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (54.0ms)[0m  [1m[35mCREATE TABLE "flights" ("id" bigserial primary key, "user_id" bigint NOT NULL, "trip_id" bigint NOT NULL, "airline" character varying, "date_time" timestamp, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_f23525dbb0"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_454f084136"
+FOREIGN KEY ("trip_id")
+  REFERENCES "trips" ("id")
+)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE INDEX "index_flights_on_user_id" ON "flights" ("user_id")[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE INDEX "index_flights_on_trip_id" ON "flights" ("trip_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210928151602"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(3052146437406565380)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "amanda"], ["email", "amanda@email.com"], ["password_digest", "$2a$12$fzyDXQ7WzAJzrF4.KotbWeNDfAfXlymInd352RPZsudWeZpvbuoKm"], ["created_at", "2021-09-28 15:19:27.954520"], ["updated_at", "2021-09-28 15:19:27.954520"]]
+  [1m[36mTRANSACTION (41.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTrip Create (0.9ms)[0m  [1m[32mINSERT INTO "trips" ("location", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["location", "hawaii"], ["end_date", "2021-12-12"], ["created_at", "2021-09-28 15:20:23.200019"], ["updated_at", "2021-09-28 15:20:23.200019"]]
+  [1m[36mTRANSACTION (82.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTrip Load (1.0ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTrip Load (1.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" INNER JOIN "user_trips" ON "trips"."id" = "user_trips"."trip_id" WHERE "user_trips"."user_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["user_id", 2], ["LIMIT", 11]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (2.1ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUserTrip Create (1.5ms)[0m  [1m[32mINSERT INTO "user_trips" ("user_id", "trip_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 2], ["trip_id", 2], ["created_at", "2021-09-28 15:21:39.113571"], ["updated_at", "2021-09-28 15:21:39.113571"]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTrip Load (0.9ms)[0m  [1m[34mSELECT "trips".* FROM "trips" INNER JOIN "user_trips" ON "trips"."id" = "user_trips"."trip_id" WHERE "user_trips"."user_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["user_id", 2], ["LIMIT", 11]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_trips" ON "users"."id" = "user_trips"."user_id" WHERE "user_trips"."trip_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["trip_id", 2], ["LIMIT", 11]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (1.6ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mFlight Create (51.0ms)[0m  [1m[32mINSERT INTO "flights" ("user_id", "trip_id", "airline", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 2], ["trip_id", 2], ["airline", "united"], ["created_at", "2021-09-28 15:24:11.100224"], ["updated_at", "2021-09-28 15:24:11.100224"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mFlight Load (0.9ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."user_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["user_id", 2], ["LIMIT", 11]]
+  [1m[36mFlight Load (0.4ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."trip_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["trip_id", 2], ["LIMIT", 11]]
+  [1m[36mFlight Load (0.3ms)[0m  [1m[34mSELECT "flights".* FROM "flights" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
