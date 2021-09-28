@@ -4,4 +4,5 @@ class Trip < ApplicationRecord
     has_many :flights
     has_many :accomodations
     has_many :events
+    has_many :packing_list_items
 end

@@ -298,3 +298,24 @@ FOREIGN KEY ("trip_id")
   [1m[36mTrip Load (0.7ms)[0m  [1m[34mSELECT "trips".* FROM "trips" INNER JOIN "user_trips" ON "trips"."id" = "user_trips"."trip_id" WHERE "user_trips"."user_id" = $1 ORDER BY "trips"."id" ASC LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
   [1m[36mEvent Load (1.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."trip_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["trip_id", 2], ["LIMIT", 11]]
   [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3052146437406565380)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePackingListItems (20210928160710)
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (60.4ms)[0m  [1m[35mCREATE TABLE "packing_list_items" ("id" bigserial primary key, "trip_id" bigint NOT NULL, "item" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_32d0349368"
+FOREIGN KEY ("trip_id")
+  REFERENCES "trips" ("id")
+)[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE INDEX "index_packing_list_items_on_trip_id" ON "packing_list_items" ("trip_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210928160710"]]
+  [1m[36mTRANSACTION (81.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(3052146437406565380)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPackingListItem Load (0.8ms)[0m  [1m[34mSELECT "packing_list_items".* FROM "packing_list_items" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTrip Load (0.8ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPackingListItem Create (45.4ms)[0m  [1m[32mINSERT INTO "packing_list_items" ("trip_id", "item", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["trip_id", 2], ["item", "hat"], ["created_at", "2021-09-28 16:08:34.218793"], ["updated_at", "2021-09-28 16:08:34.218793"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPackingListItem Load (3.5ms)[0m  [1m[34mSELECT "packing_list_items".* FROM "packing_list_items" WHERE "packing_list_items"."trip_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["trip_id", 2], ["LIMIT", 11]]
