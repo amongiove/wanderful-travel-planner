@@ -9,7 +9,8 @@ Rails.application.routes.draw do
       resources :accomodations
       resources :events
       resources :packing_list_items
-    
+      resources :messages
+        
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
     end
   end
