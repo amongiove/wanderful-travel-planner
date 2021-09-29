@@ -466,3 +466,46 @@ Processing by Api::V1::UsersController#show as HTML
 Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 735)
 
 
+Started GET "/api/v1/users" for ::1 at 2021-09-29 12:52:48 -0500
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+NoMethodError (undefined method `helpers' for ApplicationController:Class):
+  
+app/controllers/application_controller.rb:2:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/api/v1/users_controller.rb:1:in `<main>'
+Started GET "/api/v1/users" for ::1 at 2021-09-29 12:53:39 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (46.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:7:in `index'
+Completed 200 OK in 160ms (Views: 0.2ms | ActiveRecord: 113.9ms | Allocations: 10586)
+
+
+Started GET "/" for ::1 at 2021-09-29 13:08:31 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 16.2ms | Allocations: 315)
+Completed 200 OK in 69ms (Views: 25.5ms | Allocations: 2442)
+
+
+Started GET "/" for ::1 at 2021-09-29 13:09:12 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 10.2ms | Allocations: 196)
+Completed 200 OK in 17ms (Views: 12.6ms | Allocations: 763)
+
+
+Started GET "/" for ::1 at 2021-09-29 13:09:23 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.3ms | Allocations: 8)
+Completed 200 OK in 1ms (Views: 0.8ms | Allocations: 230)
+
+
+Started GET "/" for ::1 at 2021-09-29 13:10:15 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.4ms | Allocations: 8)
+Completed 200 OK in 2ms (Views: 1.1ms | Allocations: 226)
+
+
