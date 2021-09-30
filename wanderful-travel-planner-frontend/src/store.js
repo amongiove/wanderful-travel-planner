@@ -1,4 +1,4 @@
-import {createStore, applyMiddleware, compose, combineReducers} from 'redux';
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import usersReducer from './reducers/usersReducer';
 import currentUserReducer from './reducers/currentUserReducer';
 import loginFormReducer from './reducers/loginFormReducer';
