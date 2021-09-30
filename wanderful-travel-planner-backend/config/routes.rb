@@ -1,6 +1,7 @@
 #TODO: make routes more specific so only have what are using
 
 Rails.application.routes.draw do
+  get "/api/v1/login", to: "auth#login"
   namespace :api do
     namespace :v1 do
       resources :users

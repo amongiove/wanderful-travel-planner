@@ -8,9 +8,11 @@ import {Provider} from 'react-redux'
 
 import App from './App';
 import usersReducer from './reducers/usersReducer';
+import currentUserReducer from './reducers/currentUserReducer';
 
 const rootReducer = combineReducers({
-  users: usersReducer
+  users: usersReducer,
+  current_user: currentUserReducer
 })
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

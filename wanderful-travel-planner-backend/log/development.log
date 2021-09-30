@@ -509,3 +509,8 @@ Processing by Rails::WelcomeController#index as HTML
 Completed 200 OK in 2ms (Views: 1.1ms | Allocations: 226)
 
 
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (92.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "carl"], ["email", "carl@email.com"], ["password_digest", "$2a$12$dApJFhNY/cMYOsbax6yPA.iuQIjRzVxFgmc468YyFXKUYr/ejwG.S"], ["created_at", "2021-09-30 14:51:00.130875"], ["updated_at", "2021-09-30 14:51:00.130875"]]
+  [1m[36mTRANSACTION (128.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (49.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
