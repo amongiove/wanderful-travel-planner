@@ -514,3 +514,292 @@ Completed 200 OK in 2ms (Views: 1.1ms | Allocations: 226)
   [1m[36mUser Create (92.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "carl"], ["email", "carl@email.com"], ["password_digest", "$2a$12$dApJFhNY/cMYOsbax6yPA.iuQIjRzVxFgmc468YyFXKUYr/ejwG.S"], ["created_at", "2021-09-30 14:51:00.130875"], ["updated_at", "2021-09-30 14:51:00.130875"]]
   [1m[36mTRANSACTION (128.0ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (49.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started GET "/login" for ::1 at 2021-09-30 12:29:55 -0500
+  [1m[35m (5.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/login"):
+  
+Started GET "/favicon.ico" for ::1 at 2021-09-30 12:29:56 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/login" for ::1 at 2021-09-30 12:30:01 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/login"):
+  
+Started GET "/" for ::1 at 2021-09-30 12:30:23 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 8.9ms | Allocations: 196)
+Completed 200 OK in 30ms (Views: 10.6ms | ActiveRecord: 0.0ms | Allocations: 1693)
+
+
+Started GET "/rails/info/routes" for ::1 at 2021-09-30 12:44:10 -0500
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/layouts/application.html.erb
+  Rendering /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/actionpack-6.1.4.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [67 times] (Duration: 16.8ms | Allocations: 7429)
+  Rendered /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/actionpack-6.1.4.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 5.8ms | Allocations: 917)
+  Rendered /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 34.3ms | Allocations: 12742)
+  Rendered layout /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/layouts/application.html.erb (Duration: 36.7ms | Allocations: 12987)
+Completed 200 OK in 69ms (Views: 46.5ms | ActiveRecord: 0.0ms | Allocations: 15523)
+
+
+Started GET "/rails/info/routes" for ::1 at 2021-09-30 13:27:45 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/layouts/application.html.erb
+  Rendering /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/actionpack-6.1.4.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [67 times] (Duration: 15.8ms | Allocations: 7429)
+  Rendered /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/actionpack-6.1.4.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 5.9ms | Allocations: 917)
+  Rendered /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 34.3ms | Allocations: 12742)
+  Rendered layout /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/layouts/application.html.erb (Duration: 36.1ms | Allocations: 12987)
+Completed 200 OK in 69ms (Views: 46.3ms | ActiveRecord: 0.0ms | Allocations: 15523)
+
+
+Started GET "/api/vi/login" for ::1 at 2021-09-30 13:43:11 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/vi/login"):
+  
+Started GET "/rails/info/routes" for ::1 at 2021-09-30 14:00:06 -0500
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/layouts/application.html.erb
+  Rendering /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/actionpack-6.1.4.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [67 times] (Duration: 25.4ms | Allocations: 7394)
+  Rendered /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/actionpack-6.1.4.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 4.3ms | Allocations: 690)
+  Rendered /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 45.7ms | Allocations: 12029)
+  Rendered layout /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/layouts/application.html.erb (Duration: 49.7ms | Allocations: 12263)
+Completed 200 OK in 64ms (Views: 57.4ms | Allocations: 13178)
+
+
+Started GET "/rails/info/routes" for ::1 at 2021-09-30 14:39:12 -0500
+  [1m[35m (48.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/layouts/application.html.erb
+  Rendering /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/actionpack-6.1.4.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [67 times] (Duration: 17.6ms | Allocations: 7429)
+  Rendered /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/actionpack-6.1.4.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 5.5ms | Allocations: 917)
+  Rendered /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 33.4ms | Allocations: 12742)
+  Rendered layout /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/layouts/application.html.erb (Duration: 35.1ms | Allocations: 12987)
+Completed 200 OK in 68ms (Views: 45.2ms | ActiveRecord: 0.0ms | Allocations: 15523)
+
+
+Started GET "/rails/info/routes" for ::1 at 2021-09-30 14:40:16 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/layouts/application.html.erb
+  Rendering /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/actionpack-6.1.4.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [67 times] (Duration: 16.1ms | Allocations: 7429)
+  Rendered /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/actionpack-6.1.4.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 7.2ms | Allocations: 917)
+  Rendered /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 34.9ms | Allocations: 12742)
+  Rendered layout /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/layouts/application.html.erb (Duration: 37.1ms | Allocations: 12987)
+Completed 200 OK in 68ms (Views: 47.2ms | ActiveRecord: 0.0ms | Allocations: 15523)
+
+
+Started GET "/rails/info/routes?path=post" for ::1 at 2021-09-30 14:40:21 -0500
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"post"}
+Completed 200 OK in 7ms (Views: 2.1ms | ActiveRecord: 0.0ms | Allocations: 2709)
+
+
+Started GET "/rails/info/routes?path=api" for ::1 at 2021-09-30 14:40:27 -0500
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"api"}
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 1986)
+
+
+Started GET "/rails/info/routes?path=api_" for ::1 at 2021-09-30 14:40:28 -0500
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"api_"}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1071)
+
+
+Started GET "/rails/info/routes?path=api_vi_" for ::1 at 2021-09-30 14:40:28 -0500
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"api_vi_"}
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 1071)
+
+
+Started GET "/rails/info/routes?path=api_vi_" for ::1 at 2021-09-30 14:40:29 -0500
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"api_vi_"}
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 1067)
+
+
+Started GET "/rails/info/routes?path=api_vi_login" for ::1 at 2021-09-30 14:40:30 -0500
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"api_vi_login"}
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 1070)
+
+
+Started GET "/rails/info/routes?path=api_vi_login" for ::1 at 2021-09-30 14:40:31 -0500
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"api_vi_login"}
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1067)
+
+
+Started GET "/rails/info/routes?path=api/" for ::1 at 2021-09-30 14:40:34 -0500
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"api/"}
+Completed 200 OK in 5ms (Views: 1.0ms | ActiveRecord: 0.0ms | Allocations: 1986)
+
+
+Started GET "/rails/info/routes?path=api/vi" for ::1 at 2021-09-30 14:40:34 -0500
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"api/vi"}
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 1070)
+
+
+Started GET "/rails/info/routes?path=api/v1/" for ::1 at 2021-09-30 14:40:35 -0500
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"api/v1/"}
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 1986)
+
+
+Started GET "/rails/info/routes?path=api" for ::1 at 2021-09-30 14:40:37 -0500
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"api"}
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 1985)
+
+
+Started GET "/rails/info/routes?path=api" for ::1 at 2021-09-30 14:40:37 -0500
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"api"}
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 1983)
+
+
+Started GET "/rails/info/routes?path=api_v" for ::1 at 2021-09-30 14:40:37 -0500
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"api_v"}
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 1070)
+
+
+Started GET "/rails/info/routes?path=api_v1_login" for ::1 at 2021-09-30 14:40:39 -0500
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"api_v1_login"}
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 1069)
+
+
+Started GET "/api/v1/users" for ::1 at 2021-09-30 14:51:33 -0500
+  
+NoMethodError (undefined method `helpers' for ApplicationController:Class):
+  
+app/controllers/application_controller.rb:2:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/api/v1/users_controller.rb:1:in `<main>'
+Started GET "/api/v1/users" for ::1 at 2021-09-30 14:52:37 -0500
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (9.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:7:in `index'
+Completed 200 OK in 185ms (Views: 0.3ms | ActiveRecord: 99.3ms | Allocations: 10732)
+
+
+Started GET "/api/v1/users" for ::1 at 2021-09-30 15:05:58 -0500
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:7:in `index'
+Completed 200 OK in 85ms (Views: 0.5ms | ActiveRecord: 14.1ms | Allocations: 2776)
+
+
+Started GET "/api/v1/users" for ::1 at 2021-09-30 15:23:42 -0500
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:7:in `index'
+Completed 200 OK in 107ms (Views: 0.2ms | ActiveRecord: 68.2ms | Allocations: 10643)
+
+
+Started GET "/api/v1/rails/info/routes" for ::1 at 2021-09-30 15:23:50 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/rails/info/routes"):
+  
+Started GET "/rails/info/routes" for ::1 at 2021-09-30 15:24:02 -0500
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/layouts/application.html.erb
+  Rendering /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/actionpack-6.1.4.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [67 times] (Duration: 32.0ms | Allocations: 7394)
+  Rendered /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/actionpack-6.1.4.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 2.9ms | Allocations: 690)
+  Rendered /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 43.0ms | Allocations: 12033)
+  Rendered layout /Users/amandamongiove/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/layouts/application.html.erb (Duration: 45.9ms | Allocations: 12272)
+Completed 200 OK in 76ms (Views: 49.0ms | ActiveRecord: 0.0ms | Allocations: 14142)
+
+
+Started POST "/api/v1/login" for ::1 at 2021-09-30 15:48:01 -0500
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email"=>"sf", "password"=>"[FILTERED]", "auth"=>{"email"=>"sf", "password"=>"[FILTERED]"}}
+Completed 204 No Content in 19ms (ActiveRecord: 0.0ms | Allocations: 3042)
+
+
+Started POST "/api/v1/login" for ::1 at 2021-09-30 15:48:03 -0500
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email"=>"sf", "password"=>"[FILTERED]", "auth"=>{"email"=>"sf", "password"=>"[FILTERED]"}}
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 52)
+
+
+Started POST "/api/v1/login" for ::1 at 2021-09-30 15:48:05 -0500
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email"=>"sf", "password"=>"[FILTERED]", "auth"=>{"email"=>"sf", "password"=>"[FILTERED]"}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 32)
+
+
+Started POST "/api/v1/login" for ::1 at 2021-09-30 15:48:05 -0500
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email"=>"sf", "password"=>"[FILTERED]", "auth"=>{"email"=>"sf", "password"=>"[FILTERED]"}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 32)
+
+
+Started POST "/api/v1/login" for ::1 at 2021-09-30 15:54:31 -0500
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email"=>"adsa", "password"=>"[FILTERED]", "auth"=>{"email"=>"adsa", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 193ms (ActiveRecord: 22.6ms | Allocations: 7247)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column users.username does not exist
+LINE 1: SELECT "users".* FROM "users" WHERE "users"."username" = $1 ...
+                                            ^
+):
+  
+app/controllers/api/v1/auth_controller.rb:4:in `login'
+Started POST "/api/v1/login" for ::1 at 2021-09-30 15:54:58 -0500
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email"=>"das", "password"=>"[FILTERED]", "auth"=>{"email"=>"das", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (41.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "das"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth_controller.rb:4:in `login'
+Completed 200 OK in 102ms (Views: 0.4ms | ActiveRecord: 42.5ms | Allocations: 4404)
+
+
+Started POST "/api/v1/login" for ::1 at 2021-09-30 15:55:14 -0500
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email"=>"amanda@email.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"amanda@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "amanda@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth_controller.rb:4:in `login'
+Completed 200 OK in 349ms (Views: 0.5ms | ActiveRecord: 57.2ms | Allocations: 5265)
+
+
+Started POST "/api/v1/login" for ::1 at 2021-09-30 15:55:21 -0500
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email"=>"amanda@email.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"amanda@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "amanda@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth_controller.rb:4:in `login'
+Completed 200 OK in 277ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 664)
+
+
+Started POST "/api/v1/login" for ::1 at 2021-09-30 16:01:16 -0500
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email"=>"amanda@email.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"amanda@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "amanda@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth_controller.rb:4:in `login'
+Completed 200 OK in 348ms (Views: 0.8ms | ActiveRecord: 20.2ms | Allocations: 9104)
+
+
+Started POST "/api/v1/login" for ::1 at 2021-09-30 16:01:23 -0500
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email"=>"amanda@email.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"amanda@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "amanda@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth_controller.rb:4:in `login'
+Completed 200 OK in 278ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 651)
+
+

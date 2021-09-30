@@ -5,14 +5,25 @@ export const setCurrentUser = user => {
     }
 }
 
-export const login = credentials => {
-    return  dispatch => {
-        return fetch ("http://localhost:3000/api/v1/login"), {
-            method: "POST", 
+export const login = formData => {
+    return dispatch => {
+        //fetch to backend
+        return fetch("http://localhost:3000/api/v1/login", {
+            credentials: "include",
+            method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.strigify({email: "amanda", password: "password"})
-        }
+            body: JSON.stringify(formData)
+        })
+        .then(r => r.json())
+        .then(response => {
+            if (response.eror) {
+                alert(response.error)
+            } else {
+                dispatch(setCurrentUser(response.data))
+            }
+        })
+        .catch(console.log)
     }
 }
