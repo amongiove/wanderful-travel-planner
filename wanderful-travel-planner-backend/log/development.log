@@ -803,3 +803,153 @@ Processing by Api::V1::AuthController#login as */*
 Completed 200 OK in 278ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 651)
 
 
+Started GET "/api/v1/get_current_user" for ::1 at 2021-09-30 16:20:58 -0500
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+Completed 200 OK in 28ms (Views: 0.5ms | ActiveRecord: 2.5ms | Allocations: 7804)
+
+
+Started POST "/api/v1/login" for ::1 at 2021-09-30 16:21:10 -0500
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email"=>"amanda@email.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"amanda@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "amanda@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth_controller.rb:4:in `login'
+Completed 200 OK in 281ms (Views: 0.7ms | ActiveRecord: 3.8ms | Allocations: 3895)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-09-30 16:21:13 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+Completed 200 OK in 50ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 656)
+
+
+Started POST "/api/v1/login" for ::1 at 2021-09-30 16:21:19 -0500
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email"=>"", "password"=>"[FILTERED]", "auth"=>{"email"=>"", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth_controller.rb:4:in `login'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 542)
+
+
+Started POST "/api/v1/login" for ::1 at 2021-09-30 16:22:21 -0500
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email"=>"", "password"=>"[FILTERED]", "auth"=>{"email"=>"", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth_controller.rb:4:in `login'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 525)
+
+
+Started POST "/api/v1/login" for ::1 at 2021-09-30 16:22:32 -0500
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email"=>"jnkj", "password"=>"[FILTERED]", "auth"=>{"email"=>"jnkj", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jnkj"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth_controller.rb:4:in `login'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 525)
+
+
+Started POST "/api/v1/login" for ::1 at 2021-09-30 16:22:34 -0500
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email"=>"jnkj", "password"=>"[FILTERED]", "auth"=>{"email"=>"jnkj", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jnkj"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth_controller.rb:4:in `login'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 525)
+
+
+Started POST "/api/v1/login" for ::1 at 2021-09-30 16:22:35 -0500
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email"=>"jnkj", "password"=>"[FILTERED]", "auth"=>{"email"=>"jnkj", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jnkj"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth_controller.rb:4:in `login'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 525)
+
+
+Started POST "/api/v1/login" for ::1 at 2021-09-30 16:22:36 -0500
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email"=>"jnkj", "password"=>"[FILTERED]", "auth"=>{"email"=>"jnkj", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jnkj"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth_controller.rb:4:in `login'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 542)
+
+
+Started POST "/api/v1/login" for ::1 at 2021-09-30 16:22:36 -0500
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email"=>"jnkj", "password"=>"[FILTERED]", "auth"=>{"email"=>"jnkj", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jnkj"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth_controller.rb:4:in `login'
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 0.3ms | Allocations: 525)
+
+
+Started POST "/api/v1/login" for ::1 at 2021-09-30 16:23:05 -0500
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email"=>"amanda@email.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"amanda@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "amanda@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth_controller.rb:4:in `login'
+Completed 200 OK in 276ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 650)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-09-30 16:23:12 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 637)
+
+
+Started POST "/api/v1/login" for ::1 at 2021-09-30 16:23:53 -0500
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email"=>"", "password"=>"[FILTERED]", "auth"=>{"email"=>"", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth_controller.rb:4:in `login'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 1.9ms | Allocations: 525)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-09-30 16:23:56 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 637)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-09-30 16:32:28 -0500
+  [1m[35m (42.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+Completed 200 OK in 34ms (Views: 0.4ms | ActiveRecord: 2.3ms | Allocations: 7813)
+
+
+Started POST "/api/v1/login" for ::1 at 2021-09-30 16:32:39 -0500
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email"=>"amanda@email.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"amanda@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "amanda@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth_controller.rb:4:in `login'
+Completed 200 OK in 281ms (Views: 0.5ms | ActiveRecord: 7.5ms | Allocations: 3905)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-09-30 16:32:42 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (41.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+Completed 200 OK in 47ms (Views: 0.4ms | ActiveRecord: 41.3ms | Allocations: 1100)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-09-30 16:32:54 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+Completed 200 OK in 30ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 998)
+
+
