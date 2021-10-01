@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './store.js'
 import {Provider} from 'react-redux'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 

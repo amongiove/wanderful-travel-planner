@@ -7,8 +7,9 @@ class Api::V1::AuthController < ApplicationController
             session[:user_id] = @user.id
             render json: UserSerializer.new(@user), status: :ok
         else
+            puts "no user"
             render json: {
-             error: "Invalid Credentials"
+                error: "Invalid Credentials"
             }
         end
     end
