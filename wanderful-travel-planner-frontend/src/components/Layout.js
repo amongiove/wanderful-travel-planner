@@ -1,11 +1,15 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
+import NavigationBar from './NavigationBar.js';
 
 const Layout = (props) => {
     return (
-        <Container>
-            {props.children}
-        </Container>
+        <div>
+            <NavigationBar />
+            <Container>
+                {props.children}
+            </Container>
+        </div>
     )
 }
 

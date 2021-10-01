@@ -1551,3 +1551,34 @@ Processing by Api::V1::AuthController#destroy as */*
 Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 90)
 
 
+Started POST "/api/v1/login" for ::1 at 2021-10-01 14:01:35 -0500
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email"=>"amanda@email.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"amanda@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "amanda@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth_controller.rb:4:in `login'
+Completed 200 OK in 354ms (Views: 0.3ms | ActiveRecord: 17.9ms | Allocations: 2725)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-01 14:07:40 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 169ms (Views: 6.9ms | ActiveRecord: 35.0ms | Allocations: 3155)
+
+
+Started DELETE "/api/v1/logout" for ::1 at 2021-10-01 14:07:42 -0500
+Processing by Api::V1::AuthController#destroy as */*
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 90)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-01 14:19:08 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 367ms (Views: 4.9ms | ActiveRecord: 106.4ms | Allocations: 2723)
+
+
