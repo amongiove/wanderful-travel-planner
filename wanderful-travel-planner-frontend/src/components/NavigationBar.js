@@ -1,32 +1,48 @@
 import React from 'react';
+import styled from 'styled-components';
 import Navbar from 'react-bootstrap/Navbar';
-import Container from 'react-bootstrap/Container';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import Nav from 'react-bootstrap/Nav';
+import Logout from './Logout.js';
 
-const NavigationBar = () => {
-    return (
-        <Navbar bg="light" expand="lg">
-            <Container>
-                <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="me-auto">
-                    <Nav.Link href="#home">Home</Nav.Link>
-                    <Nav.Link href="#link">Link</Nav.Link>
-                    <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                    </NavDropdown>
+const Styles = styled.div`
+    .navbar {
+        background-color: #E6E6FA;
+    }
+
+    a, .navbar-brand, .navbar-nav .nav-link {
+        color: #708090;
+
+        &:hover {
+            color: #000000;
+        }
+    }
+`;
+
+const NavigationBar = () => (
+    <Styles>
+        <Navbar expand="lg">
+            <Navbar.Brand href="/">Wanderful Travel Planner</Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="ml-auto">
+                <Nav.Item>
+                    <Nav.Link>
+                    {/* <Link to="/">Home</Link> */}
+                    </Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link>
+                    {/* <Link to="/about">About</Link> */}
+                    </Nav.Link>
+                </Nav.Item>
+                <Nav.Item align="right">
+                    Logout Button (move this right)
+                </Nav.Item>
                 </Nav>
-                </Navbar.Collapse>
-            </Container>
+            </Navbar.Collapse>
         </Navbar>
-    )
-}
+    </Styles>
+)
+
 
 export default NavigationBar
-
