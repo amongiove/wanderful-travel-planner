@@ -1146,3 +1146,25 @@ Processing by Api::V1::AuthController#destroy as */*
 Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 91)
 
 
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-01 11:58:03 -0500
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 32ms (Views: 0.3ms | ActiveRecord: 2.4ms | Allocations: 7813)
+
+
+Started POST "/api/v1/login" for ::1 at 2021-10-01 11:58:14 -0500
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email"=>"carl@email.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"carl@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "carl@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth_controller.rb:4:in `login'
+Completed 200 OK in 343ms (Views: 0.6ms | ActiveRecord: 50.5ms | Allocations: 3905)
+
+
+Started DELETE "/api/v1/logout" for ::1 at 2021-10-01 11:58:16 -0500
+Processing by Api::V1::AuthController#destroy as */*
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 93)
+
+
