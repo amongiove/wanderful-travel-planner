@@ -6,7 +6,7 @@ const Layout = (props) => {
     return (
         <div>
             {/* TODO: dont want navbar unless logged in */}
-            <NavigationBar />
+            {props.currentUser != null? <NavigationBar /> : null }
             <Container>
                 {props.children}
             </Container>

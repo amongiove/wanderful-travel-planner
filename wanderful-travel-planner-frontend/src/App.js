@@ -1,7 +1,9 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import Welcome from "./components/Welcome.js"
 import Login from "./components/Login.js"
+import Signup from "./components/Signup.js"
 import { connect } from "react-redux"
 import Layout from './components/Layout.js'
 import Home from './components/Home.js'
@@ -18,15 +20,15 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        
-        { this.props.currentUser != null? <Redirect to="/" /> : <Redirect to="/login" /> }
+        {/* TODO: edit this so people cant type in own link to get to other page */}
+        { this.props.currentUser != null? <Redirect to="/home" /> : null}
 
         <Layout currentUser ={this.props.currentUser}>
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={Welcome} />
+            <Route exact path="/home" component={Home} />
             <Route path="/login" component={Login} />
-            {/* <Route path="#" component={} /> */}
-            {/* change to signup - logout will just be button */}
+            <Route path="/signup" component={Signup} />
             <Route component={Missing} />
           </Switch>
         </Layout>

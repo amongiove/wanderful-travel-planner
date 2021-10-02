@@ -25,7 +25,7 @@ const Login = ({ loginFormData, updateLoginForm, login }) => {
     return (
         <Card>
             <Card.Body>
-                <Card.Title>Log In</Card.Title>
+                <Card.Title className="text-center">Log In</Card.Title>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
@@ -43,8 +43,9 @@ const Login = ({ loginFormData, updateLoginForm, login }) => {
                         Log In
                     </Button>
                 </Form>
-                <Card.Text>
-                    Don't have an account? Sign up <Card.Link href="#">Here.</Card.Link> 
+                <Card.Text className="text-center">
+                    {/* TODO: add signup link */}
+                    Don't have an account? Sign up <Card.Link href="/signup">Here.</Card.Link> 
                 </Card.Text>
             </Card.Body>
         </Card>

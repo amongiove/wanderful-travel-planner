@@ -2501,3 +2501,287 @@ Processing by Api::V1::AuthController#get_current_user as */*
 Completed 200 OK in 16ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 647)
 
 
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-02 13:32:54 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 50ms (Views: 2.4ms | ActiveRecord: 2.2ms | Allocations: 647)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-02 13:34:00 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 178ms (Views: 0.6ms | ActiveRecord: 87.9ms | Allocations: 4393)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-02 13:34:34 -0500
+  [1m[35m (8.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 44ms (Views: 0.9ms | ActiveRecord: 3.3ms | Allocations: 7813)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-02 13:34:38 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 18ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 666)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-02 13:35:39 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 647)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-02 13:35:41 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 647)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-02 13:35:44 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 1.6ms | Allocations: 666)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-02 13:35:57 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.9ms | Allocations: 666)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-02 13:43:24 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 83ms (Views: 0.2ms | ActiveRecord: 22.5ms | Allocations: 2712)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-02 13:43:29 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (8.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 27ms (Views: 0.2ms | ActiveRecord: 8.3ms | Allocations: 647)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-02 13:44:04 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 647)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-02 13:44:07 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.7ms | Allocations: 647)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-02 13:44:11 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 120ms (Views: 0.4ms | ActiveRecord: 2.1ms | Allocations: 647)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-02 13:44:15 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 50ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 647)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-02 13:44:23 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 666)
+
+
+Started POST "/api/v1/login" for ::1 at 2021-10-02 13:44:31 -0500
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email"=>"amanda@email.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"amanda@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "amanda@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth_controller.rb:4:in `login'
+Completed 200 OK in 374ms (Views: 0.5ms | ActiveRecord: 81.7ms | Allocations: 3886)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-02 13:45:12 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (26.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 44ms (Views: 1.0ms | ActiveRecord: 26.3ms | Allocations: 1081)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-02 13:45:23 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (8.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 23ms (Views: 0.3ms | ActiveRecord: 8.8ms | Allocations: 981)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-02 13:45:29 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 7ms (Views: 0.6ms | ActiveRecord: 0.5ms | Allocations: 981)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-02 13:45:32 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 982)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-02 13:45:34 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 981)
+
+
+Started DELETE "/api/v1/logout" for ::1 at 2021-10-02 13:45:36 -0500
+Processing by Api::V1::AuthController#destroy as */*
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 90)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-02 13:45:37 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 6ms (Views: 0.7ms | ActiveRecord: 0.4ms | Allocations: 981)
+
+
+Started DELETE "/api/v1/logout" for ::1 at 2021-10-02 13:46:00 -0500
+Processing by Api::V1::AuthController#destroy as */*
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 90)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-02 13:46:01 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 647)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-02 13:46:09 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 1.3ms | Allocations: 647)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-02 13:56:17 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 242ms (Views: 2.7ms | ActiveRecord: 116.8ms | Allocations: 2775)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-02 13:56:21 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 647)
+
+
+Started POST "/api/v1/login" for ::1 at 2021-10-02 13:56:27 -0500
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email"=>"amanda@email.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"amanda@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "amanda@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth_controller.rb:4:in `login'
+Completed 200 OK in 277ms (Views: 0.6ms | ActiveRecord: 0.7ms | Allocations: 665)
+
+
+Started DELETE "/api/v1/logout" for ::1 at 2021-10-02 13:56:38 -0500
+Processing by Api::V1::AuthController#destroy as */*
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 90)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-02 13:56:41 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 2.3ms | Allocations: 647)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-02 13:56:48 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 2.0ms | Allocations: 647)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-02 13:56:53 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 647)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-02 13:56:59 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 13ms (Views: 0.2ms | ActiveRecord: 1.9ms | Allocations: 648)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-02 13:57:46 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 38ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 647)
+
+

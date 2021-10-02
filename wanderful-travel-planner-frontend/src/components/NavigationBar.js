@@ -32,6 +32,7 @@ const NavigationBar = () => (
                         {/* <Nav.Link>
                             <Link to="/logout">Logout (fix this)</Link>
                         </Nav.Link> */}
+                        {/* TODO: after logout , redirect welcome */}
                     </Nav.Item>
                 </Nav>
             </Navbar.Collapse>
