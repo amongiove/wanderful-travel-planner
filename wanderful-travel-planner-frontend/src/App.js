@@ -9,6 +9,7 @@ import Layout from './components/Layout.js'
 import Home from './components/Home.js'
 import Missing from './components/Missing.js'
 import { getCurrentUser} from "./actions/currentUser.js"
+import NavigationBar from './components/NavigationBar.js';
 
 
 class App extends React.Component {
@@ -21,8 +22,9 @@ class App extends React.Component {
     return (
       <Router>
         {/* TODO: edit this so people cant type in own link to get to other page */}
-        { this.props.currentUser != null? <Redirect to="/home" /> : null}
-
+        { this.props.currentUser? <Redirect to="/home" /> : null}
+        {/* { this.props.currentUser? <Home /> : <Welcome />} */}
+        {this.props.currentUser != null? <NavigationBar /> : null }
         <Layout currentUser ={this.props.currentUser}>
           <Switch>
             <Route exact path="/" component={Welcome} />
