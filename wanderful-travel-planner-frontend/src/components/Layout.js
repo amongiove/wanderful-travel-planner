@@ -5,6 +5,7 @@ import NavigationBar from './NavigationBar.js';
 const Layout = (props) => {
     return (
         <div>
+            {/* TODO: dont want navbar unless logged in */}
             <NavigationBar />
             <Container>
                 {props.children}

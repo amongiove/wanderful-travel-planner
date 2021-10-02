@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import Logout from './Logout.js';
+import { Link } from 'react-router-dom';
+
+// TODO: may not want this set up to change if user 
 
 const Styles = styled.div`
     .navbar {
@@ -18,31 +20,22 @@ const Styles = styled.div`
     }
 `;
 
-const NavigationBar = () => (
+const NavigationBar = (props) => (
     <Styles>
         <Navbar expand="lg">
-            <Navbar.Brand href="/">Wanderful Travel Planner</Navbar.Brand>
+            <Navbar.Brand href="/">Wanderful Travel Planner </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="ml-auto">
-                <Nav.Item>
-                    <Nav.Link>
-                    {/* <Link to="/">Home</Link> */}
-                    </Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link>
-                    {/* <Link to="/about">About</Link> */}
-                    </Nav.Link>
-                </Nav.Item>
-                <Nav.Item align="right">
-                    Logout Button (move this right)
-                </Nav.Item>
-                </Nav>
+                <Nav className="justify-content-end" style={{ width: "100%" }} > 
+                        <Nav.Item >
+                            <Nav.Link>
+                                <Link to="/logout">Logout (fix this)</Link>
+                            </Nav.Link>
+                        </Nav.Item>
+                    </Nav>
             </Navbar.Collapse>
         </Navbar>
     </Styles>
 )
 
-
-export default NavigationBar
+export default NavigationBar;

@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import Login from "./components/Login.js"
 import Logout from "./components/Logout.js"
 import { connect } from "react-redux"
@@ -17,16 +17,17 @@ class App extends React.Component {
   }
 
   render() {
+    { this.props.currentUser != null? <Redirect to="/" /> : <Redirect to="/login" /> }
     return (
       <Router>
-        <Layout>
+        <Layout currentUser ={this.props.currentUser}>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/login" component={Login} />
             <Route path="/logout" component={Logout} />
+            {/* change to signup - logout will just be button */}
             <Route component={Missing} />
           </Switch>
-{/* {          this.props.currentUser? <Logout /> : <Login /> */}
         </Layout>
       </Router>
       
@@ -38,6 +39,6 @@ const mapStateToProps = ({ currentUser }) => {
   return {
     currentUser
   }
-} 
+}  
 
 export default connect(mapStateToProps, { getCurrentUser })(App);
