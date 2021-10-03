@@ -13,6 +13,10 @@ class Api::V1::TripsController < ApplicationController
         end
     end
 
+    def show
+        render json: TripSerializer.new(@trip).serialized_json
+    end
+
     private
 
     def set_trip
