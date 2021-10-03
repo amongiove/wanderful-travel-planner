@@ -25,7 +25,7 @@ class App extends React.Component {
         { this.props.currentUser? <Redirect to="/home" /> : null}
         {/* { this.props.currentUser? <Home /> : <Welcome />} */}
         {this.props.currentUser != null? <NavigationBar /> : null }
-        <Layout currentUser ={this.props.currentUser}>
+        <Layout>
           <Switch>
             <Route exact path="/" component={Welcome} />
             <Route exact path="/home" component={Home} />
