@@ -1,3 +1,5 @@
+# TODO: start_date being saved as null -- why???
+
 class Api::V1::TripsController < ApplicationController
     before_action :set_trip, only: [:show, :update, :destroy]
 
