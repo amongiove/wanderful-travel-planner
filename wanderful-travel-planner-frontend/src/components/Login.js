@@ -44,7 +44,6 @@ const Login = ({ loginFormData, updateLoginForm, login }) => {
                     </Button>
                 </Form>
                 <Card.Text className="text-center">
-                    {/* TODO: add signup link */}
                     Don't have an account? Sign up <Card.Link href="/signup">Here.</Card.Link> 
                 </Card.Text>
             </Card.Body>

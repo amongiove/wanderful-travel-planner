@@ -1,4 +1,5 @@
 import { resetLoginForm } from "./loginForm.js"
+import { resetSignupForm } from "./signupForm.js"
 import { getTrips } from "./trips.js"
 
 export const setCurrentUser = user => {
@@ -32,6 +33,31 @@ export const login = formData => {
             } else {
                 dispatch(setCurrentUser(response.data))
                 dispatch(resetLoginForm())
+                dispatch(getTrips())
+            }
+        })
+        .catch(console.log)
+    }
+}
+
+export const signup = formData => {
+    return dispatch => {
+        //fetch to backend
+        return fetch("http://localhost:3000/api/v1/signup", {
+            credentials: "include",
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(r => r.json())
+        .then(response => {
+            if (response.eror) {
+                alert(response.error)
+            } else {
+                dispatch(setCurrentUser(response.data))
+                dispatch(resetSignupForm())
                 dispatch(getTrips())
             }
         })
