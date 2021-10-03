@@ -3485,3 +3485,578 @@ Processing by Api::V1::UsersController#create as */*
 Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 72)
 
 
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-03 13:14:25 -0500
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 45ms (Views: 0.4ms | ActiveRecord: 2.5ms | Allocations: 8030)
+
+
+Started POST "/api/v1/signup" for ::1 at 2021-10-03 13:14:30 -0500
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"", "email"=>"", "password"=>"[FILTERED]", "user"=>{"name"=>"", "email"=>""}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:21:in `create'
+  [1m[36mUser Exists? (5.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/users_controller.rb:21:in `create'
+Completed 422 Unprocessable Entity in 104ms (Views: 0.1ms | ActiveRecord: 76.0ms | Allocations: 10329)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-03 13:15:20 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 666)
+
+
+Started POST "/api/v1/signup" for ::1 at 2021-10-03 13:15:39 -0500
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"arya", "email"=>"amanda@email.com", "password"=>"[FILTERED]", "user"=>{"name"=>"arya", "email"=>"amanda@email.com"}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:21:in `create'
+  [1m[36mUser Exists? (3.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "amanda@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/users_controller.rb:21:in `create'
+Completed 422 Unprocessable Entity in 25ms (Views: 0.2ms | ActiveRecord: 8.8ms | Allocations: 3445)
+
+
+Started POST "/api/v1/signup" for ::1 at 2021-10-03 13:16:02 -0500
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"arya", "email"=>"amanda@email.com", "password"=>"[FILTERED]", "user"=>{"name"=>"arya", "email"=>"amanda@email.com"}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:21:in `create'
+  [1m[36mUser Exists? (8.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "amanda@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/users_controller.rb:21:in `create'
+Completed 422 Unprocessable Entity in 24ms (Views: 0.1ms | ActiveRecord: 9.5ms | Allocations: 3368)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-03 13:16:37 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 43ms (Views: 0.2ms | ActiveRecord: 2.1ms | Allocations: 4561)
+
+
+Started POST "/api/v1/signup" for ::1 at 2021-10-03 13:16:50 -0500
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"arya", "email"=>"amanda@email.com", "password"=>"[FILTERED]", "user"=>{"name"=>"arya", "email"=>"amanda@email.com"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:21:in `create'
+  [1m[36mUser Exists? (9.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "amanda@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/users_controller.rb:21:in `create'
+Completed 422 Unprocessable Entity in 30ms (Views: 0.1ms | ActiveRecord: 18.2ms | Allocations: 6216)
+
+
+Started POST "/api/v1/signup" for ::1 at 2021-10-03 13:18:09 -0500
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"arya", "email"=>"arya@email.com", "password"=>"[FILTERED]", "user"=>{"name"=>"arya", "email"=>"arya@email.com"}}
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:21:in `create'
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "arya@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/users_controller.rb:21:in `create'
+Completed 422 Unprocessable Entity in 18ms (Views: 0.1ms | ActiveRecord: 5.3ms | Allocations: 2912)
+
+
+Started POST "/api/v1/signup" for ::1 at 2021-10-03 13:18:16 -0500
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"arya", "email"=>"arya@email.com", "password"=>"[FILTERED]", "user"=>{"name"=>"arya", "email"=>"arya@email.com"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:21:in `create'
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "arya@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/users_controller.rb:21:in `create'
+Completed 422 Unprocessable Entity in 19ms (Views: 0.2ms | ActiveRecord: 6.3ms | Allocations: 2911)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-03 13:20:49 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 55ms (Views: 0.3ms | ActiveRecord: 2.0ms | Allocations: 666)
+
+
+Started POST "/api/v1/signup" for ::1 at 2021-10-03 13:20:57 -0500
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"arya", "email"=>"arya@email.com", "password"=>"[FILTERED]", "user"=>{"name"=>"arya", "email"=>"arya@email.com"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:21:in `create'
+  [1m[36mUser Exists? (6.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "arya@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/users_controller.rb:21:in `create'
+Completed 422 Unprocessable Entity in 31ms (Views: 0.2ms | ActiveRecord: 7.8ms | Allocations: 2915)
+
+
+Started POST "/api/v1/signup" for ::1 at 2021-10-03 13:27:44 -0500
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"arya", "email"=>"arya@email.com", "password"=>"[FILTERED]", "user"=>{"name"=>"arya", "email"=>"arya@email.com"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:22:in `create'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "arya@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/users_controller.rb:22:in `create'
+Completed 422 Unprocessable Entity in 19ms (Views: 0.1ms | ActiveRecord: 19.3ms | Allocations: 5840)
+
+
+Started POST "/api/v1/signup" for ::1 at 2021-10-03 13:29:01 -0500
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"arya", "email"=>"arya@email.com", "password"=>"[FILTERED]", "user"=>{"name"=>"arya", "email"=>"arya@email.com"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "arya@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+Completed 422 Unprocessable Entity in 26ms (Views: 0.2ms | ActiveRecord: 9.8ms | Allocations: 5833)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-03 13:30:17 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 35ms (Views: 0.3ms | ActiveRecord: 2.3ms | Allocations: 7971)
+
+
+Started POST "/api/v1/signup" for ::1 at 2021-10-03 13:30:31 -0500
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"arya", "email"=>"arya@email.com", "password"=>"[FILTERED]", "user"=>{"name"=>"arya", "email"=>"arya@email.com"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "arya@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (6.7ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+Completed 422 Unprocessable Entity in 49ms (Views: 0.2ms | ActiveRecord: 16.6ms | Allocations: 7653)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-03 13:34:22 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 35ms (Views: 0.3ms | ActiveRecord: 2.4ms | Allocations: 7971)
+
+
+Started POST "/api/v1/signup" for ::1 at 2021-10-03 13:34:29 -0500
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"arya", "email"=>"arya@email.com", "password"=>"[FILTERED]", "user"=>{"name"=>"arya", "email"=>"arya@email.com"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+  [1m[36mUser Exists? (29.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "arya@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (14.7ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+Completed 422 Unprocessable Entity in 79ms (Views: 0.1ms | ActiveRecord: 53.3ms | Allocations: 7653)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-03 13:35:30 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 31ms (Views: 0.4ms | ActiveRecord: 2.1ms | Allocations: 7971)
+
+
+Started POST "/api/v1/signup" for ::1 at 2021-10-03 13:35:38 -0500
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"arya", "email"=>"arya@email.com", "password"=>"[FILTERED]", "user"=>{"name"=>"arya", "email"=>"arya@email.com"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 174)
+
+
+  
+ArgumentError (wrong number of arguments (given 2, expected 1)):
+  
+app/controllers/api/v1/users_controller.rb:53:in `user_params'
+app/controllers/api/v1/users_controller.rb:20:in `create'
+Started GET "/api/v1/trips" for ::1 at 2021-10-03 13:35:38 -0500
+Processing by Api::V1::TripsController#index as */*
+  Parameters: {"trip"=>{}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 43.4ms | Allocations: 690)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-03 13:36:38 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 19ms (Views: 0.4ms | ActiveRecord: 2.2ms | Allocations: 7971)
+
+
+Started POST "/api/v1/signup" for ::1 at 2021-10-03 13:36:44 -0500
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"arya", "email"=>"arya@email.com", "password"=>"[FILTERED]", "user"=>{"name"=>"arya", "email"=>"arya@email.com"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "arya@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+Completed 422 Unprocessable Entity in 47ms (Views: 0.2ms | ActiveRecord: 19.6ms | Allocations: 7653)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-03 13:37:18 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 21ms (Views: 0.4ms | ActiveRecord: 3.2ms | Allocations: 7971)
+
+
+Started POST "/api/v1/signup" for ::1 at 2021-10-03 13:37:28 -0500
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"arya", "email"=>"arya@email.com", "password"=>"[FILTERED]", "user"=>{"name"=>"arya", "email"=>"arya@email.com"}}
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+  [1m[36mUser Exists? (6.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "arya@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+Completed 422 Unprocessable Entity in 102ms (Views: 0.2ms | ActiveRecord: 79.8ms | Allocations: 7653)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-03 13:41:35 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 41ms (Views: 0.4ms | ActiveRecord: 2.2ms | Allocations: 7971)
+
+
+Started POST "/api/v1/signup" for ::1 at 2021-10-03 13:41:42 -0500
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"arya", "email"=>"arya@email.com", "password"=>"[FILTERED]", "user"=>{"name"=>"arya", "email"=>"arya@email.com"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "arya@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+Completed 422 Unprocessable Entity in 68ms (Views: 0.1ms | ActiveRecord: 46.2ms | Allocations: 7653)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-03 13:42:55 -0500
+  [1m[35m (8.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (11.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 118ms (Views: 1.0ms | ActiveRecord: 14.6ms | Allocations: 8030)
+
+
+Started POST "/api/v1/signup" for ::1 at 2021-10-03 13:43:03 -0500
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"arya", "email"=>"arya@email.com", "password"=>"[FILTERED]", "user"=>{"name"=>"arya", "email"=>"arya@email.com"}}
+  [1m[36mTRANSACTION (35.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "arya@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+Completed 422 Unprocessable Entity in 99ms (Views: 0.2ms | ActiveRecord: 69.5ms | Allocations: 7703)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-03 13:44:59 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 48ms (Views: 1.1ms | ActiveRecord: 2.7ms | Allocations: 7971)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-03 13:45:09 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (87.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 94ms (Views: 0.2ms | ActiveRecord: 87.6ms | Allocations: 666)
+
+
+Started POST "/api/v1/signup" for ::1 at 2021-10-03 13:45:16 -0500
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"arya", "email"=>"arya@email.com", "password"=>"[FILTERED]", "user"=>{"name"=>"arya", "email"=>"arya@email.com"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "arya@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+Completed 422 Unprocessable Entity in 35ms (Views: 0.1ms | ActiveRecord: 8.9ms | Allocations: 7703)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-03 13:46:53 -0500
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 32ms (Views: 0.3ms | ActiveRecord: 2.8ms | Allocations: 7900)
+
+
+Started POST "/api/v1/signup" for ::1 at 2021-10-03 13:47:01 -0500
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"arya", "email"=>"arya@email.com", "password"=>"[FILTERED]", "user"=>{"name"=>"arya", "email"=>"arya@email.com"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "arya@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 11.9ms | Allocations: 7950)
+
+
+  
+NoMethodError (undefined method `password' for #<User:0x00007ff55f6de488>
+Did you mean?  password_digest):
+  
+app/controllers/api/v1/users_controller.rb:23:in `create'
+Started GET "/api/v1/trips" for ::1 at 2021-10-03 13:47:02 -0500
+Processing by Api::V1::TripsController#index as */*
+  Parameters: {"trip"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 2.8ms | Allocations: 680)
+
+
+Started POST "/api/v1/signup" for ::1 at 2021-10-03 13:48:10 -0500
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"arya", "email"=>"arya@email.com", "password"=>"[FILTERED]", "user"=>{"name"=>"arya", "email"=>"arya@email.com"}}
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+  [1m[36mUser Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "arya@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 3.6ms | Allocations: 4643)
+
+
+  
+NoMethodError (undefined method `password' for #<User:0x00007ff5597ac438>
+Did you mean?  password_digest):
+  
+app/controllers/api/v1/users_controller.rb:23:in `create'
+Started GET "/api/v1/trips" for ::1 at 2021-10-03 13:48:10 -0500
+Processing by Api::V1::TripsController#index as */*
+  Parameters: {"trip"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 652)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-03 13:52:15 -0500
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 42ms (Views: 0.5ms | ActiveRecord: 2.4ms | Allocations: 7977)
+
+
+Started POST "/api/v1/signup" for ::1 at 2021-10-03 13:52:22 -0500
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"arya", "email"=>"arya@email.com", "password"=>"[FILTERED]", "user"=>{"name"=>"arya", "email"=>"arya@email.com"}}
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "arya@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+Completed 422 Unprocessable Entity in 49ms (Views: 0.3ms | ActiveRecord: 18.9ms | Allocations: 7135)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-03 13:54:01 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 40ms (Views: 0.4ms | ActiveRecord: 2.9ms | Allocations: 7919)
+
+
+Started POST "/api/v1/signup" for ::1 at 2021-10-03 13:54:09 -0500
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"arya", "email"=>"arya@email.com", "password"=>"[FILTERED]", "user"=>{"name"=>"arya", "email"=>"arya@email.com"}}
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "arya@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+Completed 422 Unprocessable Entity in 52ms (Views: 0.1ms | ActiveRecord: 11.9ms | Allocations: 7127)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-03 13:55:55 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 36ms (Views: 0.3ms | ActiveRecord: 2.3ms | Allocations: 7919)
+
+
+Started POST "/api/v1/signup" for ::1 at 2021-10-03 13:56:02 -0500
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"arya", "email"=>"arya@email.com", "password"=>"[FILTERED]", "user"=>{"name"=>"arya", "email"=>"arya@email.com"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "arya@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `create'
+Completed 422 Unprocessable Entity in 40ms (Views: 0.2ms | ActiveRecord: 15.5ms | Allocations: 7138)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-03 13:58:26 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 35ms (Views: 0.3ms | ActiveRecord: 2.2ms | Allocations: 7919)
+
+
+Started POST "/api/v1/signup" for ::1 at 2021-10-03 13:58:33 -0500
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"arya", "email"=>"arya@email.com", "password"=>"[FILTERED]", "user"=>{"name"=>"arya", "email"=>"arya@email.com", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :password[0m
+[31mUnpermitted parameter: :password[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:25:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "arya@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:25:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/users_controller.rb:25:in `create'
+Completed 422 Unprocessable Entity in 34ms (Views: 0.1ms | ActiveRecord: 9.8ms | Allocations: 7213)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-03 13:58:59 -0500
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 40ms (Views: 0.4ms | ActiveRecord: 3.0ms | Allocations: 7919)
+
+
+Started POST "/api/v1/signup" for ::1 at 2021-10-03 13:59:06 -0500
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"arya", "email"=>"arya@email.com", "password"=>"[FILTERED]", "user"=>{"name"=>"arya", "email"=>"arya@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:25:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "arya@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:25:in `create'
+  [1m[36mUser Create (54.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "arya"], ["email", "arya@email.com"], ["password_digest", "$2a$12$5C3ruraEtoIMz5f/UESghuVKIa8zinS/s00Ektw04f7TFluFIfyge"], ["created_at", "2021-10-03 18:59:06.887293"], ["updated_at", "2021-10-03 18:59:06.887293"]]
+  ↳ app/controllers/api/v1/users_controller.rb:25:in `create'
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/users_controller.rb:25:in `create'
+  [1m[35m (43.0ms)[0m  [1m[34mSELECT "trips"."id" FROM "trips" INNER JOIN "user_trips" ON "trips"."id" = "user_trips"."trip_id" WHERE "user_trips"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `create'
+Completed 201 Created in 527ms (Views: 48.2ms | ActiveRecord: 161.5ms | Allocations: 16403)
+
+
+Started GET "/api/v1/trips" for ::1 at 2021-10-03 13:59:07 -0500
+Processing by Api::V1::TripsController#index as */*
+  Parameters: {"trip"=>{}}
+  [1m[36mUser Load (42.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mTrip Load (6.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" INNER JOIN "user_trips" ON "trips"."id" = "user_trips"."trip_id" WHERE "user_trips"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/api/v1/trips_controller.rb:10:in `index'
+Completed 200 OK in 71ms (Views: 8.2ms | ActiveRecord: 48.8ms | Allocations: 2210)
+
+
+Started DELETE "/api/v1/logout" for ::1 at 2021-10-03 13:59:27 -0500
+Processing by Api::V1::AuthController#destroy as */*
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 90)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-03 13:59:33 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 57ms (Views: 0.2ms | ActiveRecord: 4.5ms | Allocations: 666)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-03 13:59:37 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (14.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 36ms (Views: 0.2ms | ActiveRecord: 14.7ms | Allocations: 666)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2021-10-03 13:59:48 -0500
+Processing by Api::V1::AuthController#get_current_user as */*
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 44ms (Views: 0.3ms | ActiveRecord: 3.7ms | Allocations: 4583)
+
+
+Started POST "/api/v1/signup" for ::1 at 2021-10-03 13:59:58 -0500
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"ellie", "email"=>"ellie@email.com", "password"=>"[FILTERED]", "user"=>{"name"=>"ellie", "email"=>"ellie@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:25:in `create'
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "ellie@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:25:in `create'
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/users_controller.rb:25:in `create'
+Completed 422 Unprocessable Entity in 559ms (Views: 0.2ms | ActiveRecord: 13.9ms | Allocations: 6846)
+
+
+Started POST "/api/v1/signup" for ::1 at 2021-10-03 14:00:04 -0500
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"ellie", "email"=>"ellie@email.com", "password"=>"[FILTERED]", "user"=>{"name"=>"ellie", "email"=>"ellie@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:25:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "ellie@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:25:in `create'
+  [1m[36mUser Create (2.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "ellie"], ["email", "ellie@email.com"], ["password_digest", "$2a$12$3JWWPJKvR0EZgfRxhNMm0u0bupBPvTY1MrVHGsCO8nv33rr2yIhlm"], ["created_at", "2021-10-03 19:00:04.899419"], ["updated_at", "2021-10-03 19:00:04.899419"]]
+  ↳ app/controllers/api/v1/users_controller.rb:25:in `create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/users_controller.rb:25:in `create'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "trips"."id" FROM "trips" INNER JOIN "user_trips" ON "trips"."id" = "user_trips"."trip_id" WHERE "user_trips"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `create'
+Completed 201 Created in 313ms (Views: 15.2ms | ActiveRecord: 9.2ms | Allocations: 10029)
+
+
+Started GET "/api/v1/trips" for ::1 at 2021-10-03 14:00:05 -0500
+Processing by Api::V1::TripsController#index as */*
+  Parameters: {"trip"=>{}}
+  [1m[36mUser Load (21.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mTrip Load (7.8ms)[0m  [1m[34mSELECT "trips".* FROM "trips" INNER JOIN "user_trips" ON "trips"."id" = "user_trips"."trip_id" WHERE "user_trips"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/api/v1/trips_controller.rb:10:in `index'
+Completed 200 OK in 38ms (Views: 4.4ms | ActiveRecord: 28.8ms | Allocations: 2182)
+
+

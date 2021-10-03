@@ -29,12 +29,12 @@ const Signup = ({ signupFormData, updateSignupForm, signup }) => {
                 <Form onSubmit={handleSubmit}>
                     <Form.Group className="mb-3" controlId="formBasicName">
                         <Form.Label>Name</Form.Label>
-                        <Form.Control name="name" value={signupFormData.name} onChange={handleChange} type="name" placeholder="Enter Name" />
+                        <Form.Control required name="name" value={signupFormData.name} onChange={handleChange} type="name" placeholder="Enter Name" />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control name="email" value={signupFormData.email} onChange={handleChange} type="email" placeholder="Enter email" />
+                        <Form.Control required name="email" value={signupFormData.email} onChange={handleChange} type="email" placeholder="Enter email" />
                         <Form.Text className="text-muted">
                         We'll never share your email with anyone else.
                         </Form.Text>
@@ -42,7 +42,7 @@ const Signup = ({ signupFormData, updateSignupForm, signup }) => {
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" name="password" value={signupFormData.password} onChange={handleChange}placeholder="Password" />
+                        <Form.Control required type="password" name="password" value={signupFormData.password} onChange={handleChange}placeholder="Password" />
                     </Form.Group>
                     <Button variant="primary" type="submit">
                         Sign Up
