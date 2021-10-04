@@ -19,7 +19,7 @@ class App extends React.Component {
   }
 
   render() {
-    // const { loggedIn } = this.props
+    const { loggedIn } = this.props
     return (
       <Router>
         { this.props.currentUser? <Redirect to="/home" /> : null}
@@ -30,7 +30,7 @@ class App extends React.Component {
         <Layout>
           <Switch>
             <Route exact path="/" component={Welcome} />
-            <Route exact path="/home" component={Home} />
+            <Route exact path="/home" render={(props) => loggedIn? <Home {...props}/> : <Redirect to="/"/>}/>
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
             <Route component={Missing} />
@@ -43,11 +43,13 @@ class App extends React.Component {
 
 const mapStateToProps = state => {
   // return {
-  //   loggedIn: !!state.currentUser,
+  //  ,
   //   trips: state.trips
   // }
   return {
-    currentUser: state.currentUser
+    //dont need both
+    currentUser: state.currentUser,
+    loggedIn: !!state.currentUser
   }
 }  
 
