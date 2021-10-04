@@ -2,6 +2,7 @@ import { resetLoginForm } from "./loginForm.js"
 import { resetSignupForm } from "./signupForm.js"
 import { getTrips } from "./trips.js"
 
+
 export const setCurrentUser = user => {
     return {
         type: "SET_CURRENT_USER",
@@ -15,7 +16,7 @@ export const clearCurrentUser = () => {
     }
 }
 
-export const login = formData => {
+export const login = (formData, history) => {
     return dispatch => {
         //fetch to backend
         return fetch("http://localhost:3000/api/v1/login", {
@@ -34,13 +35,14 @@ export const login = formData => {
                 dispatch(setCurrentUser(response.data))
                 dispatch(resetLoginForm())
                 dispatch(getTrips())
+                history.push("/home")
             }
         })
         .catch(console.log)
     }
 }
 
-export const signup = formData => {
+export const signup = (formData, history) => {
     return dispatch => {
         //fetch to backend
         return fetch("http://localhost:3000/api/v1/signup", {
@@ -59,6 +61,7 @@ export const signup = formData => {
                 dispatch(setCurrentUser(response.data))
                 dispatch(resetSignupForm())
                 dispatch(getTrips())
+                history.push("/home")
             }
         })
         .catch(console.log)

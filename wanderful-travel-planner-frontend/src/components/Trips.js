@@ -1,9 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import TripCard from './TripCard.js'
-import CardGroup  from 'react-bootstrap/CardGroup';
 import Row from 'react-bootstrap/Row';
-import Container from 'react-bootstrap/Container';
 
 const Trips = (props) => {
     // TODO: account for if there are no trips !

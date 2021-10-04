@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect, withRouter } from 'react-router-dom';
 import Welcome from "./components/Welcome.js"
 import Login from "./components/Login.js"
 import Signup from "./components/Signup.js"
@@ -19,12 +19,14 @@ class App extends React.Component {
   }
 
   render() {
+    // const { loggedIn } = this.props
     return (
       <Router>
-        {/* TODO: edit this so people cant type in own link to get to other page */}
         { this.props.currentUser? <Redirect to="/home" /> : null}
-        {/* { this.props.currentUser? <Home /> : <Welcome />} */}
         {this.props.currentUser != null? <NavigationBar /> : null }
+        {/* TODO: edit this so people cant type in own link to get to other page */}
+        {/* { loggedIn? <NavigationBar/> : null} */}
+        {/* {this.props.currentUser != null? <NavigationBar /> : null } */}
         <Layout>
           <Switch>
             <Route exact path="/" component={Welcome} />
@@ -39,9 +41,13 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = ({ currentUser }) => {
+const mapStateToProps = state => {
+  // return {
+  //   loggedIn: !!state.currentUser,
+  //   trips: state.trips
+  // }
   return {
-    currentUser
+    currentUser: state.currentUser
   }
 }  
 

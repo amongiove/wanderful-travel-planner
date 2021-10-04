@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-const Login = ({ loginFormData, updateLoginForm, login }) => {
+const Login = ({ loginFormData, updateLoginForm, login, history }) => {
 
     const handleChange = event => {
         const { name, value } = event.target
@@ -19,7 +19,7 @@ const Login = ({ loginFormData, updateLoginForm, login }) => {
 
     const handleSubmit = event => {
         event.preventDefault()
-        login(loginFormData)
+        login(loginFormData, history)
     }
 
     return (
