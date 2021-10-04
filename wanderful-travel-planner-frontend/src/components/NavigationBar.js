@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import { Link } from 'react-router-dom';
 import Logout from './Logout.js'
 
 const Styles = styled.div`
@@ -22,7 +21,7 @@ const Styles = styled.div`
 const NavigationBar = () => (
     <Styles>
         <Navbar expand="lg">
-            <Navbar.Brand href="/">Wanderful Travel Planner </Navbar.Brand>
+            <Navbar.Brand href="/home">Wanderful Travel Planner </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="justify-content-end" style={{ width: "100%" }} > 

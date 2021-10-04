@@ -28,7 +28,7 @@ export const login = formData => {
         })
         .then(r => r.json())
         .then(response => {
-            if (response.eror) {
+            if (response.error) {
                 alert(response.error)
             } else {
                 dispatch(setCurrentUser(response.data))
@@ -53,7 +53,7 @@ export const signup = formData => {
         })
         .then(r => r.json())
         .then(response => {
-            if (response.eror) {
+            if (response.error) {
                 alert(response.error)
             } else {
                 dispatch(setCurrentUser(response.data))

@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 } */
+
+.card {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  border: gray;
+}
+
+.card:hover {
+  border: 2px solid rgb(68, 0, 255);
+}
+
