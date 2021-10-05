@@ -1,11 +1,11 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container'
-import Trips from './Trips';
+import TripsContainer from '../containers/TripsContainer.js';
 
 const Home = () => {
     return ( 
        <Container className="home">
-           <Trips />
+           <TripsContainer />
        </Container>
     )
 }

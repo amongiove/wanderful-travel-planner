@@ -26,3 +26,19 @@ export const getTrips = () => {
         .catch(console.log)
     }
 }
+
+export const getTrip = (tripId) => {
+    return (dispatch) => {
+        dispatch({ type: 'SHOW_TRIP' });
+        return fetch(`http://localhost:3000/api/v1/groups/${tripId}`, {
+            credentials: "include",
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.token}`
+            },
+        })
+        .then(resp => (resp.json()))
+        // .then (console.log(response))
+    }
+}
