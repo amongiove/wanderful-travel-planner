@@ -11,7 +11,8 @@ export const getTrips = () => {
         credentials: "include",
         method: "GET",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${localStorage.token}`
         },
         })
         .then(r => r.json())

@@ -21,6 +21,7 @@ const TripCard = ({trip}) => {
                     <Card.Text>
                     countdown to trip 
                     </Card.Text>
+                    {/* TODO: change link to make name of trip */}
                     <Card.Link href={`/trips/${trip.id}`}>View Trip</Card.Link>
                 </Card.Body>
             </Card>

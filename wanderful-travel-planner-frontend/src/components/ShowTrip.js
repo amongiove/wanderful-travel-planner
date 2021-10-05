@@ -1,10 +1,19 @@
-// import React from 'react';
-const ShowTrip = () => {
+import React from 'react';
+import { connect } from 'react-redux';
+// import Trips from './Trips';
+
+const ShowTrip = ({trip}) => {
     return (
-        "TRIP"
+        <p>{trip.attributes.name}</p>
     )
 
 
 }
+
+// const mapStateToProps = state => {
+//     return {
+//       trips: state.trips
+//     }
+// }
 
 export default ShowTrip

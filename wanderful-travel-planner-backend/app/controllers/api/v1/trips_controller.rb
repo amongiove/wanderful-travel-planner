@@ -2,7 +2,10 @@ class Api::V1::TripsController < ApplicationController
     before_action :set_trip, only: [:show, :update, :destroy]
 
     def index
+        puts "get trips"
         if logged_in?
+            puts"logged in"
+            puts current_user
             @trips = current_user.trips
       
             render json: TripSerializer.new(@trips)
