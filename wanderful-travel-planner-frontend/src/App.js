@@ -22,11 +22,8 @@ class App extends React.Component {
     const { loggedIn } = this.props
     return (
       <Router>
-        { this.props.currentUser? <Redirect to="/home" /> : null}
-        {this.props.currentUser != null? <NavigationBar /> : null }
-        {/* TODO: edit this so people cant type in own link to get to other page */}
-        {/* { loggedIn? <NavigationBar/> : null} */}
-        {/* {this.props.currentUser != null? <NavigationBar /> : null } */}
+        { loggedIn ? <Redirect to="/home" /> : null}
+        { loggedIn? <NavigationBar /> : null }
         <Layout>
           <Switch>
             <Route exact path="/" component={Welcome} />
@@ -42,13 +39,7 @@ class App extends React.Component {
 }
 
 const mapStateToProps = state => {
-  // return {
-  //  ,
-  //   trips: state.trips
-  // }
   return {
-    //dont need both
-    currentUser: state.currentUser,
     loggedIn: !!state.currentUser
   }
 }  
