@@ -1,4 +1,5 @@
 class Api::V1::UsersController < ApplicationController
+  skip_before_action :authorized, only: [:create]
   before_action :set_user, only: [:show, :update, :destroy]
   wrap_parameters :user, include: [:name, :email, :password]
 
@@ -16,14 +17,12 @@ class Api::V1::UsersController < ApplicationController
 
   # POST /users
   def create
-    @user = User.new(user_params)
-
-    if @user.save
-      session[:user_id] = @user.id
-      render json: UserSerializer.new(@user), status: :created    
+    @user = User.create(user_params)
+    if @user.valid?
+      @token = encode_token(user_id: @user.id)
+      render json: { user: UserSerializer.new(@user), jwt: @token }, status: :created
     else
-      response = {error: @user.errors.full_messages.to_sentence}
-      render json: response, status: :unprocessable_entity
+      render json: { error: @user.errors.full_messages[0] }, status: :not_acceptable
     end
   end
 
