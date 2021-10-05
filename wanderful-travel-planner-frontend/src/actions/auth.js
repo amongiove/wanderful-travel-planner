@@ -37,7 +37,6 @@ export const login = (formData, history) => {
             localStorage.setItem('token', response.jwt);
             localStorage.setItem('userId', response.user.data.id);
             dispatch(resetLoginForm());
-            dispatch(getTrips());
             history.push("/home");
             return dispatch({ type: 'USER_AUTH'});
           }
@@ -77,39 +76,9 @@ export const signup = (formData, history) => {
     }
 }
 
-// export const clearCurrentUser = () => {
-//     return dispatch => {
-//         dispatch(clearCurrentUser())
-//         return fetch("http://localhost:3000/api/v1/logout", {
-//             credentials: "include",
-//             method: "DELETE",
-//         })
-//     }
-// }
 
 //need this?
-
 export const getCurrentUser = () => {
-    // return dispatch => {
-    //     return fetch("http://localhost:3000/api/v1/get_current_user", {
-    //         credentials: "include",
-    //         method: "GET",
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //     })
-    //     .then(r => r.json())
-    //     .then(response => {
-    //       if (response.error) {
-    //         alert(response.error)
-    //       } else {
-    //         dispatch(setCurrentUser(response.data))
-    //         dispatch(getTrips())
-    //       }
-    //     })
-    //     .catch(console.log)
-    // }
-
     return dispatch => {
         if (localStorage.token) dispatch({ type: 'USER_RETURN' });
     }

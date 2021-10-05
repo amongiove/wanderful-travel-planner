@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Welcome from './components/Welcome.js';
 import Login from './components/Login.js';
 import Signup from './components/Signup.js';
@@ -11,7 +11,7 @@ import Home from './components/Home.js';
 import Missing from './components/Missing.js';
 import { setLoggedIn } from './actions/auth.js';
 import NavigationBar from './components/NavigationBar.js';
-
+import ProtectedRoute from './components/ProtectedRoute';
 
 class App extends React.Component {
   
@@ -20,7 +20,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { loggedIn } = this.props
+    const { loggedIn, trips } = this.props
 
     return (
       <Router>
@@ -31,9 +31,9 @@ class App extends React.Component {
         <Layout>
           <Switch>
             <Route exact path="/" component={Welcome} />
-            <Route exact path="/home" component={Home}/>
+            <ProtectedRoute exact path="/home" component={Home}/>
             {/* <Route exact path="/trips/:tripId" component={ShowTrip} /> */}
-            {/* <Route exact path='/trips/:tripId' render={props => {
+            {/* <Protected exact path='/trips/:tripId' render={props => {
               const trip = trips.find(trip => trip.id === props.match.params.id)
               return <ShowTrip trip={trip} {...props}/>
             }}/> */}

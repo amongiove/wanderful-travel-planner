@@ -10782,3 +10782,227 @@ Processing by Api::V1::TripsController#index as */*
 Completed 200 OK in 46ms (Views: 24.2ms | ActiveRecord: 1.9ms | Allocations: 7563)
 
 
+Started POST "/api/v1/login" for ::1 at 2021-10-05 17:53:10 -0500
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email"=>"amanda@email.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"amanda@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "amanda@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth_controller.rb:5:in `login'
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "trips"."id" FROM "trips" INNER JOIN "user_trips" ON "trips"."id" = "user_trips"."trip_id" WHERE "user_trips"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/auth_controller.rb:8:in `login'
+Completed 202 Accepted in 398ms (Views: 19.4ms | ActiveRecord: 19.4ms | Allocations: 15846)
+
+
+Started GET "/api/v1/trips" for ::1 at 2021-10-05 17:53:11 -0500
+Processing by Api::V1::TripsController#index as */*
+  Parameters: {"trip"=>{}}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `current_user'
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" INNER JOIN "user_trips" ON "trips"."id" = "user_trips"."trip_id" WHERE "user_trips"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/trips_controller.rb:11:in `index'
+Completed 200 OK in 43ms (Views: 17.6ms | ActiveRecord: 2.1ms | Allocations: 7429)
+
+
+Started POST "/api/v1/login" for ::1 at 2021-10-05 17:57:54 -0500
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email"=>"amanda@email.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"amanda@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (57.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "amanda@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth_controller.rb:5:in `login'
+  [1m[35m (49.6ms)[0m  [1m[34mSELECT "trips"."id" FROM "trips" INNER JOIN "user_trips" ON "trips"."id" = "user_trips"."trip_id" WHERE "user_trips"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/auth_controller.rb:8:in `login'
+Completed 202 Accepted in 427ms (Views: 9.1ms | ActiveRecord: 107.4ms | Allocations: 1860)
+
+
+Started GET "/api/v1/trips" for ::1 at 2021-10-05 17:57:55 -0500
+Processing by Api::V1::TripsController#index as */*
+  Parameters: {"trip"=>{}}
+  [1m[36mUser Load (11.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `current_user'
+  [1m[36mTrip Load (2.7ms)[0m  [1m[34mSELECT "trips".* FROM "trips" INNER JOIN "user_trips" ON "trips"."id" = "user_trips"."trip_id" WHERE "user_trips"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/trips_controller.rb:11:in `index'
+Completed 200 OK in 60ms (Views: 6.9ms | ActiveRecord: 14.7ms | Allocations: 3974)
+
+
+Started POST "/api/v1/login" for ::1 at 2021-10-05 18:01:57 -0500
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email"=>"amanda@email.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"amanda@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "amanda@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth_controller.rb:5:in `login'
+  [1m[35m (43.5ms)[0m  [1m[34mSELECT "trips"."id" FROM "trips" INNER JOIN "user_trips" ON "trips"."id" = "user_trips"."trip_id" WHERE "user_trips"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/auth_controller.rb:8:in `login'
+Completed 202 Accepted in 344ms (Views: 18.5ms | ActiveRecord: 43.8ms | Allocations: 1863)
+
+
+Started GET "/api/v1/trips" for ::1 at 2021-10-05 18:01:58 -0500
+Processing by Api::V1::TripsController#index as */*
+  Parameters: {"trip"=>{}}
+  [1m[36mUser Load (7.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `current_user'
+  [1m[36mTrip Load (4.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips" INNER JOIN "user_trips" ON "trips"."id" = "user_trips"."trip_id" WHERE "user_trips"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/trips_controller.rb:11:in `index'
+Completed 200 OK in 100ms (Views: 9.2ms | ActiveRecord: 11.9ms | Allocations: 3973)
+
+
+Started POST "/api/v1/login" for ::1 at 2021-10-05 18:09:41 -0500
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email"=>"amanda@email.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"amanda@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "amanda@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth_controller.rb:5:in `login'
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "trips"."id" FROM "trips" INNER JOIN "user_trips" ON "trips"."id" = "user_trips"."trip_id" WHERE "user_trips"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/auth_controller.rb:8:in `login'
+Completed 202 Accepted in 644ms (Views: 50.6ms | ActiveRecord: 138.9ms | Allocations: 3929)
+
+
+Started GET "/api/v1/trips" for ::1 at 2021-10-05 18:09:42 -0500
+Processing by Api::V1::TripsController#index as */*
+  Parameters: {"trip"=>{}}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `current_user'
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" INNER JOIN "user_trips" ON "trips"."id" = "user_trips"."trip_id" WHERE "user_trips"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/trips_controller.rb:11:in `index'
+Completed 200 OK in 36ms (Views: 17.0ms | ActiveRecord: 2.1ms | Allocations: 3996)
+
+
+Started POST "/api/v1/login" for ::1 at 2021-10-05 18:11:19 -0500
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email"=>"amanda@email.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"amanda@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "amanda@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth_controller.rb:5:in `login'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "trips"."id" FROM "trips" INNER JOIN "user_trips" ON "trips"."id" = "user_trips"."trip_id" WHERE "user_trips"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/auth_controller.rb:8:in `login'
+Completed 202 Accepted in 289ms (Views: 5.8ms | ActiveRecord: 0.7ms | Allocations: 1862)
+
+
+Started GET "/api/v1/trips" for ::1 at 2021-10-05 18:11:20 -0500
+Processing by Api::V1::TripsController#index as */*
+  Parameters: {"trip"=>{}}
+  [1m[36mUser Load (14.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `current_user'
+  [1m[36mTrip Load (9.0ms)[0m  [1m[34mSELECT "trips".* FROM "trips" INNER JOIN "user_trips" ON "trips"."id" = "user_trips"."trip_id" WHERE "user_trips"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/trips_controller.rb:11:in `index'
+Completed 200 OK in 214ms (Views: 6.6ms | ActiveRecord: 23.6ms | Allocations: 3983)
+
+
+Started POST "/api/v1/login" for ::1 at 2021-10-05 18:12:31 -0500
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email"=>"amanda@email.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"amanda@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (4.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "amanda@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth_controller.rb:5:in `login'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "trips"."id" FROM "trips" INNER JOIN "user_trips" ON "trips"."id" = "user_trips"."trip_id" WHERE "user_trips"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/auth_controller.rb:8:in `login'
+Completed 202 Accepted in 286ms (Views: 3.1ms | ActiveRecord: 4.9ms | Allocations: 1860)
+
+
+Started GET "/api/v1/trips" for ::1 at 2021-10-05 18:12:32 -0500
+Processing by Api::V1::TripsController#index as */*
+  Parameters: {"trip"=>{}}
+  [1m[36mUser Load (13.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `current_user'
+  [1m[36mTrip Load (26.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" INNER JOIN "user_trips" ON "trips"."id" = "user_trips"."trip_id" WHERE "user_trips"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/trips_controller.rb:11:in `index'
+Completed 200 OK in 153ms (Views: 9.9ms | ActiveRecord: 40.0ms | Allocations: 3973)
+
+
+Started POST "/api/v1/login" for ::1 at 2021-10-05 18:16:56 -0500
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email"=>"amanda@email.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"amanda@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "amanda@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth_controller.rb:5:in `login'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "trips"."id" FROM "trips" INNER JOIN "user_trips" ON "trips"."id" = "user_trips"."trip_id" WHERE "user_trips"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/auth_controller.rb:8:in `login'
+Completed 202 Accepted in 290ms (Views: 4.6ms | ActiveRecord: 1.9ms | Allocations: 1859)
+
+
+Started GET "/api/v1/trips" for ::1 at 2021-10-05 18:16:56 -0500
+Processing by Api::V1::TripsController#index as */*
+  Parameters: {"trip"=>{}}
+  [1m[36mUser Load (45.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `current_user'
+  [1m[36mTrip Load (2.6ms)[0m  [1m[34mSELECT "trips".* FROM "trips" INNER JOIN "user_trips" ON "trips"."id" = "user_trips"."trip_id" WHERE "user_trips"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/trips_controller.rb:11:in `index'
+Completed 200 OK in 87ms (Views: 5.8ms | ActiveRecord: 47.6ms | Allocations: 3974)
+
+
+Started GET "/api/v1/trips" for ::1 at 2021-10-05 18:49:11 -0500
+Processing by Api::V1::TripsController#index as */*
+  Parameters: {"trip"=>{}}
+  [1m[36mUser Load (50.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `current_user'
+  [1m[36mTrip Load (1.0ms)[0m  [1m[34mSELECT "trips".* FROM "trips" INNER JOIN "user_trips" ON "trips"."id" = "user_trips"."trip_id" WHERE "user_trips"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/trips_controller.rb:11:in `index'
+Completed 200 OK in 537ms (Views: 39.1ms | ActiveRecord: 291.6ms | Allocations: 6108)
+
+
+Started POST "/api/v1/login" for ::1 at 2021-10-05 18:50:35 -0500
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email"=>"amanda@email.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"amanda@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "amanda@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth_controller.rb:5:in `login'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "trips"."id" FROM "trips" INNER JOIN "user_trips" ON "trips"."id" = "user_trips"."trip_id" WHERE "user_trips"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/auth_controller.rb:8:in `login'
+Completed 202 Accepted in 353ms (Views: 34.1ms | ActiveRecord: 0.9ms | Allocations: 1866)
+
+
+Started GET "/api/v1/trips" for ::1 at 2021-10-05 18:50:36 -0500
+Processing by Api::V1::TripsController#index as */*
+  Parameters: {"trip"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `current_user'
+  [1m[36mTrip Load (3.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" INNER JOIN "user_trips" ON "trips"."id" = "user_trips"."trip_id" WHERE "user_trips"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/trips_controller.rb:11:in `index'
+Completed 200 OK in 56ms (Views: 21.2ms | ActiveRecord: 4.0ms | Allocations: 3976)
+
+
