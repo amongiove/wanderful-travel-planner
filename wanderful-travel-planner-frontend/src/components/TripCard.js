@@ -1,18 +1,15 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
+import { Link } from 'react-router-dom';
+
 
 const TripCard = ({trip}) => {
-
-    // const showTripRoute = () => {
-    //     let path = `/trips/${trip.id}`
-    //     this.props.history.push(path)
-    // }
 
     return (
         // TODO: are we adding images? make card clickable or remove hover css
         <Col>
-            <Card className="card" /*onclick={showTripRoute()}*/>
+            <Card className="card" >
                 <Card.Body>
                     <Card.Text>image?</Card.Text>
                     <Card.Img variant="top" src="holder.js/100px160" />
@@ -22,13 +19,12 @@ const TripCard = ({trip}) => {
                     countdown to trip 
                     </Card.Text>
                     {/* TODO: change link to make name of trip */}
-                    <Card.Link href={`/trips/${trip.id}`}>View Trip</Card.Link>
+                    <Link to={`/trips/${trip.id}`}>View Trip</Link>
                 </Card.Body>
             </Card>
         </Col>
     )
 }
-
 
 
 

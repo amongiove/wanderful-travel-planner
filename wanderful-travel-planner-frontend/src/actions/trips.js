@@ -27,10 +27,11 @@ export const getTrips = () => {
     }
 }
 
-export const getTrip = (tripId) => {
+export const showTrip = (tripId) => {
     return (dispatch) => {
+        console.log("show trip dispatch")
         dispatch({ type: 'SHOW_TRIP' });
-        return fetch(`http://localhost:3000/api/v1/groups/${tripId}`, {
+        return fetch(`http://localhost:3000/api/v1/trips/${tripId}`, {
             credentials: "include",
             method: "GET",
             headers: {
@@ -39,6 +40,22 @@ export const getTrip = (tripId) => {
             },
         })
         .then(resp => (resp.json()))
-        // .then (console.log(response))
+        .then(response => {
+            if (response.error) {
+                alert(response.error)
+            } else {
+                //TODO: may not need set trip in state here (or at all)
+                dispatch(setTrip(response.data))
+                return (response.data)
+            }
+        })
+        .catch(console.log)
+    }
+}
+
+export const setTrip = trip => {
+    return {
+        type: "SET_TRIP",
+        trip
     }
 }

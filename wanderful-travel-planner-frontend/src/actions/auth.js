@@ -1,6 +1,6 @@
 import { resetLoginForm } from "./loginForm.js"
 import { resetSignupForm } from "./signupForm.js"
-import { getTrips } from "./trips.js"
+import { getTrips } from "./trips.js";
 
 
 export const setLoggedIn = () => {
@@ -37,7 +37,8 @@ export const login = (formData, history) => {
             localStorage.setItem('token', response.jwt);
             localStorage.setItem('userId', response.user.data.id);
             dispatch(resetLoginForm());
-            history.push("/home");
+            dispatch(getTrips());
+            history.push("/trips");
             return dispatch({ type: 'USER_AUTH'});
           }
         })
@@ -68,7 +69,7 @@ export const signup = (formData, history) => {
                 localStorage.setItem('token', response.jwt);
                 localStorage.setItem('userId', response.user.data.id);
                 dispatch(resetSignupForm());
-                history.push("/home");
+                history.push("/trips");
                 return dispatch({ type: 'USER_AUTH'});
             }
         })

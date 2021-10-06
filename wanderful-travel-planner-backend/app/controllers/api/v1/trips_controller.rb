@@ -17,7 +17,16 @@ class Api::V1::TripsController < ApplicationController
     end
 
     def show
-        render json: TripSerializer.new(@trip).serialized_json
+        puts "show method"
+        puts params
+        puts params[:id]
+        trip = Trip.find(params[:id])
+
+        if trip
+            render json: TripSerializer.new(trip), status: :ok
+        else
+            render json: { error: "Unable to locate trip" }, status: :not_found
+        end
     end
 
     private

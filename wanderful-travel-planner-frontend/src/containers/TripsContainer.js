@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
-import { getTrips } from '../actions/trips.js'
+import Container from 'react-bootstrap/Container'
+import { getTrips } from '../actions/trips.js';
+import Trips from '../components/Trips';
 
 class TripsContainer extends React.Component {
 
@@ -10,15 +11,23 @@ class TripsContainer extends React.Component {
   }
     
   render () {
+    const { trips } = this.props
     return (
-        // 
-        <p>trips container</p>
+        <Container className="home">
+
+          <div>
+          {/* TODO: do i want to have users name here? if so need to add current user to state to get the name attribute */}
+            <h1>Trips</h1>
+            <Trips trips={trips}/>
+          </div>
+
+        </Container>
     )
   }
 }
   
 const mapDispatchToProps = dispatch => ({
-  getTrips: () => dispatch(getTrips())
+  getTrips: () => dispatch(getTrips()),
 })
   
 const mapStateToProps = state => {
@@ -27,16 +36,6 @@ const mapStateToProps = state => {
     }
 }
 
-//   const mapDispatchToProps = dispatch => ({
-//     fetchGroups: () => dispatch(fetchGroups()),
-//     fetchGroup: groupId => dispatch(fetchGroup(groupId)),
-//     fetchComments: () => dispatch(fetchComments()),
-//     createNewGroup: group => dispatch(createNewGroup(group)),
-//     createNewComment: (id, comment) => dispatch(createNewComment(id, comment)),
-//     onEdit: group => dispatch(editGroup(group)),
-//     onDelete: groupId => dispatch(deleteGroup(groupId))
-//   })
-  
 export default connect(mapStateToProps, mapDispatchToProps)(TripsContainer)
   
 
