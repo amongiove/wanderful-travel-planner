@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Container from 'react-bootstrap/Container';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
+import Card from 'react-bootstrap/Card';
 
 const Styles = styled.div`
     .nav-link {
@@ -12,7 +13,12 @@ const Styles = styled.div`
             color: #000000;
         }
     }
+
+    .edit {
+        text-align: end;
+    }
 `;
+
 
 const TripInfo = ({trip}) => {
 
@@ -26,13 +32,24 @@ const TripInfo = ({trip}) => {
                     className="mb-3"
                 >
                     <Tab eventKey="tripInfo" title="Trip Info">
-                        <p>{trip.attributes.name}</p>
+                        <Card className="text-center">
+                            <Card.Body>
+                                <Card.Title>{trip.attributes.name}</Card.Title>
+                                <Card.Subtitle className="mb-2 text-muted">{trip.attributes.location}</Card.Subtitle>
+                                <Card.Img variant="top" src="#" />
+                                {/* TODO: image in middle - set size */}
+                                <Card.Text>
+                                {trip.attributes.start_date} - {trip.attributes.end_date}
+                                </Card.Text>
+                            </Card.Body>
+                            <Card.Footer className="edit text-muted">button to edit</Card.Footer>
+                        </Card>
                     </Tab>
                     <Tab eventKey="profile" title="Flights">
-                        Flights
+                        Flights component
                     </Tab>
                     <Tab eventKey="contact" title="Accomodations" >
-                        Accomodations
+                        Accomodations component
                     </Tab>
                 </Tabs>
             </Container>
