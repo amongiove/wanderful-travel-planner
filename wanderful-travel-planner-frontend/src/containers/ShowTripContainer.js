@@ -18,11 +18,13 @@ const Styles = styled.div`
 
     .sidebar a:hover {
         background-color: #E6E6FA ;
+        opacity: .5;
     }
 
     .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
         color: #000000;
         background-color: #E6E6FA;
+        opacity: .75;
     }
 
     .nav-link{
