@@ -7,6 +7,7 @@ import Logout from './Logout.js'
 const Styles = styled.div`
     .navbar {
         background-color: #E6E6FA;
+        padding: 10px;
     }
 
     a, .navbar-brand, .navbar-nav .nav-link {
