@@ -76,21 +76,18 @@ const ShowTrip = ({showTrip}) => {
                 </Col>
                 <Col sm={10}>
                     <Tab.Content>
-                    <Tab.Pane eventKey="first">
-                        <TripInfo trip={trip}/>
-                        Trip Info componet
-                        <p>This is trip ID: {tripId}</p> 
-                        
-                    </Tab.Pane>
-                    <Tab.Pane eventKey="second">
-                        Itinerary component
-                    </Tab.Pane>
-                    <Tab.Pane eventKey="third">
-                        Packing List component
-                    </Tab.Pane>
-                    <Tab.Pane eventKey="fourth">
-                        Other component
-                    </Tab.Pane>
+                        <Tab.Pane eventKey="first">
+                            <TripInfo trip={trip}/>
+                        </Tab.Pane>
+                        <Tab.Pane eventKey="second">
+                            Itinerary component
+                        </Tab.Pane>
+                        <Tab.Pane eventKey="third">
+                            Packing List component
+                        </Tab.Pane>
+                        <Tab.Pane eventKey="fourth">
+                            Other component
+                        </Tab.Pane>
                     </Tab.Content>
                 </Col>
             </Row>
