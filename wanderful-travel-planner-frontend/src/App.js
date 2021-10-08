@@ -5,7 +5,6 @@ import Welcome from './components/Welcome.js';
 import Login from './components/Login.js';
 import Signup from './components/Signup.js';
 import { connect } from "react-redux";
-// import Trips from './components/Trips.js';
 import TripsContainer from './containers/TripsContainer';
 import Missing from './components/Missing.js';
 import { setLoggedIn } from './actions/auth.js';
