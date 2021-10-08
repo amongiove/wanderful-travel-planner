@@ -5,21 +5,19 @@ import Welcome from './components/Welcome.js';
 import Login from './components/Login.js';
 import Signup from './components/Signup.js';
 import { connect } from "react-redux";
-import Home from './components/Home.js';
+// import Home from './components/Home.js';
 // import Trips from './components/Trips.js';
 import TripsContainer from './containers/TripsContainer';
 import Missing from './components/Missing.js';
 import { setLoggedIn } from './actions/auth.js';
 import NavigationBar from './components/NavigationBar.js';
-import ProtectedRoute from './components/ProtectedRoute.js';
+import ProtectedRoute from './ProtectedRoute.js';
 import ShowTrip from './components/ShowTrip.js';
-import { getTrips } from './actions/trips.js'
 
 class App extends React.Component {
   
   componentDidMount() {
     this.props.setLoggedIn()
-    // this.props.getTrips()
   }
 
   render() {
@@ -51,7 +49,6 @@ class App extends React.Component {
 
 const mapDispatchToProps = dispatch => ({
   setLoggedIn: () => dispatch(setLoggedIn()),
-  getTrips: () => dispatch(getTrips())
 })
 
 const mapStateToProps = state => {

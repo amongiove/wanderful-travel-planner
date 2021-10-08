@@ -13,15 +13,15 @@ class TripsContainer extends React.Component {
   render () {
     const { trips } = this.props
     return (
-        <Container className="home">
+      <Container className="home">
 
-          <div>
-          {/* TODO: do i want to have users name here? if so need to add current user to state to get the name attribute */}
-            <h1>Trips</h1>
-            <Trips trips={trips}/>
-          </div>
+        <div>
+        {/* TODO: do i want to have users name here? if so need to add current user to state to get the name attribute */}
+          <h1>Trips</h1>
+          <Trips trips={trips}/>
+        </div>
 
-        </Container>
+      </Container>
     )
   }
 }
@@ -32,7 +32,7 @@ const mapDispatchToProps = dispatch => ({
   
 const mapStateToProps = state => {
     return {
-        trips: state.trips
+        trips: state.trips.trips
     }
 }
 
