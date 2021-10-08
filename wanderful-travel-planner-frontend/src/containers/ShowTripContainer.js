@@ -11,20 +11,28 @@ import Row from 'react-bootstrap/Row';
 const Styles = styled.div`
     .sidebar {
         background-color: #708090;
-        height: 100vh;  
+        height: 100vh;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        
+        flex-direction: column;        
     }
 
-    .nav-link {
+    .sidebar a:hover {
+        background-color: #E6E6FA ;
+    }
+
+    .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+        color: #000000;
+        background-color: #E6E6FA;
+    }
+
+    .nav-link{
         color: #E6E6FA ;
 
         &:hover {
             color: #000000;
         }
     }
+
 `;
 
 const ShowTrip = ({showTrip}) => {
@@ -47,7 +55,7 @@ const ShowTrip = ({showTrip}) => {
             <Row>
                 <Col sm={2} >
                     <Styles>
-                    <Nav className="flex-column justify-content-end sidebar">
+                    <Nav variant="pills" className="justify-content-start sidebar">
                     <Nav.Item>
                         <Nav.Link eventKey="first">Trip Info</Nav.Link>
                     </Nav.Item>
