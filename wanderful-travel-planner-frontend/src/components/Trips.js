@@ -1,7 +1,6 @@
 import React from 'react';
 import TripCard from './TripCard.js'
 import Row from 'react-bootstrap/Row';
-// import { Link } from 'react-router-dom';
 
 const Trips = (props) => {
 
