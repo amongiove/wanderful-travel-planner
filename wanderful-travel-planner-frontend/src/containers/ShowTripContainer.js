@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
 import { useParams } from "react-router-dom";
 import { showTrip } from '../actions/trips';
 import { connect } from 'react-redux';
@@ -6,6 +7,25 @@ import Tab from 'react-bootstrap/Tab';
 import Nav from 'react-bootstrap/Nav';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+
+const Styles = styled.div`
+    .sidebar {
+        background-color: #708090;
+        height: 100vh;  
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+    }
+
+    .nav-link {
+        color: #E6E6FA ;
+
+        &:hover {
+            color: #000000;
+        }
+    }
+`;
 
 const ShowTrip = ({showTrip}) => {
     const {tripId} = useParams();
@@ -23,10 +43,11 @@ const ShowTrip = ({showTrip}) => {
    
     if (trip) {
     return (
-        <Tab.Container id="left-tabs-example" defaultActiveKey="first">
+        <Tab.Container defaultActiveKey="first">
             <Row>
-                <Col sm={3}>
-                    <Nav className="flex-column">
+                <Col sm={2} >
+                    <Styles>
+                    <Nav className="flex-column justify-content-end sidebar">
                     <Nav.Item>
                         <Nav.Link eventKey="first">Trip Info</Nav.Link>
                     </Nav.Item>
@@ -40,8 +61,9 @@ const ShowTrip = ({showTrip}) => {
                         <Nav.Link eventKey="fourth">Other</Nav.Link>
                     </Nav.Item>
                     </Nav>
+                    </Styles>
                 </Col>
-                <Col sm={9}>
+                <Col sm={10}>
                     <Tab.Content>
                     <Tab.Pane eventKey="first">
                         Trip Info componet
