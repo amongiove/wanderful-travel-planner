@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 import { showTrip } from '../actions/trips';
 import { connect } from 'react-redux';
-import  Container  from 'react-bootstrap/Container';
+import Tab from 'react-bootstrap/Tab';
+import Nav from 'react-bootstrap/Nav';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 const ShowTrip = ({showTrip}) => {
     const {tripId} = useParams();
@@ -20,12 +23,44 @@ const ShowTrip = ({showTrip}) => {
    
     if (trip) {
     return (
-
-        <Container>
-            <p>This is trip ID: {tripId}</p> 
-            <p>{trip.attributes.name}</p>
-
-        </Container>
+        <Tab.Container id="left-tabs-example" defaultActiveKey="first">
+            <Row>
+                <Col sm={3}>
+                    <Nav className="flex-column">
+                    <Nav.Item>
+                        <Nav.Link eventKey="first">Trip Info</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                        <Nav.Link eventKey="second">Itinerary</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                        <Nav.Link eventKey="third">Packing List</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                        <Nav.Link eventKey="fourth">Other</Nav.Link>
+                    </Nav.Item>
+                    </Nav>
+                </Col>
+                <Col sm={9}>
+                    <Tab.Content>
+                    <Tab.Pane eventKey="first">
+                        Trip Info componet
+                        <p>This is trip ID: {tripId}</p> 
+                        <p>{trip.attributes.name}</p>
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="second">
+                        Itinerary component
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="third">
+                        Packing List component
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="fourth">
+                        Other component
+                    </Tab.Pane>
+                    </Tab.Content>
+                </Col>
+            </Row>
+        </Tab.Container>
     )
     } else {
         return "no data";
