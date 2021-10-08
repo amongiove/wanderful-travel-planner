@@ -5,7 +5,6 @@ import Welcome from './components/Welcome.js';
 import Login from './components/Login.js';
 import Signup from './components/Signup.js';
 import { connect } from "react-redux";
-// import Home from './components/Home.js';
 // import Trips from './components/Trips.js';
 import TripsContainer from './containers/TripsContainer';
 import Missing from './components/Missing.js';
@@ -31,9 +30,6 @@ class App extends React.Component {
         { loggedIn? <NavigationBar /> : null }
           <Switch>
             <Route exact path="/" component={Welcome} />
-
-            {/* TODO: merge route with trips to simplify */}
-            {/* <ProtectedRoute path="/home" component={Home}/> */}
 
             <ProtectedRoute exact path="/trips" component={TripsContainer} />
             <ProtectedRoute path="/trips/:tripId" component={ShowTrip} />
