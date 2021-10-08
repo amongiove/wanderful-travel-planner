@@ -10,7 +10,7 @@ import Missing from './components/Missing.js';
 import { setLoggedIn } from './actions/auth.js';
 import NavigationBar from './components/NavigationBar.js';
 import ProtectedRoute from './ProtectedRoute.js';
-import ShowTrip from './components/ShowTrip.js';
+import ShowTrip from './containers/ShowTripContainer.js';
 
 class App extends React.Component {
   
