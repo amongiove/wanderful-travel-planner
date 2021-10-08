@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useParams } from "react-router-dom";
-import { showTrip } from '../actions/trips';
+import { showTrip } from '../actions/trips.js';
 import { connect } from 'react-redux';
 import Tab from 'react-bootstrap/Tab';
 import Nav from 'react-bootstrap/Nav';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import TripInfo from '../components/TripInfo.js';
 
 const Styles = styled.div`
     .sidebar {
@@ -76,9 +77,10 @@ const ShowTrip = ({showTrip}) => {
                 <Col sm={10}>
                     <Tab.Content>
                     <Tab.Pane eventKey="first">
+                        <TripInfo trip={trip}/>
                         Trip Info componet
                         <p>This is trip ID: {tripId}</p> 
-                        <p>{trip.attributes.name}</p>
+                        
                     </Tab.Pane>
                     <Tab.Pane eventKey="second">
                         Itinerary component
