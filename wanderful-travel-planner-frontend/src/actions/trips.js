@@ -75,6 +75,7 @@ export const createNewTrip = (trip) => {
             if (response.error) {
                 alert(response.error)
             } else {
+                const trip = response.data
                 return dispatch({ type: 'CREATE_TRIP', trip });
             }
         })
