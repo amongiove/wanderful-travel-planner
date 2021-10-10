@@ -7,6 +7,7 @@ import Tab from 'react-bootstrap/Tab';
 import Nav from 'react-bootstrap/Nav';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import ItineraryContainer from './ItineraryContainer.js';
 import TripInfo from '../components/TripInfo.js';
 
 const Styles = styled.div`
@@ -80,7 +81,7 @@ const ShowTrip = ({showTrip}) => {
                             <TripInfo trip={trip}/>
                         </Tab.Pane>
                         <Tab.Pane eventKey="second">
-                            Itinerary component
+                            <ItineraryContainer trip={trip}/>
                         </Tab.Pane>
                         <Tab.Pane eventKey="third">
                             Packing List component
