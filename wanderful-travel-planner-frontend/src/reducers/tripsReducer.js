@@ -15,6 +15,13 @@ const tripsReducer = (state = initialState, action) => {
                 ...state, 
                 trip: action.trip
             }
+        case 'CREATE_TRIP':
+            console.log("create trip reducer")
+            console.log("trip", action.trip)
+            return {
+                ...state,
+                trips: [...state.trips, action.trip ],
+        }
         default: 
             return state
     }

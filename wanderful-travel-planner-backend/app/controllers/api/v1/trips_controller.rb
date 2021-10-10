@@ -24,9 +24,24 @@ class Api::V1::TripsController < ApplicationController
         end
     end
 
+    def create
+        puts "create trip"
+        puts current_user.name
+        # TODO: this isnt working as expected
+        trip = Trip.new(trip_params)
+    
+        if trip.save
+            puts "saved"
+            UserTrip.create(user_id: current_user.id, trip_id: trip.id)
+            render json: TripSerializer.new(trip), status: :created
+        else
+            render json: { error: trip.errors.full_messages[0] }, status: :not_acceptable
+        end
+    end
+
     def update
         trip = Trip.find(params[:id])
-        
+
         if trip.update(trip_params)
           render json: TripSerializer.new(trip).to_serialized_json, status: :ok
         else

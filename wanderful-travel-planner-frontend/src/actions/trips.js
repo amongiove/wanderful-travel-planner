@@ -58,3 +58,31 @@ export const setTrip = trip => {
         trip
     }
 }
+
+export const createNewTrip = (trip) => {
+    console.log("create new trip action")
+    return (dispatch) => {
+        dispatch({ type: 'SET_TRIPS' });
+            return fetch('http://localhost:3000/api/v1/trips', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.token}`
+            },
+            body: JSON.stringify(trip)
+            })
+        .then(resp => (resp.json()))
+        .then(response => {
+            if (response.error) {
+                alert(response.error)
+            } else {
+                const trip = response.data
+                console.log("create new", trip)
+                return dispatch({ type: 'CREATE_TRIP', trip });
+            }
+        })
+        .catch(error => {
+            return {error: error.message}
+        })
+    }
+}

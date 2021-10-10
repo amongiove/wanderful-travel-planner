@@ -5,7 +5,6 @@ import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import Card from 'react-bootstrap/Card';
 import TripForm from './TripForm.js';
-import tripFromReducer from '../reducers/tripFromReducer.js';
 
 const Styles = styled.div`
     .nav-link {

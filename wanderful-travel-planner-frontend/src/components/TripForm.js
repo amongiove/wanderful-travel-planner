@@ -5,22 +5,36 @@ import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
-const TripForm = ({trip}) => {
+const TripForm = ({onSubmit}) => {
     const [show, setShow] = useState(false);
   
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-  
+    const [name, setName] = useState('');
+    const [location, setLocation] = useState('');
+    const [start_date, setStartDate] = useState('');
+    const [end_date, setEndDate] = useState('');
+
+    const newTrip = () => {return {name: name, location: location, start_date: start_date, end_date: end_date}};
+
+    const handleSubmitNewTrip = async (event, newTrip) => {
+      console.log("handle submit new")
+      event.preventDefault();
+      const result = await onSubmit(newTrip);
+      // redirect if no error, otherwise set error
+      console.log("result", result)
+    }
+
     return (
       <>
         <Button variant="outline-secondary" onClick={handleShow}>
-          Edit Trip
+          New Trip
         </Button>
   
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Edit Trip</Modal.Title>
+            <Modal.Title>New Trip</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Form>
@@ -29,7 +43,12 @@ const TripForm = ({trip}) => {
                   Name
                 </Form.Label>
                 <Col sm="10">
-                  <Form.Control name="trip" value={trip.attributes.name} placeholder={trip.attributes.name} />
+                  <Form.Control 
+                    name="name" 
+                    placeholder="Name"
+                    value={name}
+                    onChange={event => setName(event.target.value)}
+                  />
                 </Col>
               </Form.Group>
 
@@ -38,7 +57,12 @@ const TripForm = ({trip}) => {
                   Location
                 </Form.Label>
                 <Col sm="10">
-                  <Form.Control name="location" value={trip.attributes.location} placeholder={trip.attributes.location}  />
+                  <Form.Control 
+                    name="location" 
+                    placeholder="Destination"
+                    value={location}
+                    onChange={event => setLocation(event.target.value)}  
+                  />
                 </Col>
               </Form.Group>
 
@@ -47,13 +71,25 @@ const TripForm = ({trip}) => {
                   Start Date
                 </Form.Label>
                 <Col sm="10">
-                  <Form.Control type="date" name="start_date" value={trip.attributes.start_date} placeholder={trip.attributes.start_date} />
+                  <Form.Control 
+                    type="date" 
+                    name="start_date" 
+                    placeholder="Start Date"
+                    value={start_date}
+                    onChange={event => setStartDate(event.target.value)} 
+                  />
                 </Col>
                 <Form.Label column sm="2">
                   End Date
                 </Form.Label>
                 <Col sm="10">
-                  <Form.Control type="date" name="end_date" value={trip.attributes.end_date} placeholder={trip.attributes.end_date} />
+                  <Form.Control 
+                    type="date" 
+                    name="end_date" 
+                    placeholder="End Date"
+                    value={end_date}
+                    onChange={event => setEndDate(event.target.value)} 
+                  />
                 </Col>
               </Form.Group>
             </Form>
@@ -62,7 +98,7 @@ const TripForm = ({trip}) => {
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="outline-secondary" onClick={handleClose}>
+            <Button variant="outline-secondary" onClick={event => handleSubmitNewTrip(event, newTrip())}>
               Save Changes
             </Button>
           </Modal.Footer>
@@ -70,5 +106,6 @@ const TripForm = ({trip}) => {
       </>
     );
   }
+
   
 export default TripForm;
