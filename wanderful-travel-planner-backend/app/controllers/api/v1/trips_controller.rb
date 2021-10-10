@@ -24,6 +24,16 @@ class Api::V1::TripsController < ApplicationController
         end
     end
 
+    def update
+        trip = Trip.find(params[:id])
+        
+        if trip.update(trip_params)
+          render json: TripSerializer.new(trip).to_serialized_json, status: :ok
+        else
+          render json: { error: trip.errors.full_messages[0] }, status: :not_acceptable
+        end
+    end
+
     private
 
     def set_trip
