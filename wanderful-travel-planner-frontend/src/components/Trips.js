@@ -1,6 +1,6 @@
 import React from 'react';
 import TripCard from './TripCard.js'
-import TripEdit from './TripEdit.js'
+import TripForm from './TripForm.js'
 import Row from 'react-bootstrap/Row';
 
 const Trips = (props) => {

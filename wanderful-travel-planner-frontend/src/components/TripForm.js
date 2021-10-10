@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
-const TripEdit = ({trip}) => {
+const TripForm = ({trip}) => {
     const [show, setShow] = useState(false);
   
     const handleClose = () => setShow(false);
@@ -71,4 +71,4 @@ const TripEdit = ({trip}) => {
     );
   }
   
-export default TripEdit;
+export default TripForm;
