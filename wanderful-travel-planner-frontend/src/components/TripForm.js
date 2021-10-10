@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
-const TripForm = ({onSubmit}) => {
+const TripForm = ({onSubmit, history}) => {
     const [show, setShow] = useState(false);
   
     const handleClose = () => setShow(false);
@@ -19,10 +19,9 @@ const TripForm = ({onSubmit}) => {
     const newTrip = () => {return {name: name, location: location, start_date: start_date, end_date: end_date}};
 
     const handleSubmitNewTrip = async (event, newTrip) => {
-      console.log("handle submit new")
       event.preventDefault();
-      const result = await onSubmit(newTrip);
-      // redirect if no error, otherwise set error
+      const result = await onSubmit(newTrip, history);
+      // redirect if no error, otherwise show error
       console.log("result", result)
     }
 

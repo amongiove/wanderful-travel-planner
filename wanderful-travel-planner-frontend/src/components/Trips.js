@@ -3,8 +3,6 @@ import TripCard from './TripCard.js'
 import Row from 'react-bootstrap/Row';
 
 const Trips = (props) => {
-
-    console.log("trips")
     // TODO: account for if there are no trips !
     const tripCards = props.trips.map (trip =><TripCard trip={trip} key={trip.id} id={trip.id}/>)
 
