@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import Card from 'react-bootstrap/Card';
+import TripEdit from './TripEdit.js';
 
 const Styles = styled.div`
     .nav-link {
@@ -42,7 +43,7 @@ const TripInfo = ({trip}) => {
                                 {trip.attributes.start_date} - {trip.attributes.end_date}
                                 </Card.Text>
                             </Card.Body>
-                            <Card.Footer className="edit text-muted">button to edit</Card.Footer>
+                            <Card.Footer className="edit text-muted"><TripEdit trip={trip}/></Card.Footer>
                         </Card>
                     </Tab>
                     <Tab eventKey="profile" title="Flights">
