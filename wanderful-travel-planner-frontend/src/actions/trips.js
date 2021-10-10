@@ -60,7 +60,6 @@ export const setTrip = trip => {
 }
 
 export const createNewTrip = (trip) => {
-    console.log("create new trip action")
     return (dispatch) => {
         dispatch({ type: 'SET_TRIPS' });
             return fetch('http://localhost:3000/api/v1/trips', {
@@ -76,8 +75,6 @@ export const createNewTrip = (trip) => {
             if (response.error) {
                 alert(response.error)
             } else {
-                const trip = response.data
-                console.log("create new", trip)
                 return dispatch({ type: 'CREATE_TRIP', trip });
             }
         })

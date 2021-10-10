@@ -29,7 +29,7 @@ const TripForm = ({onSubmit}) => {
     return (
       <>
         <Button variant="outline-secondary" onClick={handleShow}>
-          New Trip
+          Create New Trip
         </Button>
   
         <Modal show={show} onHide={handleClose}>

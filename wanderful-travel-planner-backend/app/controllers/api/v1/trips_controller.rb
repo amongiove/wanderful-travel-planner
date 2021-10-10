@@ -25,13 +25,8 @@ class Api::V1::TripsController < ApplicationController
     end
 
     def create
-        puts "create trip"
-        puts current_user.name
-        # TODO: this isnt working as expected
         trip = Trip.new(trip_params)
-    
         if trip.save
-            puts "saved"
             UserTrip.create(user_id: current_user.id, trip_id: trip.id)
             render json: TripSerializer.new(trip), status: :created
         else
