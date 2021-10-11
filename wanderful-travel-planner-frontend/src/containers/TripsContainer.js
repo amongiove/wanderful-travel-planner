@@ -4,8 +4,6 @@ import Container from 'react-bootstrap/Container'
 import { getTrips, createNewTrip } from '../actions/trips.js';
 import Trips from '../components/Trips';
 import TripForm from '../components/TripForm.js'
-import Row from 'react-bootstrap/Row';
-
 
 class TripsContainer extends React.Component {
 
