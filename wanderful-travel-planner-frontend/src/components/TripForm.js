@@ -5,7 +5,6 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import Alert from 'react-bootstrap/Alert';
 
 const TripForm = ({onSubmit}) => {
     const [show, setShow] = useState(false);
@@ -114,7 +113,8 @@ const TripForm = ({onSubmit}) => {
         </Modal>
       </>
     );
-  }
+}
+
 
   
 export default TripForm;
