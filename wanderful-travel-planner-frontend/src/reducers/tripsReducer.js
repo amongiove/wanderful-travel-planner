@@ -25,9 +25,12 @@ const tripsReducer = (state = initialState, action) => {
                 trips: [state.trips.map(trip => trip.id === action.trip.id ? action.trip : trip)],
                 trip: action.trip
             }
-
-           
-
+        case "DELETE_TRIP":
+            return {
+                ...state,
+                trips: [state.trips.filter( trip => trip.id !== action.tripId )],
+                trip: null
+            }
         default: 
             return state
     }
