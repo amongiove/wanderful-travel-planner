@@ -113,7 +113,7 @@ const TripForm = ({onSubmit}) => {
               Close
             </Button>
             <Button variant="outline-secondary" onClick={event => handleSubmitNewTrip(event, newTrip())}>
-              Save Changes
+              Create Trip
             </Button>
           </Modal.Footer>
         </Modal>
