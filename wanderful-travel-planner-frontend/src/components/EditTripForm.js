@@ -26,8 +26,8 @@ const EditTripForm = ({trip, onEditSubmit}) => {
       console.log(result)
       if (result && !result.error) {
         handleClose();
-        //TODO: reload page with updated information -- this is not doing it
-        return history.push(`/trips/${result.trip.id}`)
+        return window.location.reload();
+        //TODO: check if lag persists
       }
     }
 
