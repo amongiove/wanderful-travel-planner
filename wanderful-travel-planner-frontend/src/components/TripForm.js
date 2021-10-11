@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
+import { useHistory } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import Alert from 'react-bootstrap/Alert';
 
-const TripForm = ({onSubmit, history}) => {
+const TripForm = ({onSubmit}) => {
     const [show, setShow] = useState(false);
   
     const handleClose = () => setShow(false);
@@ -15,14 +17,26 @@ const TripForm = ({onSubmit, history}) => {
     const [location, setLocation] = useState('');
     const [start_date, setStartDate] = useState('');
     const [end_date, setEndDate] = useState('');
+    const [error, setError] = useState('');
 
     const newTrip = () => {return {name: name, location: location, start_date: start_date, end_date: end_date}};
+    const history = useHistory();
 
     const handleSubmitNewTrip = async (event, newTrip) => {
       event.preventDefault();
-      const result = await onSubmit(newTrip, history);
-      // redirect if no error, otherwise show error
-      console.log("result", result)
+      const result = await onSubmit(newTrip);
+      if (!result.error) {
+        handleClose();
+        return history.push(`/trips/${result.trip.id}`)
+      } else {
+        setError(result.error)
+      }
+    }
+
+    const renderError = () => {
+      if (error) {
+        return <Alert variant="danger">{error}</Alert>
+      }
     }
 
     return (
@@ -32,10 +46,11 @@ const TripForm = ({onSubmit, history}) => {
         </Button>
   
         <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>New Trip</Modal.Title>
+          <Modal.Header>
+            <Modal.Title>Create a new trip</Modal.Title>
           </Modal.Header>
           <Modal.Body>
+            {renderError()}
             <Form>
               <Form.Group as={Row} className="mb-3" controlId="name">
                 <Form.Label column sm="2">
