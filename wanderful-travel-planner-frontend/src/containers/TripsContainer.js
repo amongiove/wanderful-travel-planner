@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Container from 'react-bootstrap/Container'
 import { getTrips, createNewTrip } from '../actions/trips.js';
 import Trips from '../components/Trips';
-import TripForm from '../components/TripForm.js'
+import NewTripForm from '../components/NewTripForm.js'
 
 class TripsContainer extends React.Component {
 
@@ -20,7 +20,7 @@ class TripsContainer extends React.Component {
         {/* TODO: do i want to have users name here? if so need to add current user to state to get the name attribute */}
           <h1>Trips</h1>
           <div className="justify-content-end" style={{marginBottom: "10px"}}>
-            <TripForm onSubmit={this.props.createNewTrip} />
+            <NewTripForm onSubmit={this.props.createNewTrip} />
           </div>
           <Trips trips={trips}/>
         </div>

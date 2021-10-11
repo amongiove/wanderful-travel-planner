@@ -39,15 +39,17 @@ const Styles = styled.div`
 
 `;
 
-const ShowTrip = ({showTrip}) => {
+
+const ShowTripContainer = ({showTrip}) => {
     const {tripId} = useParams();
     const [trip, setTrip] = useState(0);
-
+    
     //TODO: set timeout to help unmounted component error
         useEffect(() => {
           async function fetchData() {
             const response = await showTrip(tripId)
-            setTrip(response);
+            console.log(response)
+            setTrip(response)
           }
           fetchData();
         }, [showTrip, tripId]);
@@ -105,4 +107,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(ShowTrip);
+export default connect(null, mapDispatchToProps)(ShowTripContainer); 

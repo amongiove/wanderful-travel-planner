@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import Card from 'react-bootstrap/Card';
-import TripForm from './TripForm.js';
+import EditTripForm from './EditTripForm.js';
 
 const Styles = styled.div`
     .nav-link {
@@ -43,7 +43,7 @@ const TripInfo = ({trip}) => {
                                 {trip.attributes.start_date} - {trip.attributes.end_date}
                                 </Card.Text>
                             </Card.Body>
-                            <Card.Footer className="edit text-muted"><TripForm trip={trip}/></Card.Footer>
+                            <Card.Footer className="edit text-muted"><EditTripForm trip={trip}/></Card.Footer>
                         </Card>
                     </Tab>
                     <Tab eventKey="profile" title="Flights">

@@ -20,6 +20,8 @@ export const getTrips = () => {
             if (response.error) {
                 alert(response.error)
             } else {
+                console.log("set trip in getTrips")
+                console.log(response.data)
                 dispatch(setTrips(response.data))
             }
         })
@@ -44,7 +46,6 @@ export const showTrip = (tripId) => {
                 alert(response.error)
             } else {
                 //TODO: may not need set trip in state here (or at all)
-                console.log("set trip in showTrip")
                 dispatch(setTrip(response.data))
                 return (response.data)
             }
