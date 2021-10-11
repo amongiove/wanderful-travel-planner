@@ -86,8 +86,6 @@ export const createNewTrip = (trip) => {
 }
 
 export const editTrip = (updatedTrip) => {
-    console.log('edit dispatch')
-    console.log(updatedTrip)
     return (dispatch) => {
         return fetch(`http://localhost:3000/api/v1/trips/${updatedTrip.id}`, {
             method: "PATCH",

@@ -21,7 +21,6 @@ const tripsReducer = (state = initialState, action) => {
                 trips: [...state.trips, action.trip ]
             }
         case 'EDIT_TRIP':
-            console.log("edit trip reducer")
             return {
                 trips: [state.trips.map(trip => trip.id === action.trip.id ? action.trip : trip)],
                 trip: action.trip

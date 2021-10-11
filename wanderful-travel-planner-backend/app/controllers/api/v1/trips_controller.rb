@@ -34,13 +34,9 @@ class Api::V1::TripsController < ApplicationController
     end
 
     def update
-        puts "inside update method"
-        puts params 
-
         trip = Trip.find(params[:id])
 
         if trip.update(trip_params)
-            puts "update complete!"
           render json: TripSerializer.new(trip), status: :ok
         else
           render json: { error: trip.errors.full_messages[0] }, status: :not_acceptable

@@ -22,12 +22,11 @@ const EditTripForm = ({trip, onEditSubmit}) => {
 
     const handleSubmitEditTrip = async (event, updatedTrip) => {
       event.preventDefault();
-      console.log(updatedTrip)
       const result = await onEditSubmit(updatedTrip);
       console.log(result)
       if (result && !result.error) {
-          console.log("accepted!")
         handleClose();
+        //TODO: reload page with updated information -- this is not doing it
         return history.push(`/trips/${result.trip.id}`)
       }
     }
@@ -50,7 +49,6 @@ const EditTripForm = ({trip, onEditSubmit}) => {
                                 <Form.Control
                                     type="text"
                                     name="name"
-                                    // value={trip.attributes.name}
                                     defaultValue={trip.attributes.name}
                                     onChange={e => setName(e.target.value)}
                                 />
@@ -63,7 +61,6 @@ const EditTripForm = ({trip, onEditSubmit}) => {
                                 <Form.Control
                                     type="text"
                                     name="location"
-                                    // value={location}
                                     defaultValue={trip.attributes.location}
                                     onChange={e => setLocation(e.target.value)}
                                 />
@@ -76,7 +73,6 @@ const EditTripForm = ({trip, onEditSubmit}) => {
                                 <Form.Control
                                     type="date"
                                     name="start_date"
-                                    // value={start_date}
                                     defaultValue={trip.attributes.start_date}
                                     onChange={e => setStartDate(e.target.value)}
                                 />
@@ -87,7 +83,6 @@ const EditTripForm = ({trip, onEditSubmit}) => {
                                 <Form.Control
                                     type="date"
                                     name="end_date"
-                                    // value={end_date}
                                     defaultValue={trip.attributes.end_date}
                                     onChange={e => setEndDate(e.target.value)}
                                 />

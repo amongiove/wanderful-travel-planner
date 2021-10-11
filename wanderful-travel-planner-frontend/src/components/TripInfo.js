@@ -22,7 +22,6 @@ const Styles = styled.div`
 
 
 const TripInfo = ({trip, onEditSubmit}) => {
-    console.log({onEditSubmit})
     return (
         <Styles>
             <Container>
