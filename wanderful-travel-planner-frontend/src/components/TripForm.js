@@ -25,17 +25,9 @@ const TripForm = ({onSubmit}) => {
     const handleSubmitNewTrip = async (event, newTrip) => {
       event.preventDefault();
       const result = await onSubmit(newTrip);
-      if (!result.error) {
+      if (result && !result.error) {
         handleClose();
         return history.push(`/trips/${result.trip.id}`)
-      } else {
-        setError(result.error)
-      }
-    }
-
-    const renderError = () => {
-      if (error) {
-        return <Alert variant="danger">{error}</Alert>
       }
     }
 
@@ -50,7 +42,6 @@ const TripForm = ({onSubmit}) => {
             <Modal.Title>Create a new trip</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            {renderError()}
             <Form>
               <Form.Group as={Row} className="mb-3" controlId="name">
                 <Form.Label column sm="2">
@@ -62,6 +53,7 @@ const TripForm = ({onSubmit}) => {
                     placeholder="Name"
                     value={name}
                     onChange={event => setName(event.target.value)}
+                    required
                   />
                 </Col>
               </Form.Group>
@@ -76,6 +68,7 @@ const TripForm = ({onSubmit}) => {
                     placeholder="Destination"
                     value={location}
                     onChange={event => setLocation(event.target.value)}  
+                    required
                   />
                 </Col>
               </Form.Group>
@@ -91,6 +84,7 @@ const TripForm = ({onSubmit}) => {
                     placeholder="Start Date"
                     value={start_date}
                     onChange={event => setStartDate(event.target.value)} 
+                    required
                   />
                 </Col>
                 <Form.Label column sm="2">
@@ -103,6 +97,7 @@ const TripForm = ({onSubmit}) => {
                     placeholder="End Date"
                     value={end_date}
                     onChange={event => setEndDate(event.target.value)} 
+                    required
                   />
                 </Col>
               </Form.Group>

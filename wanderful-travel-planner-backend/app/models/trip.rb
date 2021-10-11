@@ -6,4 +6,10 @@ class Trip < ApplicationRecord
     has_many :events
     has_many :packing_list_items
     has_many :messages
+
+    validates :name, presence: true
+    validates :location, presence: true
+    validates :start_date, presence: true
+    validates :end_date, presence: true
+
 end
