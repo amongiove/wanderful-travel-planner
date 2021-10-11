@@ -21,8 +21,8 @@ const Styles = styled.div`
 `;
 
 
-const TripInfo = ({trip, editTrip}) => {
-
+const TripInfo = ({trip, onEditSubmit}) => {
+    console.log({onEditSubmit})
     return (
         <Styles>
             <Container>
@@ -43,7 +43,7 @@ const TripInfo = ({trip, editTrip}) => {
                                 {trip.attributes.start_date} - {trip.attributes.end_date}
                                 </Card.Text>
                             </Card.Body>
-                            <Card.Footer className="edit text-muted"><EditTripForm trip={trip} onSubmit={editTrip}/></Card.Footer>
+                            <Card.Footer className="edit text-muted"><EditTripForm trip={trip} onEditSubmit={onEditSubmit}/></Card.Footer>
                         </Card>
                     </Tab>
                     <Tab eventKey="profile" title="Flights">

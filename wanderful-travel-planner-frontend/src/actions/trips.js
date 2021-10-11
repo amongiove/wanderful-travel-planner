@@ -85,15 +85,17 @@ export const createNewTrip = (trip) => {
     }
 }
 
-export const editTrip = (trip) => {
+export const editTrip = (updatedTrip) => {
+    console.log('edit dispatch')
+    console.log(updatedTrip)
     return (dispatch) => {
-        return fetch(`http://localhost:3000/api/v1/trips/${trip.id}`, {
+        return fetch(`http://localhost:3000/api/v1/trips/${updatedTrip.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${localStorage.token}`
             },
-            body: JSON.stringify(trip)
+            body: JSON.stringify(updatedTrip)
         })
         .then(resp => (resp.json()))
         .then(response => {
