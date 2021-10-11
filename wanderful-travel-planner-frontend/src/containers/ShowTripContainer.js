@@ -39,7 +39,7 @@ const Styles = styled.div`
 
 `;
 
-const ShowTrip = ({showTrip}) => {
+const ShowTripContainer = ({showTrip}) => {
     const {tripId} = useParams();
     const [trip, setTrip] = useState(0);
 
@@ -105,4 +105,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(ShowTrip);
+export default connect(null, mapDispatchToProps)(ShowTripContainer);
