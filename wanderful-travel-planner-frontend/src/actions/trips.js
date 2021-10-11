@@ -84,3 +84,27 @@ export const createNewTrip = (trip) => {
         })
     }
 }
+
+export const editTrip = (trip) => {
+    return (dispatch) => {
+        return fetch(`http://localhost:3000/api/v1/trips/${trip.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.token}`
+            },
+            body: JSON.stringify(trip)
+        })
+        .then(resp => (resp.json()))
+        .then(response => {
+                if (response.error) {
+                    alert(response.error)
+                } else {
+                    return dispatch({ type: 'EDIT_TRIP', trip: response.data });
+                }
+        })
+        .catch(error => {
+            return {error: error.message}
+        })
+    }
+}

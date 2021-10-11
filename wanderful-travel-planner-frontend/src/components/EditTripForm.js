@@ -23,53 +23,52 @@ const EditTripForm = ({trip}) => {
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
-                        <Form.Group as={Row} className="mb-3" controlId="name">
-                            <Form.Label column sm="2">
-                                Name
-                            </Form.Label>
-                            <Col sm="10">
-                                <Form.Control 
-                                    name="trip" 
-                                    value={trip.attributes.name} 
-                                    placeholder={trip.attributes.name} 
+                        <Form.Group as={Form.Row} className="justify-content-center">
+                            <Form.Label column sm={2}>Name</Form.Label>
+                            <Col sm={2}>
+                                <Form.Control
+                                    type="text"
+                                    name="name"
+                                    value={name}
+                                    defaultValue={trip.attributes.name}
+                                    onChange={e => setName(e.target.value)}
                                 />
                             </Col>
                         </Form.Group>
 
-                        <Form.Group as={Row} className="mb-3" controlId="location">
-                            <Form.Label column sm="2">
-                                Location
-                            </Form.Label>
-                            <Col sm="10">
-                                <Form.Control 
-                                    name="location" 
-                                    value={trip.attributes.location} 
-                                    placeholder={trip.attributes.location}  
+                        <Form.Group as={Form.Row} className="justify-content-center">
+                            <Form.Label column sm={2}>Location</Form.Label>
+                            <Col sm={2}>
+                                <Form.Control
+                                    type="text"
+                                    name="location"
+                                    value={location}
+                                    defaultValue={trip.attributes.location}
+                                    onChange={e => setLocation(e.target.value)}
                                 />
                             </Col>
                         </Form.Group>
 
-                        <Form.Group as={Row} className="mb-3" controlId="dates">
-                            <Form.Label column sm="2">
-                                Start Date
-                            </Form.Label>
-                            <Col sm="10">
-                                <Form.Control 
-                                    type="date" 
-                                    name="start_date" 
-                                    value={trip.attributes.start_date} 
-                                    placeholder={trip.attributes.start_date} 
+                        <Form.Group as={Form.Row} className="justify-content-center">
+                            <Form.Label column sm={2}>Start Date</Form.Label>
+                            <Col sm={2}>
+                                <Form.Control
+                                    type="date"
+                                    name="start_date"
+                                    value={start_date}
+                                    defaultValue={trip.attributes.start_date}
+                                    onChange={e => setStartDate(e.target.value)}
                                 />
                             </Col>
-                            <Form.Label column sm="2">
-                                End Date
-                            </Form.Label>
-                            <Col sm="10">
-                                <Form.Control 
-                                    type="date" 
-                                    name="end_date" 
-                                    value={trip.attributes.end_date} 
-                                    placeholder={trip.attributes.end_date} 
+
+                            <Form.Label column sm={2}>End Date</Form.Label>
+                            <Col sm={2}>
+                                <Form.Control
+                                    type="date"
+                                    name="end_date"
+                                    value={end_date}
+                                    defaultValue={trip.attributes.end_date}
+                                    onChange={e => setEndDate(e.target.value)}
                                 />
                             </Col>
                         </Form.Group>
@@ -79,7 +78,7 @@ const EditTripForm = ({trip}) => {
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="outline-secondary" onClick={handleClose}>
+                    <Button variant="outline-secondary" onClick={event => handleEditTrip(event, trip)}>
                         Save Changes
                     </Button>
                 </Modal.Footer>
