@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Container from 'react-bootstrap/Container'
 import { getTrips, createNewTrip } from '../actions/trips.js';
 import Trips from '../components/Trips';
-import NewTripForm from '../components/NewTripForm.js'
+import NewTripForm from '../components/NewTripForm.js';
 
 class TripsContainer extends React.Component {
 
