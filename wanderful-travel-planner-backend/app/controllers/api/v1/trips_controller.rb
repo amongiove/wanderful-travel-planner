@@ -43,6 +43,16 @@ class Api::V1::TripsController < ApplicationController
         end
     end
 
+    def destroy
+        trip = Trip.find(params[:id])
+        
+        if trip.destroy    
+            render json:  { data: "Trip successfully destroyed" }, status: :ok
+        else
+            render json: { error: "Trip not found and not destroyed" }, status: :unprocessable_entity
+        end
+    end
+
     private
 
     def set_trip
