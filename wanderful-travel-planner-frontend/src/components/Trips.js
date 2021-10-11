@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row';
 
 const Trips = (props) => {
     // TODO: account for if there are no trips !
+    console.log(props);
     const tripCards = props.trips.map (trip =><TripCard trip={trip} key={trip.id} id={trip.id}/>)
 
     return (

@@ -1,7 +1,15 @@
-import React from 'react-redux';
+import React from 'react';
+import styled from "styled-components";
 
 const ItineraryContainer = ({trip}) => {
-    return ( "this is the itinerary")
-}
+    
 
-export default ItineraryContainer
+    return ( 
+        <div>
+            itinerary component 
+        </div>
+    );
+};
+
+
+export default ItineraryContainer;
