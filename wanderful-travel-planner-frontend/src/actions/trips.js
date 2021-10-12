@@ -20,8 +20,6 @@ export const getTrips = () => {
             if (response.error) {
                 alert(response.error)
             } else {
-                console.log("set trip in getTrips")
-                console.log(response.data)
                 dispatch(setTrips(response.data))
             }
         })

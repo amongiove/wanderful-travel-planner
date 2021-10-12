@@ -48,7 +48,6 @@ const ShowTripContainer = ({showTrip, editTrip, deleteTrip}) => {
         useEffect(() => {
           async function fetchData() {
             const response = await showTrip(tripId)
-            console.log(response)
             setTrip(response)
           }
           fetchData();
