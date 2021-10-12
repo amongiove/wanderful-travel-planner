@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom';
+import moment from 'moment';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -81,6 +82,7 @@ const NewTripForm = ({onSubmit}) => {
                     name="start_date" 
                     placeholder="Start Date"
                     value={start_date}
+                    min={moment().format("YYYY-MM-DD")}
                     onChange={event => setStartDate(event.target.value)} 
                     required
                   />
@@ -93,6 +95,7 @@ const NewTripForm = ({onSubmit}) => {
                     type="date" 
                     name="end_date" 
                     placeholder="End Date"
+                    min={start_date}
                     value={end_date}
                     onChange={event => setEndDate(event.target.value)} 
                     required

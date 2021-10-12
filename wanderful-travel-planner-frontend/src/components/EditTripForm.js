@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import moment from 'moment';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -71,6 +72,7 @@ const EditTripForm = ({trip, onEditSubmit}) => {
                                     type="date"
                                     name="start_date"
                                     defaultValue={trip.attributes.start_date}
+                                    min={moment().format("YYYY-MM-DD")}
                                     onChange={e => setStartDate(e.target.value)}
                                 />
                             </Col>
@@ -81,6 +83,7 @@ const EditTripForm = ({trip, onEditSubmit}) => {
                                     type="date"
                                     name="end_date"
                                     defaultValue={trip.attributes.end_date}
+                                    min={start_date}
                                     onChange={e => setEndDate(e.target.value)}
                                 />
                             </Col>

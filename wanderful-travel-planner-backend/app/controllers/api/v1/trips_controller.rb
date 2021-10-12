@@ -44,7 +44,6 @@ class Api::V1::TripsController < ApplicationController
     end
 
     def destroy
-        puts "insude destroy"
         trip = Trip.find(params[:id])
         userTrip = UserTrip.find_by(user: current_user, trip: trip)
 
