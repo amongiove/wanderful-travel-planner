@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import Moment from 'react-moment';
 import styled from 'styled-components';
 import Container from 'react-bootstrap/Container';
 import Tabs from 'react-bootstrap/Tabs';
@@ -28,7 +29,6 @@ const TripInfo = ({trip, onEditSubmit, onDelete}) => {
     
     const handleDelete = async (event) => {
         event.preventDefault();
-        console.log("handle delete")
         const result = await onDelete(trip.id);
         if (result && !result.error) {
             return history.push(`/trips`)
@@ -53,7 +53,7 @@ const TripInfo = ({trip, onEditSubmit, onDelete}) => {
                                 <Card.Img variant="top" src="#" />
                                 {/* TODO: image in middle - set size */}
                                 <Card.Text>
-                                {trip.attributes.start_date} - {trip.attributes.end_date}
+                                    <Moment format="MMMM Do, YYYY">{trip.attributes.start_date}</Moment> - <Moment format="MMMM Do, YYYY">{trip.attributes.end_date}</Moment>
                                 </Card.Text>
                             </Card.Body>
                             <Card.Footer className="edit text-muted">
