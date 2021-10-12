@@ -6,6 +6,8 @@ class Trip < ApplicationRecord
     has_many :events
     has_many :packing_list_items
     has_many :messages
+    
+    has_one_attached :image
 
     validates :name, presence: true
     validates :location, presence: true
