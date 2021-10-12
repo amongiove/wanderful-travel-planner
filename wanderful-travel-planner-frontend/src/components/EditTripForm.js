@@ -6,9 +6,14 @@ import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 
 const EditTripForm = ({trip, onEditSubmit}) => {
+    
+    const reload=()=>window.location.reload();
     const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
+    
+    const handleClose = () => {
+        setShow(false)
+        reload();
+    };
     const handleShow = () => setShow(true);
 
     const id = trip.id
