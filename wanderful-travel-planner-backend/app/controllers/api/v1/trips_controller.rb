@@ -44,9 +44,14 @@ class Api::V1::TripsController < ApplicationController
     end
 
     def destroy
+        puts "insude destroy"
         trip = Trip.find(params[:id])
-        
-        if trip.destroy    
+        userTrip = UserTrip.find_by(user: current_user, trip: trip)
+
+        if trip && userTrip
+            userTrip.destroy
+            trip.destroy
+            puts "destroyed"
             render json:  { data: "Trip successfully destroyed" }, status: :ok
         else
             render json: { error: "Trip not found and not destroyed" }, status: :unprocessable_entity

@@ -1,9 +1,11 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import Container from 'react-bootstrap/Container';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 import EditTripForm from './EditTripForm.js';
 
 const Styles = styled.div`
@@ -20,8 +22,20 @@ const Styles = styled.div`
     }
 `;
 
+const TripInfo = ({trip, onEditSubmit, onDelete}) => {
+    
+    let history = useHistory();
+    
+    const handleDelete = async (event) => {
+        event.preventDefault();
+        console.log("handle delete")
+        const result = await onDelete(trip.id);
+        if (result && !result.error) {
+            return history.push(`/trips`)
+        }
+        // return result
+    }   
 
-const TripInfo = ({trip, onEditSubmit}) => {
     return (
         <Styles>
             <Container>
@@ -42,7 +56,12 @@ const TripInfo = ({trip, onEditSubmit}) => {
                                 {trip.attributes.start_date} - {trip.attributes.end_date}
                                 </Card.Text>
                             </Card.Body>
-                            <Card.Footer className="edit text-muted"><EditTripForm trip={trip} onEditSubmit={onEditSubmit}/></Card.Footer>
+                            <Card.Footer className="edit text-muted">
+                                <EditTripForm trip={trip} onEditSubmit={onEditSubmit}/>
+                                <Button onClick={event => handleDelete(event)} variant="outline-secondary" style={{marginLeft: "10px"}}>
+                                    Delete Trip
+                                </Button>
+                            </Card.Footer>
                         </Card>
                     </Tab>
                     <Tab eventKey="profile" title="Flights">

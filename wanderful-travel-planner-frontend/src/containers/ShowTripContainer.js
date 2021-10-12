@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useParams } from "react-router-dom";
-import { showTrip, editTrip } from '../actions/trips.js';
+import { showTrip, editTrip, deleteTrip } from '../actions/trips.js';
 import { connect } from 'react-redux';
 import Tab from 'react-bootstrap/Tab';
 import Nav from 'react-bootstrap/Nav';
@@ -40,7 +40,7 @@ const Styles = styled.div`
 `;
 
 
-const ShowTripContainer = ({showTrip, editTrip}) => {
+const ShowTripContainer = ({showTrip, editTrip, deleteTrip}) => {
     const {tripId} = useParams();
     const [trip, setTrip] = useState(0);
     
@@ -80,7 +80,7 @@ const ShowTripContainer = ({showTrip, editTrip}) => {
                 <Col sm={10}>
                     <Tab.Content>
                         <Tab.Pane eventKey="first">
-                            <TripInfo trip={trip} onEditSubmit={editTrip}/>
+                            <TripInfo trip={trip} onEditSubmit={editTrip} onDelete={deleteTrip}/>
                         </Tab.Pane>
                         <Tab.Pane eventKey="second">
                             <ItineraryContainer trip={trip}/>
@@ -104,7 +104,8 @@ const ShowTripContainer = ({showTrip, editTrip}) => {
 const mapDispatchToProps = dispatch => {
     return {
         showTrip: tripId => dispatch(showTrip(tripId)),
-        editTrip: trip => dispatch(editTrip(trip))
+        editTrip: trip => dispatch(editTrip(trip)),
+        deleteTrip: tripId => dispatch(deleteTrip(tripId))
     }
 }
 

@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import { useHistory } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -18,7 +17,6 @@ const EditTripForm = ({trip, onEditSubmit}) => {
     const [end_date, setEndDate] = useState(trip.attributes.end_date);
 
     let updatedTrip = {id: id, name: name, location: location, start_date: start_date, end_date: end_date};
-    const history = useHistory();
 
     const handleSubmitEditTrip = async (event, updatedTrip) => {
       event.preventDefault();
@@ -27,7 +25,6 @@ const EditTripForm = ({trip, onEditSubmit}) => {
       if (result && !result.error) {
         handleClose();
         return window.location.reload();
-        //TODO: check if lag persists
       }
     }
 

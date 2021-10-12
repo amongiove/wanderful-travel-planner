@@ -108,3 +108,25 @@ export const editTrip = (updatedTrip) => {
         })
     }
 }
+
+export const deleteTrip = (tripId) => {
+    return dispatch => {
+      return fetch(`http://localhost:3000/api/v1/trips/${tripId}`, {
+        credentials: "include",
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${localStorage.token}`
+        }
+      })
+      .then(resp => (resp.json()))
+      .then(response => {
+            if (response.error) {
+                alert(response.error)
+            } else {
+               return dispatch({ type: 'DELETE_TRIP', tripId: tripId })  
+            }
+        })
+        .catch(console.log)
+    }
+}
