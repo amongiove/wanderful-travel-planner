@@ -49,9 +49,9 @@ class Api::V1::TripsController < ApplicationController
         userTrip = UserTrip.find_by(user: current_user, trip: trip)
 
         if trip && userTrip
+            # TODO: will need to add deletions as build out association functionalities
             userTrip.destroy
             trip.destroy
-            puts "destroyed"
             render json:  { data: "Trip successfully destroyed" }, status: :ok
         else
             render json: { error: "Trip not found and not destroyed" }, status: :unprocessable_entity
