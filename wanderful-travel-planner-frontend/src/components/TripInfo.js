@@ -26,7 +26,7 @@ const Styles = styled.div`
 const TripInfo = ({trip, onEditSubmit, onDelete}) => {
     
     let history = useHistory();
-    
+
     const handleDelete = async (event) => {
         event.preventDefault();
         const result = await onDelete(trip.id);
@@ -58,7 +58,7 @@ const TripInfo = ({trip, onEditSubmit, onDelete}) => {
                             </Card.Body>
                             <Card.Footer className="edit text-muted">
                                 <EditTripForm trip={trip} onEditSubmit={onEditSubmit}/>
-                                <Button onClick={event => handleDelete(event)} variant="outline-secondary" style={{marginLeft: "10px"}}>
+                                <Button onClick={(event) => (window.confirm('Are you sure you want to delete this trip?'))?handleDelete(event) : null} variant="outline-secondary" style={{marginLeft: "10px"}}>
                                     Delete Trip
                                 </Button>
                             </Card.Footer>
