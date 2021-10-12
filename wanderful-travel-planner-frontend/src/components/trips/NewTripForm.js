@@ -8,7 +8,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
 const NewTripForm = ({onSubmit}) => {
-  
+
   const reload=()=>window.location.reload();
   const [show, setShow] = useState(false);
 
@@ -30,7 +30,6 @@ const NewTripForm = ({onSubmit}) => {
     event.preventDefault();
     const result = await onSubmit(newTrip);
     if (result && !result.error) {
-      handleClose();
       return history.push(`/trips/${result.trip.id}`)
     }
   }
@@ -100,7 +99,7 @@ const NewTripForm = ({onSubmit}) => {
                   type="date" 
                   name="end_date" 
                   placeholder="End Date"
-                  min={start_date}
+                  min={start_date? start_date : moment().format("YYYY-MM-DD") }
                   value={end_date}
                   onChange={event => setEndDate(event.target.value)} 
                   required

@@ -88,7 +88,7 @@ const EditTripForm = ({trip, onEditSubmit}) => {
                                     type="date"
                                     name="end_date"
                                     defaultValue={trip.attributes.end_date}
-                                    min={start_date}
+                                    min={start_date? start_date : moment().format("YYYY-MM-DD") }
                                     onChange={e => setEndDate(e.target.value)}
                                 />
                             </Col>

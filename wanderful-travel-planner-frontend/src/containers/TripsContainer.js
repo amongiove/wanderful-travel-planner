@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Container from 'react-bootstrap/Container'
 import { getTrips, createNewTrip } from '../actions/trips.js';
-import Trips from '../components/Trips';
-import NewTripForm from '../components/NewTripForm.js';
+import Trips from '../components/trips/Trips';
+import NewTripForm from '../components/trips/NewTripForm.js';
 
 class TripsContainer extends React.Component {
 

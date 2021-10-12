@@ -8,7 +8,7 @@ import Nav from 'react-bootstrap/Nav';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import ItineraryContainer from './ItineraryContainer.js';
-import TripInfo from '../components/TripInfo.js';
+import TripInfo from '../components/trips/TripInfo.js';
 
 const Styles = styled.div`
     .sidebar {
