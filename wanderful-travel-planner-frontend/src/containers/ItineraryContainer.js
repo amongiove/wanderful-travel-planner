@@ -2,6 +2,8 @@ import React from 'react';
 import Moment from 'moment';
 import { extendMoment } from 'moment-range';
 import DayCard from '../components/itinerary/DayCard.js';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 // import styled from "styled-components";
 
 const ItineraryContainer = ({trip}) => {
@@ -16,13 +18,18 @@ const ItineraryContainer = ({trip}) => {
     }
 
     const daysArray = Array.from(range.by('day'));      
-    const dayCards = daysArray.map(day => <DayCard trip={trip} day={day.format('MM-DD-YYYY')} key={day} id={day} />) 
+    const dayCards = daysArray.map(day => <DayCard trip={trip} dayNum={daysArray.indexOf(day) +1 } day={day.format('MM-DD-YYYY')} key={day} id={day} />) 
 
 
     return ( 
         <div>
-            itinerary component 
-            {dayCards}
+            <h2>Trip Itinerary</h2>
+            button to add event
+            <Col md={{ span: 10, offset: 1 }}>
+                <Row xs={1} className="g-4">
+                    {dayCards}
+                </Row>
+            </Col>
         </div>
     );
 };
