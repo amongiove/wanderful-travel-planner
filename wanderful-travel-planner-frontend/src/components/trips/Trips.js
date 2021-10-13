@@ -1,5 +1,5 @@
 import React from 'react';
-import TripCard from './TripCard.js'
+import TripCard from './TripCard.js';
 import Row from 'react-bootstrap/Row';
 
 const Trips = (props) => {
