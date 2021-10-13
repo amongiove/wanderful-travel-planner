@@ -40,7 +40,7 @@ const EditTripForm = ({trip, onEditSubmit}) => {
                 Edit Trip
             </Button>
 
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose} animation={false}>
                 <Modal.Header>
                     <Modal.Title>Edit Trip</Modal.Title>
                 </Modal.Header>

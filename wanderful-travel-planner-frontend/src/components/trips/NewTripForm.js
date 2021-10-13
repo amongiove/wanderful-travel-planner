@@ -40,7 +40,7 @@ const NewTripForm = ({onSubmit}) => {
         + New Trip
       </Button>
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose} animation={false}>
         <Modal.Header>
           <Modal.Title>Create a new trip</Modal.Title>
         </Modal.Header>
