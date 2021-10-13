@@ -4050,6 +4050,11 @@
     "path-type" "^4.0.0"
     "yaml" "^1.10.0"
 
+"countdown@^2.6.0", "countdown@>= 2.3.0":
+  "integrity" "sha1-Z3+446nUzE52QVkBuiU7UYrzQXc="
+  "resolved" "https://registry.npmjs.org/countdown/-/countdown-2.6.0.tgz"
+  "version" "2.6.0"
+
 "create-ecdh@^4.0.0":
   "integrity" "sha512-mf+TCx8wWc9VpuxfP2ht0iSISLZnt0JgWlrOKZiNqyUZWnjIaCIVNQArMHnCZKfEYRg6IM7A+NeJoN8gf/Ws0A=="
   "resolved" "https://registry.npmjs.org/create-ecdh/-/create-ecdh-4.0.4.tgz"
@@ -8251,6 +8256,19 @@
   "version" "0.5.5"
   dependencies:
     "minimist" "^1.2.5"
+
+"moment-countdown@^0.0.3":
+  "integrity" "sha1-kxAMkqpv2IS4SoOBTr3Na4fzOI0="
+  "resolved" "https://registry.npmjs.org/moment-countdown/-/moment-countdown-0.0.3.tgz"
+  "version" "0.0.3"
+  dependencies:
+    "countdown" ">= 2.3.0"
+    "moment" ">= 2.0.0"
+
+"moment@^2.29.1", "moment@>= 2.0.0":
+  "integrity" "sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ=="
+  "resolved" "https://registry.npmjs.org/moment/-/moment-2.29.1.tgz"
+  "version" "2.29.1"
 
 "move-concurrently@^1.0.1":
   "integrity" "sha1-viwAX9oy4LKa8fBdfEszIUxwH5I="
