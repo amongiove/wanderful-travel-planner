@@ -14,15 +14,15 @@ class Api::V1::EventsController < ApplicationController
         end
     end
 
-    # def show
-    #     trip = Trip.find(params[:id])
+    def show
+        trip = Trip.find(params[:id])
 
-    #     if trip
-    #         render json: TripSerializer.new(trip), status: :ok
-    #     else
-    #         render json: { error: "Unable to locate trip" }, status: :not_found
-    #     end
-    # end
+        if trip
+            render json: TripSerializer.new(trip), status: :ok
+        else
+            render json: { error: "Unable to locate trip" }, status: :not_found
+        end
+    end
 
     # def create
     #     trip = Trip.new(trip_params)
