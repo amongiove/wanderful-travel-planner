@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import Moment from 'react-moment';
 import Events from './Events';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
@@ -18,7 +19,7 @@ const DayCard = ({day, dayNum, trip}) => {
         <Col>
             <Card className="card" >
                 <Card.Body>
-                    <Card.Title>{day}</Card.Title>
+                    <Card.Title><Moment format="MMM Do, YYYY">{day}</Moment></Card.Title>
                     <Card.Subtitle className="mb-2 text-muted">Day {dayNum}</Card.Subtitle>
                     <ListGroup variant="flush">
                         {events}
