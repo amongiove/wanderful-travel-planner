@@ -6,7 +6,6 @@ import { GrMore, GrSchedule, GrLocation, GrNotes, GrEdit, GrTrash } from 'react-
 
 
 const EventShow = ({event}) => {
-
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -24,24 +23,25 @@ const EventShow = ({event}) => {
             <Modal.Title>{event.event_name}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-                <GrSchedule />  {moment(event.event_date_time).format("h:mm A")}
+                <GrSchedule /> {moment(event.event_date_time).format("h:mm A")}
                 <br/>
                 <br/>
-                <GrLocation/>  {event.location}
+                <GrLocation/> {event.location}
                 <br/>
                 <br/>
-                {/* todo: add notes icon here */}
-                {event.notes ? `Notes: ${event.notes}` : null } 
+                {/* todo: edit no notes wording?*/}
+                <GrNotes /> {event.notes ? `${event.notes}` : "No notes to share." } 
+
         </Modal.Body>
         <Modal.Footer>
             {/* <Button variant="secondary" onClick={handleClose}>
             Close
             </Button> */}
-            <Button variant="primary" onClick={handleClose}>
-            Edit Button <GrEdit />
+            <Button variant="outline-secondary" onClick={handleClose}>
+                <GrEdit />
             </Button>
-            <Button variant="primary" onClick={handleClose}>
-            Delete Button <GrTrash />
+            <Button variant="outline-secondary" onClick={handleClose}>
+                <GrTrash />
             </Button>
         </Modal.Footer>
         </Modal>

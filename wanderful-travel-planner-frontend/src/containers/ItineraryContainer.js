@@ -41,6 +41,7 @@ class ItineraryContainer extends React.Component {
 
 const mapDispatchToProps = dispatch => ({
     createNewEvent: event => dispatch(createNewEvent(event))
+    //edit and delete event methods to pass to day card and events and event show?? of pull the closer??
 })
 
 export default connect(null, mapDispatchToProps)(ItineraryContainer);
