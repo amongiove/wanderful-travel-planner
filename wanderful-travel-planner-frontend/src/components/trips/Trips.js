@@ -7,11 +7,9 @@ const Trips = (props) => {
     const tripCards = props.trips.map (trip =><TripCard trip={trip} key={trip.id} id={trip.id}/>)
 
     return (
-        <div>
         <Row xs={1} md={3} className="g-4">
             {tripCards} 
         </Row>
-        </div>
     )
 }
 
