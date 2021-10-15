@@ -22,7 +22,8 @@ const DayCard = ({day, dayNum, trip}) => {
                     <Card.Title><Moment format="MMM Do, YYYY">{day}</Moment></Card.Title>
                     <Card.Subtitle className="mb-2 text-muted">Day {dayNum}</Card.Subtitle>
                     <ListGroup variant="flush">
-                        {events}
+                        {dayEvents.length > 0 ? events : null}
+                        {/* todo: no events scheudled message */}
                     </ListGroup>
                 </Card.Body>
             </Card>
