@@ -27,7 +27,6 @@ const EditTripForm = ({trip, onEditSubmit}) => {
     const handleSubmitEditTrip = async (event, updatedTrip) => {
       event.preventDefault();
       const result = await onEditSubmit(updatedTrip);
-      console.log(result)
       if (result && !result.error) {
         handleClose();
         return window.location.reload();

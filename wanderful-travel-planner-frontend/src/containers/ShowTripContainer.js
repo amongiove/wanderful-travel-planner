@@ -45,13 +45,13 @@ const ShowTripContainer = ({showTrip, editTrip, deleteTrip}) => {
     const [trip, setTrip] = useState(0);
     
     //TODO: set timeout to help unmounted component error
-        useEffect(() => {
-          async function fetchData() {
-            const response = await showTrip(tripId)
-            setTrip(response)
-          }
-          fetchData();
-        }, [showTrip, tripId]);
+    useEffect(() => {
+        async function fetchData() {
+        const response = await showTrip(tripId)
+        setTrip(response)
+        }
+        fetchData();
+    }, [showTrip, tripId]);
 
    
     if (trip) {

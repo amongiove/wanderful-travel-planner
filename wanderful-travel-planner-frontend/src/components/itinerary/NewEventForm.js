@@ -24,13 +24,14 @@ const NewEventForm = ({onSubmit}) => {
   const [notes, setNotes] = useState('');
 
   const newEvent = () => {return {event_name: event_name, location: location, event_date_time: event_date_time, notes: notes}};
-  const history = useHistory();
+  // const history = useHistory();
 
   const handleSubmitNewEvent = async (event, newEvent) => {
     event.preventDefault();
     const result = await onSubmit(newEvent);
     if (result && !result.error) {
-      return history.push(`/trips/${result.trip.id}/itinerary`)
+      console.log(result)
+      // return history.push(`/trips/${result.trip.id}/itinerary`)
     //   TODO: make this a link when nav to tab
     }
   }
