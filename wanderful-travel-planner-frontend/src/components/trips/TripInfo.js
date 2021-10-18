@@ -21,6 +21,7 @@ const Styles = styled.div`
     .edit {
         text-align: end;
     }
+
 `;
 
 const TripInfo = ({trip, onEditSubmit, onDelete}) => {
@@ -38,11 +39,10 @@ const TripInfo = ({trip, onEditSubmit, onDelete}) => {
 
     return (
         <Styles>
-            <Container>
+            <Container class="info-container">
                 <Tabs
                     defaultActiveKey="tripInfo"
                     transition={false}
-                    id="noanim-tab-example"
                     className="mb-3"
                 >
                     <Tab eventKey="tripInfo" title="Trip Info">

@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import { GrAdd } from 'react-icons/gr';
 
 const NewEventForm = ({onSubmit}) => {
 
@@ -39,7 +40,7 @@ const NewEventForm = ({onSubmit}) => {
   return (
     <>
       <Button variant="outline-secondary" onClick={handleShow}>
-        + New Event
+        <GrAdd/> Add Event
       </Button>
 
       <Modal show={show} onHide={handleClose} animation={false}>
