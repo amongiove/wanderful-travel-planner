@@ -2,7 +2,6 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import Moment from 'react-moment';
 import styled from 'styled-components';
-import Container from 'react-bootstrap/Container';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import Card from 'react-bootstrap/Card';
@@ -22,6 +21,11 @@ const Styles = styled.div`
         text-align: end;
     }
 
+    .tab-container {
+        margin: 20px;
+        padding: 10px;
+    }
+
 `;
 
 const TripInfo = ({trip, onEditSubmit, onDelete}) => {
@@ -39,7 +43,7 @@ const TripInfo = ({trip, onEditSubmit, onDelete}) => {
 
     return (
         <Styles>
-            <Container class="info-container">
+            <div className="tab-container">    
                 <Tabs
                     defaultActiveKey="tripInfo"
                     transition={false}
@@ -71,7 +75,7 @@ const TripInfo = ({trip, onEditSubmit, onDelete}) => {
                         Accomodations component
                     </Tab>
                 </Tabs>
-            </Container>
+            </div>    
         </Styles>    
     )
 }

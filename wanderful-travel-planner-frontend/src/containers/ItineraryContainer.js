@@ -5,6 +5,19 @@ import DayCard from '../components/itinerary/DayCard.js';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import NewEventForm from '../components/itinerary/NewEventForm.js';
+import styled from 'styled-components';
+
+const Styles = styled.div`
+    .itinerary-container {
+        margin: 20px;
+        padding: 10px;
+    }
+
+    .new-event {
+        text-align: right;
+    }
+
+`;
 
 const ItineraryContainer = ({trip, createNewEvent}) => {
     
@@ -22,23 +35,25 @@ const ItineraryContainer = ({trip, createNewEvent}) => {
 
 
     return ( 
-        <div >
-            <Row> 
-                <Col md={{span:9, offset: 1}}>
-                    <h2>Trip Itinerary</h2>
-                </Col>
-                <Col>
-                    <NewEventForm onSubmit={createNewEvent} />
-                </Col>
-            </Row>
-            
-            <Col md={{ span: 10, offset: 1 }}>
-                <Row xs={1} className="g-4">
-                    {dayCards}
+        <Styles>
+            <div className="itinerary-container">
+                <Row> 
+                    <Col>
+                        <h2>Trip Itinerary</h2>
+                    </Col>
+                    <Col className="new-event">
+                        <NewEventForm  onSubmit={createNewEvent} />
+                    </Col>
                 </Row>
-            </Col>
-        </div>
-);
+                
+                <Col>
+                    <Row xs={1} className="g-4">
+                        {dayCards}
+                    </Row>
+                </Col>
+            </div>
+        </Styles>
+    );
 };
 
 export default ItineraryContainer;

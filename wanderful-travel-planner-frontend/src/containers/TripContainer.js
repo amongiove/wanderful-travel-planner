@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import SideBar from "../components/SideBar.js";
 import TripInfo from '../components/trips/TripInfo.js';
 import ItineraryContainer from './ItineraryContainer.js';
+import Container from 'react-bootstrap/Container';
 
 const TripContainer = ({getTrip}) => {
     const {tripId} = useParams();
@@ -23,7 +24,7 @@ const TripContainer = ({getTrip}) => {
         <div>
             <div style={{display: "flex"}}>
                 <SideBar />
-                <div>
+                <Container>
                     {trip ?  
                         <Switch>
                             <Route exact path={`/trips/:tripId`} render={() => (
@@ -40,7 +41,7 @@ const TripContainer = ({getTrip}) => {
                             /> */}
                         </Switch> 
                     : "Loading..."}
-                </div>
+                </Container>
             </div>
         </div>
     );
