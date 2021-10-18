@@ -10,7 +10,7 @@ import Missing from './components/Missing.js';
 import { setLoggedIn } from './actions/auth.js';
 import NavigationBar from './components/NavigationBar.js';
 import ProtectedRoute from './ProtectedRoute.js';
-import ShowTripContainer from './containers/ShowTripContainer.js';
+import TripContainer from './containers/TripContainer.js';
 import ItineraryContainer from './containers/ItineraryContainer.js';
 
 class App extends React.Component {
@@ -32,8 +32,7 @@ class App extends React.Component {
             <Route exact path="/" component={Welcome} />
 
             <ProtectedRoute exact path="/trips" component={TripsContainer} />
-            <ProtectedRoute exact path="/trips/:tripId" component={ShowTripContainer} />
-            <ProtectedRoute exact path="/trips/:tripId/itinerary" component={ItineraryContainer} />
+            <ProtectedRoute path="/trips/:tripId" component={TripContainer} />
              
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
