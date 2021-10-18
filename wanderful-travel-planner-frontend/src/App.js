@@ -11,7 +11,6 @@ import { setLoggedIn } from './actions/auth.js';
 import NavigationBar from './components/NavigationBar.js';
 import ProtectedRoute from './ProtectedRoute.js';
 import TripContainer from './containers/TripContainer.js';
-import ItineraryContainer from './containers/ItineraryContainer.js';
 
 class App extends React.Component {
   
