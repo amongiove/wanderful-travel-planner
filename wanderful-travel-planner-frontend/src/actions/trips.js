@@ -27,9 +27,9 @@ export const getTrips = () => {
     }
 }
 
-export const showTrip = (tripId) => {
+export const getTrip = (tripId) => {
     return (dispatch) => {
-        dispatch({ type: 'SHOW_TRIP' });
+        dispatch({ type: 'GET_TRIP' });
         return fetch(`http://localhost:3000/api/v1/trips/${tripId}`, {
             credentials: "include",
             method: "GET",
