@@ -18,6 +18,7 @@ const EventShow = ({event}) => {
 
 
         <Modal show={show} onHide={handleClose}>
+        {/* TODO: fix close button styling - may need to downgrade to bootstrap 4 */}
         <Modal.Header closeButton>
             <Modal.Title>{event.event_name}</Modal.Title>
         </Modal.Header>
@@ -28,14 +29,10 @@ const EventShow = ({event}) => {
                 <GrLocation/> {event.location}
                 <br/>
                 <br/>
-                {/* todo: edit no notes wording?*/}
                 <GrNotes /> {event.notes ? `${event.notes}` : "No notes to share." } 
 
         </Modal.Body>
         <Modal.Footer>
-            {/* <Button variant="secondary" onClick={handleClose}>
-            Close
-            </Button> */}
             <Button variant="outline-secondary" onClick={handleClose}>
                 <GrEdit />
             </Button>
