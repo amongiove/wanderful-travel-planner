@@ -11,7 +11,6 @@ const EventShow = ({event}) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-
     return (
     <>
         <GrMore onClick={handleShow} />

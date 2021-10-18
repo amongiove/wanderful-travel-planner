@@ -11,6 +11,7 @@ import { setLoggedIn } from './actions/auth.js';
 import NavigationBar from './components/NavigationBar.js';
 import ProtectedRoute from './ProtectedRoute.js';
 import ShowTripContainer from './containers/ShowTripContainer.js';
+import ItineraryContainer from './containers/ItineraryContainer.js';
 
 class App extends React.Component {
   
@@ -31,7 +32,8 @@ class App extends React.Component {
             <Route exact path="/" component={Welcome} />
 
             <ProtectedRoute exact path="/trips" component={TripsContainer} />
-            <ProtectedRoute path="/trips/:tripId" component={ShowTripContainer} />
+            <ProtectedRoute exact path="/trips/:tripId" component={ShowTripContainer} />
+            <ProtectedRoute exact path="/trips/:tripId/itinerary" component={ItineraryContainer} />
              
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
