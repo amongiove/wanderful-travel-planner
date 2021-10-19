@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom';
+import DatePicker from 'react-datepicker';
+
 import moment from 'moment';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
@@ -8,7 +10,9 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { GrAdd } from 'react-icons/gr';
 
-const NewEventForm = ({onSubmit}) => {
+import "react-datepicker/dist/react-datepicker.css";
+
+const NewEventForm = ({currentTrip, onSubmit}) => {
 
   const reload=()=>window.location.reload();
   const [show, setShow] = useState(false);
@@ -21,7 +25,7 @@ const NewEventForm = ({onSubmit}) => {
 
   const [event_name, setName] = useState('');
   const [location, setLocation] = useState('');
-  const [event_date_time, setDateTime] = useState('');
+  const [event_date_time, setDateTime] = useState(new Date());
   const [notes, setNotes] = useState('');
 
   const newEvent = () => {return {event_name: event_name, location: location, event_date_time: event_date_time, notes: notes}};
@@ -83,17 +87,20 @@ const NewEventForm = ({onSubmit}) => {
               <Form.Label column sm="2">
                 Date and Time
               </Form.Label>
-              <Col sm="10">
-                <Form.Control 
-                  as="date" 
-                  name="event_date_time" 
-                  placeholder="Date and Time"
-                  value={event_date_time}
-                  min={moment().format("YYYY-MM-DD hh:mm")}
-                  onChange={event => setDateTime(event.target.value)} 
-                  required
+              <Col >
+                <DatePicker
+                  onChange={ event => setDateTime(event) }
+                  selected={event_date_time}
+                  showTimeSelect
+                  timeFormat="hh:mm aa"
+                  timeCaption="Time"
+                  dateFormat="Pp"
+                  minDate={new Date(`${currentTrip.attributes.start_date}`)}
+                  maxDate={new Date(`${currentTrip.attributes.end_date}`)}
                 />
               </Col>
+            </Form.Group>
+            <Form.Group as={Row} className="mb-3" controlId="notes">
               <Form.Label column sm="2">
                 Notes
               </Form.Label>

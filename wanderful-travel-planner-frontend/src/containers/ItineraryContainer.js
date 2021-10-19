@@ -42,7 +42,7 @@ const ItineraryContainer = ({trip, createNewEvent}) => {
                         <h2>Trip Itinerary</h2>
                     </Col>
                     <Col className="new-event">
-                        <NewEventForm  onSubmit={createNewEvent} />
+                        <NewEventForm  currentTrip={trip} onSubmit={createNewEvent} />
                     </Col>
                 </Row>
                 
