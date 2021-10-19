@@ -50,7 +50,6 @@ export const login = (formData, history) => {
 
 export const signup = (formData, history) => {
     return dispatch => {
-        //fetch to backend
         return fetch("http://localhost:3000/api/v1/signup", {
             credentials: "include",
             method: "POST",

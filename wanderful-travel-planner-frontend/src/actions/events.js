@@ -1,4 +1,4 @@
-export const createNewEvent = (event) => {
+export const createNewEvent = (newEvent) => {
     return (dispatch) => {
             return fetch('http://localhost:3000/api/v1/events', {
             method: "POST",
@@ -6,14 +6,13 @@ export const createNewEvent = (event) => {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${localStorage.token}`
             },
-            body: JSON.stringify(event)
+            body: JSON.stringify(newEvent)
             })
-        .then(resp => (resp.json()))
         .then(response => {
             if (response.error) {
                 alert(response.error)
             } else {
-                return dispatch({ type: 'CREATE_Event', event: response.data });
+                return dispatch({ type: 'CREATE_EVENT', event: response.data });
             }
         })
         .catch(error => {

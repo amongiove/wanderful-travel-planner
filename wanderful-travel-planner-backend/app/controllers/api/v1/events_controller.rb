@@ -25,15 +25,12 @@ class Api::V1::EventsController < ApplicationController
     # end
 
     def create
-        puts "create event"
-        puts params
-        # event = Event.new(event_params)
-        # if trip.save
-        #     UserTrip.create(user_id: current_user.id, trip_id: trip.id)
-        #     render json: TripSerializer.new(trip), status: :created
-        # else
-        #     render json: { error: trip.errors.full_messages[0] }, status: :not_acceptable
-        # end
+        event = Event.new(event_params)
+        if event.save
+            render json: EventSerializer.new(event), status: :created
+        else
+            render json: { error: event.errors.full_messages[0] }, status: :not_acceptable
+        end
     end
 
     # def update
@@ -67,7 +64,7 @@ class Api::V1::EventsController < ApplicationController
     # end
 
     def event_params
-      params.require(:event).permit(:event_name, :location, :event_date_time, :notes, :trip)
+      params.require(:event).permit(:event_name, :location, :event_date_time, :notes, :trip_id)
     end
 
 end

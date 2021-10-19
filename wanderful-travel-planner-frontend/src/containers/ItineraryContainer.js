@@ -6,6 +6,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import NewEventForm from '../components/itinerary/NewEventForm.js';
 import styled from 'styled-components';
+import { createNewEvent } from '../actions/events.js';
+import { connect } from 'react-redux';
 
 const Styles = styled.div`
     .itinerary-container {
@@ -56,4 +58,11 @@ const ItineraryContainer = ({trip, createNewEvent}) => {
     );
 };
 
-export default ItineraryContainer;
+const mapDispatchToProps = dispatch => {
+    return {
+        createNewEvent: newEvent => dispatch(createNewEvent(newEvent))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(ItineraryContainer); 
+

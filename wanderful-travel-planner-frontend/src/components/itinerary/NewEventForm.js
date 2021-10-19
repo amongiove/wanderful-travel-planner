@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
-import { useHistory } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
-
-import moment from 'moment';
+import "react-datepicker/dist/react-datepicker.css";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -10,7 +8,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { GrAdd } from 'react-icons/gr';
 
-import "react-datepicker/dist/react-datepicker.css";
+
 
 const NewEventForm = ({currentTrip, onSubmit}) => {
 
@@ -27,17 +25,13 @@ const NewEventForm = ({currentTrip, onSubmit}) => {
   const [location, setLocation] = useState('');
   const [event_date_time, setDateTime] = useState(new Date());
   const [notes, setNotes] = useState('');
-
-  const newEvent = () => {return {event_name: event_name, location: location, event_date_time: event_date_time, notes: notes}};
-  // const history = useHistory();
+  const newEvent = () => {return {event_name: event_name, location: location, event_date_time: event_date_time, notes: notes, trip_id: currentTrip.id}};
 
   const handleSubmitNewEvent = async (event, newEvent) => {
     event.preventDefault();
     const result = await onSubmit(newEvent);
     if (result && !result.error) {
-      console.log(result)
-      // return history.push(`/trips/${result.trip.id}/itinerary`)
-    //   TODO: make this a link when nav to tab
+      handleClose();
     }
   }
 
@@ -59,7 +53,7 @@ const NewEventForm = ({currentTrip, onSubmit}) => {
               </Form.Label>
               <Col sm="10">
                 <Form.Control 
-                  name="name" 
+                  name="event_name" 
                   placeholder="Name"
                   value={event_name}
                   onChange={event => setName(event.target.value)}
@@ -84,11 +78,12 @@ const NewEventForm = ({currentTrip, onSubmit}) => {
             </Form.Group>
 
             <Form.Group as={Row} className="mb-3" controlId="dates">
-              <Form.Label column sm="2">
+              <Form.Label column sm="4">
                 Date and Time
               </Form.Label>
               <Col >
                 <DatePicker
+                  name="event_date_time"
                   onChange={ event => setDateTime(event) }
                   selected={event_date_time}
                   showTimeSelect
