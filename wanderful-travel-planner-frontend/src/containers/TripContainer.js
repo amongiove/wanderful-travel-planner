@@ -6,6 +6,7 @@ import SideBar from "../components/SideBar.js";
 import TripInfo from '../components/trips/TripInfo.js';
 import ItineraryContainer from './ItineraryContainer.js';
 import Container from 'react-bootstrap/Container';
+import EditEventForm from '../components/itinerary/EditEventForm.js';
 
 const TripContainer = ({getTrip}) => {
     const {tripId} = useParams();
@@ -34,10 +35,10 @@ const TripContainer = ({getTrip}) => {
                                 <ItineraryContainer trip={trip} />
                                 )}
                             />
-                            {/* <Route exact path={`/trips/:tripId/itinerary/:eventId`} render={() => (
+                            <Route exact path={`/trips/:tripId/itinerary/:eventId`} render={() => (
                                 <EditEventForm trip={trip} />
                                 )}
-                            /> */}
+                            />
                             {/* <Route exact path={`/groups/:tripId/packing-list`} render={() => (
                                 <PackingList />
                                 )}

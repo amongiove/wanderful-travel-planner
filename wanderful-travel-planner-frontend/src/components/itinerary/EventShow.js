@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
 import moment from 'moment';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
@@ -11,6 +12,8 @@ const EventShow = ({event, onDelete}) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     
+    const { tripId } = useParams();
+    const history = useHistory();
     const reload=()=>window.location.reload();
 
     const handleDelete = async (e) => {
@@ -20,7 +23,12 @@ const EventShow = ({event, onDelete}) => {
             handleClose();
             return reload();
         }
-    }   
+    } 
+    
+    const handleEdit = (e) => {
+        console.log('handle edit')
+        return history.push(`/trips/${tripId}/itinerary/${event.id}`);
+    }
 
     return (
         <>
@@ -43,7 +51,7 @@ const EventShow = ({event, onDelete}) => {
 
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="outline-secondary" onClick={handleClose}>
+                <Button onClick={(e) => handleEdit(e)} variant="outline-secondary" style={{marginLeft: "10px"}}>
                     <GrEdit />
                 </Button>
                 <Button onClick={(e) => (window.confirm('Are you sure you want to delete this event?'))?handleDelete(e) : null} variant="outline-secondary" style={{marginLeft: "10px"}}>
