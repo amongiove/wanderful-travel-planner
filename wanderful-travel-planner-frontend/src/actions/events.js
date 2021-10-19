@@ -46,7 +46,6 @@ export const createNewEvent = (newEvent) => {
 }
 
 export const deleteEvent = (eventId) => {
-    console.log("deleteEvent")
     return dispatch => {
       return fetch(`http://localhost:3000/api/v1/events/${eventId}`, {
         credentials: "include",
@@ -61,8 +60,7 @@ export const deleteEvent = (eventId) => {
             if (response.error) {
                 alert(response.error)
             } else {
-                console.log('deleted')
-            //    return dispatch({ type: 'DELETE_EVENT', eventId: eventId })  
+               return dispatch({ type: 'DELETE_EVENT', eventId: eventId })  
             }
         })
         .catch(console.log)
