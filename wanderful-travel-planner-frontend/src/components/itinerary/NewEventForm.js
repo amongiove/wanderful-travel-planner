@@ -92,6 +92,7 @@ const NewEventForm = ({currentTrip, onSubmit}) => {
                   dateFormat="Pp"
                   minDate={new Date(`${currentTrip.attributes.start_date}`)}
                   maxDate={new Date(`${currentTrip.attributes.end_date}`)}
+                  required
                 />
               </Col>
             </Form.Group>
