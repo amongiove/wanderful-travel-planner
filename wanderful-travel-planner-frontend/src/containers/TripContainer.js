@@ -34,6 +34,10 @@ const TripContainer = ({getTrip}) => {
                                 <ItineraryContainer trip={trip} />
                                 )}
                             />
+                            {/* <Route exact path={`/trips/:tripId/itinerary/:eventId`} render={() => (
+                                <EditEventForm trip={trip} />
+                                )}
+                            /> */}
                             {/* <Route exact path={`/groups/:tripId/packing-list`} render={() => (
                                 <PackingList />
                                 )}

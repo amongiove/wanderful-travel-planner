@@ -12,9 +12,8 @@ const DayCard = ({day, dayNum, trip}) => {
     const tripEvents = trip.attributes.events
     const dayEvents = tripEvents.filter(event => (moment(event.event_date_time).format('MM-DD-YYYY') === day))
     let orderedEvents =  dayEvents.sort((a, b) => a.event_date_time > b.event_date_time ? 1 : -1)
-    //  confirm this is working the way we want   
 
-    const events = orderedEvents.map (event => <Events event={event} key={event.id} id={event.id} />)
+    const events = orderedEvents.map (event => <Events event={event} key={event.id} id={event.id}/>)
     
     return (
         <Col>

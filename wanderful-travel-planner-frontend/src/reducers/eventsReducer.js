@@ -10,6 +10,14 @@ const eventsReducer = (state = initialState, action) => {
                 ...state,
                 events: [...state.events, action.event ]
             }
+        // case "DELETE_EVENT":
+        //     return {
+        //         events: [
+        //             ...state.events.slice(0, action.eventId),
+        //             ...state.events.slice(action.eventId + 1)
+        //         ],
+        //         event: null
+        //     }
         default: 
             return state
     }

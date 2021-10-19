@@ -1,5 +1,5 @@
 class Api::V1::EventsController < ApplicationController
-    before_action :set_event, only: [:show, :update, :destroy]
+    # before_action :set_event, only: [:show, :update, :destroy]
 
     def index
         if logged_in?
@@ -15,12 +15,12 @@ class Api::V1::EventsController < ApplicationController
     end
 
     # def show
-    #     trip = Trip.find(params[:id])
+    #     event = Event.find(params[:id])
 
-    #     if trip
-    #         render json: TripSerializer.new(trip), status: :ok
+    #     if event
+    #         render json: EventSerializer.new(event), status: :ok
     #     else
-    #         render json: { error: "Unable to locate trip" }, status: :not_found
+    #         render json: { error: "Unable to locate event" }, status: :not_found
     #     end
     # end
 
@@ -43,19 +43,16 @@ class Api::V1::EventsController < ApplicationController
     #     end
     # end
 
-    # def destroy
-    #     trip = Trip.find(params[:id])
-    #     userTrip = UserTrip.find_by(user: current_user, trip: trip)
+    def destroy
+        event = Event.find(params[:id])
 
-    #     if trip && userTrip
-    #         # TODO: will need to add deletions as build out association functionalities
-    #         userTrip.destroy
-    #         trip.destroy
-    #         render json:  { data: "Trip successfully destroyed" }, status: :ok
-    #     else
-    #         render json: { error: "Trip not found and not destroyed" }, status: :unprocessable_entity
-    #     end
-    # end
+        if event
+            event.destroy
+            render json:  { data: "Event successfully destroyed" }, status: :ok
+        else
+            render json: { error: "Event not found and not destroyed" }, status: :unprocessable_entity
+        end
+    end
 
     private
 

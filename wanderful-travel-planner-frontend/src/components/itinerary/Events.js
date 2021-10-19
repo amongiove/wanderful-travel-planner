@@ -4,9 +4,11 @@ import Col from 'react-bootstrap/Col';
 import moment from 'moment';
 import ListGroup from 'react-bootstrap/ListGroup';
 import EventShow from './EventShow.js';
+import { deleteEvent } from '../../actions/events.js';
+import { connect } from 'react-redux';
 
 
-const Events = ({event}) => {
+const Events = ({event, deleteEvent}) => {
 
     return (
         <ListGroup.Item> 
@@ -19,7 +21,7 @@ const Events = ({event}) => {
                     {event.event_name} 
                 </Col>
                 <Col>
-                    <EventShow event={event} />
+                    <EventShow event={event} onDelete={deleteEvent} />
                 </Col>
             </Row>
         </ListGroup.Item>      
@@ -27,5 +29,11 @@ const Events = ({event}) => {
 
 }
 
-export default Events;
+const mapDispatchToProps = dispatch => {
+    return {
+        deleteEvent: eventId => dispatch(deleteEvent(eventId))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Events);
 
