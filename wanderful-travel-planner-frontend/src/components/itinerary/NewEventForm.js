@@ -23,7 +23,7 @@ const NewEventForm = ({currentTrip, onSubmit}) => {
 
   const [event_name, setName] = useState('');
   const [location, setLocation] = useState('');
-  const [event_date_time, setDateTime] = useState(new Date());
+  const [event_date_time, setDateTime] = useState(new Date(currentTrip.attributes.start_date));
   const [notes, setNotes] = useState('');
   const newEvent = () => {return {event_name: event_name, location: location, event_date_time: event_date_time, notes: notes, trip_id: currentTrip.id}};
 
