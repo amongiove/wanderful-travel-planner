@@ -6,7 +6,6 @@ export const setEvents = events => {
 }
 
 export const getEvents = () => {
-    console.log('get events action')
     return dispatch => {
         return fetch("http://localhost:3000/api/v1/events", {
         credentials: "include",
@@ -22,7 +21,6 @@ export const getEvents = () => {
                 alert(response.error)
             } else {
                 dispatch(setEvents(response.data))
-                console.log("through action")
             }
         })
         .catch(console.log)
@@ -75,7 +73,6 @@ export const createNewEvent = (newEvent) => {
 }
 
 export const editEvent = (updatedEvent) => {
-    console.log('edit event action start');
     return (dispatch) => {
         return fetch(`http://localhost:3000/api/v1/events/${updatedEvent.id}`, {
             method: "PATCH",
@@ -87,16 +84,13 @@ export const editEvent = (updatedEvent) => {
         })
         .then(resp => (resp.json()))
         .then(response => {
-                console.log('reading response', response);
-                if (response.error) {
-                    alert(response.error)
-                } else {
-                    console.log(response.data)
-                    return dispatch({ type: 'EDIT_EVENT', event: response.data });
-                }
+            if (response.error) {
+                alert(response.error)
+            } else {
+                return dispatch({ type: 'EDIT_EVENT', event: response.data });
+            }
         })
         .catch(error => {
-            console.log('edit event action error');
             return {error: error.message}
         })
     }
