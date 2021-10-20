@@ -50,7 +50,7 @@ const EditEventForm = ({trip, getEvent, onEdit}) => {
         e.preventDefault();
         const result = await onEdit(updatedEvent);
         if (result && !result.error) {
-            window.location.reload(); //why is this happening?? first 
+            // window.location.reload(); //why is this happening?? first 
             return history.push(`/trips/${tripId}/itinerary`);
             // TODO: reload itinerary page after redirect for updated events 
         }
