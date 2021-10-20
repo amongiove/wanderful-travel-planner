@@ -43,15 +43,17 @@ const EditEventForm = ({trip, getEvent, onEdit}) => {
     }, [getEvent, eventId]);
 
 
-    const updatedEvent = () => {return {event_name: event_name, location: location, event_date_time: event_date_time, notes: notes, trip_id: trip.id}};
+    const updatedEvent = () => {return {id: eventId, event_name: event_name, location: location, event_date_time: event_date_time, notes: notes, trip_id: tripId}};
 
-    const handleEdit = async (e) => {
+    const handleEdit = async (e, updatedEvent) => {
         console.log('handle edit')
-        // e.preventDefault();
-        // const result = await onEdit(eventId);
-        // if (result && !result.error) {
-        //     console.log(result)
-        // }
+        console.log(updatedEvent)
+        e.preventDefault();
+        const result = await onEdit(updatedEvent);
+        if (result && !result.error) {
+            console.log('form result', result)
+            // return window.location.reload();
+        }
     } 
 
     return (

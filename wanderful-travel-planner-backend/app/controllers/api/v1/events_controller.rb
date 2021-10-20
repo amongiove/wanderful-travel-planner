@@ -38,13 +38,13 @@ class Api::V1::EventsController < ApplicationController
     def update
         puts ("update method")
         puts params
-        # event = Event.find(params[:id])
+        event = Event.find(params[:id])
 
-        # if event.update(event_params)
-        #   render json: EventSerializer.new(event), status: :ok
-        # else
-        #   render json: { error: event.errors.full_messages[0] }, status: :not_acceptable
-        # end
+        if event.update(event_params)
+          render json: EventSerializer.new(event), status: :ok
+        else
+          render json: { error: event.errors.full_messages[0] }, status: :not_acceptable
+        end
     end
 
     def destroy

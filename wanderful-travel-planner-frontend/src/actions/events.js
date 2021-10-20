@@ -51,7 +51,7 @@ export const editEvent = (updatedEvent) => {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${localStorage.token}`
             },
-            // body: JSON.stringify(updatedTrip)
+            body: JSON.stringify(updatedEvent)
         })
         .then(resp => (resp.json()))
         .then(response => {

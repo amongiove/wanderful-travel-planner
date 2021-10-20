@@ -10,7 +10,7 @@ const eventsReducer = (state = initialState, action) => {
                 ...state,
                 events: [...state.events, action.event ]
             }
-        case 'EDIT_EENT':
+        case 'EDIT_EVENT':
             return {
                 events: [state.events.map(event => event.id === action.event.id ? action.event : event)],
                 event: action.eventId
