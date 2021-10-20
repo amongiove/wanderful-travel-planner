@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Moment from 'moment';
 import { extendMoment } from 'moment-range';
 import DayCard from '../components/itinerary/DayCard.js';
-import { getEvents, setEvents } from '../actions/events.js';
+import { getEvents } from '../actions/events.js';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import NewEventForm from '../components/itinerary/NewEventForm.js';

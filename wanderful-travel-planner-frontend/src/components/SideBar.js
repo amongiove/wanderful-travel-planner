@@ -76,7 +76,7 @@ const SideBar = ({defaultActive}) => {
                 {
                     BarItems.map((item, index)=> {
                         return (
-                            <Link to={`/trips/${tripId}${item.route}`}>
+                            <Link to={`/trips/${tripId}${item.route}`} key={item.name}>
                                 <SidebarItem key={item.name} active={index === activeIndex}>
                                     <p>{item.name}</p>
                                 </SidebarItem>

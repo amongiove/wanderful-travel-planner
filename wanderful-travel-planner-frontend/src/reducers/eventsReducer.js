@@ -1,5 +1,5 @@
 const initialState = {
-    events: [],
+    events: []
 }
 
 const eventsReducer = (state = initialState, action) => {
