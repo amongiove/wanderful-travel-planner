@@ -56,7 +56,8 @@ const mapDispatchToProps = dispatch => {
     return {
         getTrip: tripId => dispatch(getTrip(tripId)),
         editTrip: trip => dispatch(editTrip(trip)),
-        deleteTrip: tripId => dispatch(deleteTrip(tripId))
+        deleteTrip: tripId => dispatch(deleteTrip(tripId)),
+        // getEvents: () => dispatch(getEvents())
     }
 }
 

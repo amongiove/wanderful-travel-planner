@@ -2,8 +2,8 @@ class Api::V1::EventsController < ApplicationController
 
     def index
         if logged_in?
-            trip = Trip.find(params[:id])
-            events = trip.events
+            
+            events = Event.all
       
             render json: EventSerializer.new(events)
         else

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Moment from 'moment';
 import { extendMoment } from 'moment-range';
 import DayCard from '../components/itinerary/DayCard.js';
+import { getEvents, setEvents } from '../actions/events.js';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import NewEventForm from '../components/itinerary/NewEventForm.js';
@@ -21,8 +22,8 @@ const Styles = styled.div`
 
 `;
 
-const ItineraryContainer = ({trip, createNewEvent}) => {
-    
+const ItineraryContainer = ({events, trip, getEvents, createNewEvent}) => {
+
     const start_date = trip.attributes.start_date
     const end_date = trip.attributes.end_date
     const moment = extendMoment(Moment);
@@ -32,8 +33,17 @@ const ItineraryContainer = ({trip, createNewEvent}) => {
         month.format('YYYY-MM-DD');
     }
 
+    useEffect(() => {
+        async function fetchData() {
+            await getEvents();
+        }
+        fetchData();
+    }, [getEvents]);
+
+    const tripEvents = events.filter(event => trip.id === event.relationships.trip.data.id )
+    
     const daysArray = Array.from(range.by('day'));      
-    const dayCards = daysArray.map(day => <DayCard trip={trip} dayNum={daysArray.indexOf(day) +1 } day={day.format('MM-DD-YYYY')} key={day} id={day} />) 
+    const dayCards = daysArray.map(day => <DayCard tripEvents={tripEvents} trip={trip} dayNum={daysArray.indexOf(day) +1 } day={day.format('MM-DD-YYYY')} key={day} id={day} />) 
 
 
     return ( 
@@ -58,11 +68,19 @@ const ItineraryContainer = ({trip, createNewEvent}) => {
     );
 };
 
+const mapStateToProps = state => {
+    return {
+        events: state.events.events,
+        trip: state.trips.trip
+    }
+}
+
 const mapDispatchToProps = dispatch => {
     return {
+        getEvents: (tripId) => dispatch(getEvents(tripId)),
         createNewEvent: newEvent => dispatch(createNewEvent(newEvent))
     }
 }
 
-export default connect(null, mapDispatchToProps)(ItineraryContainer); 
+export default connect(mapStateToProps, mapDispatchToProps)(ItineraryContainer); 
 
