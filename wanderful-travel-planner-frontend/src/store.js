@@ -4,6 +4,7 @@ import loginFormReducer from './reducers/loginFormReducer';
 import signupFormReducer from './reducers/signupFormReducer';
 import tripsReducer from './reducers/tripsReducer';
 import eventsReducer from './reducers/eventsReducer';
+import packingListItemsReducer from './reducers/packingListItemsReducer';
 import thunk from 'redux-thunk';
 
 const rootReducer = combineReducers({
@@ -11,7 +12,8 @@ const rootReducer = combineReducers({
     loginForm: loginFormReducer,
     trips: tripsReducer,
     signupForm: signupFormReducer,
-    events: eventsReducer
+    events: eventsReducer,
+    packingListItems: packingListItemsReducer
   })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
