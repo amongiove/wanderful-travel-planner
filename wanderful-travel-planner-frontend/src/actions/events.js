@@ -1,24 +1,30 @@
-// export const getEvent = (eventId) => {
-//     return (dispatch) => {
-//         dispatch({ type: 'GET_EVENT' });
-//         return fetch(`http://localhost:3000/api/v1/events/${eventId}`, {
-//             method: "GET",
-//             headers: {
-//                 "Content-Type": "application/json",
-//                 "Authorization": `Bearer ${localStorage.token}`
-//             },
-//         })
-//         .then(resp => (resp.json()))
-//         .then(response => {
-//             if (response.error) {
-//                 alert(response.error)
-//             } else {
-//                 //TODO: may not need set trip in state here (or at all)
-//                 // dispatch(setEvent(response.data))
-//                 return (response.data)
-//             }
-//         })
-//         .catch(console.log)
+export const getEvent = (eventId) => {
+    return (dispatch) => {
+        return fetch(`http://localhost:3000/api/v1/events/${eventId}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.token}`
+            },
+        })
+        // .then(resp => (resp.json()))
+        .then(response => {
+            if (response.error) {
+                alert(response.error)
+            } else {
+                console.log("action response", response.data)
+                // dispatch(setEvent(response.data))
+                return (response.data)
+            }
+        })
+        .catch(console.log)
+    }
+}
+
+// export const setEvent = event => {
+//     return {
+//         type: "SET_EVENT",
+//         event
 //     }
 // }
 
@@ -38,6 +44,30 @@ export const createNewEvent = (newEvent) => {
             } else {
                 return dispatch({ type: 'CREATE_EVENT', event: response.data });
             }
+        })
+        .catch(error => {
+            return {error: error.message}
+        })
+    }
+}
+
+export const editEvent = (updatedEvent) => {
+    return (dispatch) => {
+        return fetch(`http://localhost:3000/api/v1/events/${updatedEvent.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.token}`
+            },
+            // body: JSON.stringify(updatedTrip)
+        })
+        .then(resp => (resp.json()))
+        .then(response => {
+                if (response.error) {
+                    alert(response.error)
+                } else {
+                    return dispatch({ type: 'EDIT_EVENT', event: response.data });
+                }
         })
         .catch(error => {
             return {error: error.message}

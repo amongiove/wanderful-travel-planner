@@ -14,15 +14,17 @@ class Api::V1::EventsController < ApplicationController
         end
     end
 
-    # def show
-    #     event = Event.find(params[:id])
+    def show
+        puts("inside show")
+        event = Event.find(params[:id])
 
-    #     if event
-    #         render json: EventSerializer.new(event), status: :ok
-    #     else
-    #         render json: { error: "Unable to locate event" }, status: :not_found
-    #     end
-    # end
+        if event
+            puts ("got event")
+            render json: EventSerializer.new(event), status: :ok
+        else
+            render json: { error: "Unable to locate event" }, status: :not_found
+        end
+    end
 
     def create
         event = Event.new(event_params)
@@ -33,15 +35,17 @@ class Api::V1::EventsController < ApplicationController
         end
     end
 
-    # def update
-    #     trip = Trip.find(params[:id])
+    def update
+        puts ("update method")
+        puts params
+        # event = Event.find(params[:id])
 
-    #     if trip.update(trip_params)
-    #       render json: TripSerializer.new(trip), status: :ok
-    #     else
-    #       render json: { error: trip.errors.full_messages[0] }, status: :not_acceptable
-    #     end
-    # end
+        # if event.update(event_params)
+        #   render json: EventSerializer.new(event), status: :ok
+        # else
+        #   render json: { error: event.errors.full_messages[0] }, status: :not_acceptable
+        # end
+    end
 
     def destroy
         event = Event.find(params[:id])

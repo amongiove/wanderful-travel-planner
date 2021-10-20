@@ -5,10 +5,20 @@ const initialState = {
 
 const eventsReducer = (state = initialState, action) => {
     switch (action.type){
+        // case "SET_EVENT":
+        //     return {
+        //         ...state, 
+        //         event: action.event
+        //     }
         case 'CREATE_EVENT':
             return {
                 ...state,
                 events: [...state.events, action.event ]
+            }
+        case 'EDIT_EENT':
+            return {
+                events: [state.events.map(event => event.id === action.event.id ? action.event : event)],
+                event: action.eventId
             }
         case "DELETE_EVENT":
             return {
