@@ -20,13 +20,6 @@ export const getEvent = (eventId) => {
     }
 }
 
-// export const setEvent = event => {
-//     return {
-//         type: "SET_EVENT",
-//         event
-//     }
-// }
-
 export const createNewEvent = (newEvent) => {
     return (dispatch) => {
             return fetch('http://localhost:3000/api/v1/events', {

@@ -5,11 +5,6 @@ const initialState = {
 
 const eventsReducer = (state = initialState, action) => {
     switch (action.type){
-        // case "SET_EVENT":
-        //     return {
-        //         ...state, 
-        //         event: action.event
-        //     }
         case 'CREATE_EVENT':
             return {
                 ...state,
