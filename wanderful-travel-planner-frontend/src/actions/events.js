@@ -1,5 +1,7 @@
 export const getEvent = (eventId) => {
+    console.log('get event action', eventId)
     return (dispatch) => {
+        dispatch({ type: 'GET_EVENT' });
         return fetch(`http://localhost:3000/api/v1/events/${eventId}`, {
             method: "GET",
             headers: {
@@ -7,7 +9,7 @@ export const getEvent = (eventId) => {
                 "Authorization": `Bearer ${localStorage.token}`
             },
         })
-        // .then(resp => (resp.json()))
+        .then(resp => (resp.json()))
         .then(response => {
             if (response.error) {
                 alert(response.error)
