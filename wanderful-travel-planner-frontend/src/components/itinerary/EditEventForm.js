@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getEvent, editEvent } from '../../actions/events.js';
 import Button from 'react-bootstrap/Button';
@@ -23,7 +23,8 @@ const Styles = styled.div`
 `;
 
 const EditEventForm = ({trip, getEvent, onEdit}) => {
-   
+    
+    const history = useHistory();
     const {tripId, eventId} = useParams()
     const [event_name, setName] = useState('');
     const [location, setLocation] = useState('');
@@ -46,13 +47,10 @@ const EditEventForm = ({trip, getEvent, onEdit}) => {
     const updatedEvent = () => {return {id: eventId, event_name: event_name, location: location, event_date_time: event_date_time, notes: notes, trip_id: tripId}};
 
     const handleEdit = async (e, updatedEvent) => {
-        console.log('handle edit')
-        console.log(updatedEvent)
         e.preventDefault();
         const result = await onEdit(updatedEvent);
         if (result && !result.error) {
-            console.log('form result', result)
-            // return window.location.reload();
+            return history.push(`/trips/${tripId}/itinerary`)
         }
     } 
 
