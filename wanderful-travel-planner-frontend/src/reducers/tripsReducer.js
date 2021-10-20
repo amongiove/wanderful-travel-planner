@@ -33,6 +33,16 @@ const tripsReducer = (state = initialState, action) => {
                 ],
                 trip: null
             }
+        case 'EDIT_EVENT':
+            console.log('edit event reducer', state.trip.attributes.events)
+            console.log('event', action.event.id)
+
+            const events = state.trip.attributes.events 
+            return {
+                ...state,
+                trips: [events.map(event => event.id === action.event.id ? action.event : event)],
+                // event: action.eventId
+            }
         default: 
             return state
     }

@@ -1,6 +1,7 @@
 class Api::V1::PackingListItemsController < ApplicationController
     def index
         if logged_in?
+            puts('index method')
             trip = Trip.find(params[:id])
             packing_list_items = trip.packing_list_items
       
@@ -15,6 +16,6 @@ class Api::V1::PackingListItemsController < ApplicationController
     private
 
     def packing_list_item_params
-      params.require(:packing_list_item).permit(:item :trip_id)
+      params.require(:packing_list_item).permit(:item, :trip_id)
     end
 end

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getEvent, editEvent } from '../../actions/events.js';
+import { getTrip, setTrip } from '../../actions/trips.js';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
@@ -22,7 +23,7 @@ const Styles = styled.div`
 
 `;
 
-const EditEventForm = ({trip, getEvent, onEdit}) => {
+const EditEventForm = ({trip, getEvent, onEdit, getTrip, setTrip}) => {
     
     const history = useHistory();
     const {tripId, eventId} = useParams()
@@ -47,14 +48,28 @@ const EditEventForm = ({trip, getEvent, onEdit}) => {
     const updatedEvent = () => {return {id: eventId, event_name: event_name, location: location, event_date_time: event_date_time, notes: notes, trip_id: tripId}};
 
     const handleEdit = async (e, updatedEvent) => {
+        console.log('handle edit start');
         e.preventDefault();
         const result = await onEdit(updatedEvent);
         if (result && !result.error) {
-            // window.location.reload(); //why is this happening?? first 
+            console.log('handle edit', result);
+            console.log('trip id', tripId);
+            // handleUpdateSuccess() 
             return history.push(`/trips/${tripId}/itinerary`);
-            // TODO: reload itinerary page after redirect for updated events 
+
+        } else {
+            console.log('error', result);
         }
     } 
+
+    // const handleUpdateSuccess = async () => {
+    //     console.log('handle update succ', tripId)
+    //     const result = await getTrip(tripId);
+    //     if (result && !result.error) {           
+    //         setTrip(tripId) ;
+    //         return history.push(`/trips/${tripId}/itinerary`);
+    //     }
+    // }
 
     return (
         <Styles>
@@ -144,7 +159,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         getEvent: eventId => dispatch(getEvent(eventId)),
-        onEdit: eventId => dispatch(editEvent(eventId))
+        onEdit: eventId => dispatch(editEvent(eventId)),
+        getTrip: tripId => dispatch(getTrip(tripId)),
+        setTrip: trip => dispatch(setTrip(trip))
     }
 }
 

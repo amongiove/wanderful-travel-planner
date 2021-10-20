@@ -44,6 +44,7 @@ export const createNewEvent = (newEvent) => {
 }
 
 export const editEvent = (updatedEvent) => {
+    console.log('edit event action start');
     return (dispatch) => {
         return fetch(`http://localhost:3000/api/v1/events/${updatedEvent.id}`, {
             method: "PATCH",
@@ -55,13 +56,16 @@ export const editEvent = (updatedEvent) => {
         })
         .then(resp => (resp.json()))
         .then(response => {
+                console.log('reading response', response);
                 if (response.error) {
                     alert(response.error)
                 } else {
+                    // return response.data
                     return dispatch({ type: 'EDIT_EVENT', event: response.data });
                 }
         })
         .catch(error => {
+            console.log('edit event action error');
             return {error: error.message}
         })
     }
