@@ -38,16 +38,16 @@ const EventShow = ({event, onDelete}) => {
             <Modal show={show} onHide={handleClose}>
             {/* TODO: fix close button styling - may need to downgrade to bootstrap 4 */}
             <Modal.Header closeButton>
-                <Modal.Title>{event.event_name}</Modal.Title>
+                <Modal.Title>{event.attributes.event_name}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                    <GrSchedule /> {moment(event.event_date_time).format("h:mm A")}
+                    <GrSchedule /> {moment(event.attributes.event_date_time).format("h:mm A")}
                     <br/>
                     <br/>
-                    <GrLocation/> {event.location}
+                    <GrLocation/> {event.attributes.location}
                     <br/>
                     <br/>
-                    <GrNotes /> {event.notes ? `${event.notes}` : "No notes to share." } 
+                    <GrNotes /> {event.attributes.notes ? `${event.attributes.notes}` : "No notes to share." } 
 
             </Modal.Body>
             <Modal.Footer>

@@ -1,3 +1,34 @@
+export const setEvents = events => {
+    return {
+        type: "SET_EVENTS",
+        events 
+    }
+}
+
+export const getEvents = () => {
+    console.log('get events action')
+    return dispatch => {
+        return fetch("http://localhost:3000/api/v1/events", {
+        credentials: "include",
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${localStorage.token}`
+        }
+        })
+        .then(r => r.json())
+        .then(response => {
+            if (response.error) {
+                alert(response.error)
+            } else {
+                dispatch(setEvents(response.data))
+                console.log("through action")
+            }
+        })
+        .catch(console.log)
+    }
+}
+
 export const getEvent = (eventId) => {
     return (dispatch) => {
         dispatch({ type: 'GET_EVENT' });
@@ -60,7 +91,7 @@ export const editEvent = (updatedEvent) => {
                 if (response.error) {
                     alert(response.error)
                 } else {
-                    // return response.data
+                    console.log(response.data)
                     return dispatch({ type: 'EDIT_EVENT', event: response.data });
                 }
         })

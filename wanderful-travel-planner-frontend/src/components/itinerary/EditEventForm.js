@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getEvent, editEvent } from '../../actions/events.js';
-import { getTrip, setTrip } from '../../actions/trips.js';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
@@ -21,9 +20,13 @@ const Styles = styled.div`
         text-align: right;
     }
 
+    .edit-button {
+        margin: 10px;
+    }
+
 `;
 
-const EditEventForm = ({trip, getEvent, onEdit, getTrip, setTrip}) => {
+const EditEventForm = ({trip, getEvent, onEdit}) => {
     
     const history = useHistory();
     const {tripId, eventId} = useParams()
@@ -52,30 +55,20 @@ const EditEventForm = ({trip, getEvent, onEdit, getTrip, setTrip}) => {
         e.preventDefault();
         const result = await onEdit(updatedEvent);
         if (result && !result.error) {
-            console.log('handle edit', result);
-            console.log('trip id', tripId);
-            // handleUpdateSuccess() 
             return history.push(`/trips/${tripId}/itinerary`);
-
         } else {
             console.log('error', result);
         }
     } 
 
-    // const handleUpdateSuccess = async () => {
-    //     console.log('handle update succ', tripId)
-    //     const result = await getTrip(tripId);
-    //     if (result && !result.error) {           
-    //         setTrip(tripId) ;
-    //         return history.push(`/trips/${tripId}/itinerary`);
-    //     }
-    // }
+    const handleCancel = () => {
+        return history.push(`/trips/${tripId}/itinerary`);
+    }
 
     return (
         <Styles>
             <div className='edit-form'>
-                {/* TODO: change title */}
-                <h2>EDIT EVENT FORM</h2>
+                <h4>EDIT EVENT </h4>
                 <Form onSubmit={e => {handleEdit(e, updatedEvent())}}>
                     <Form.Group as={Row} className="mb-3" controlId="name">
                         <Form.Label column sm="2">
@@ -140,7 +133,10 @@ const EditEventForm = ({trip, getEvent, onEdit, getTrip, setTrip}) => {
                         </Col>
                     </Form.Group>
                     <Form.Group className="submit-edit">
-                        <Button variant="outline-secondary" type="submit">
+                        <Button className="edit-button" variant="secondary" onClick={handleCancel}>
+                            Cancel
+                        </Button>
+                        <Button className="edit-button" variant="secondary" type="submit">
                             Save Changes
                         </Button>
                     </Form.Group>
@@ -159,9 +155,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         getEvent: eventId => dispatch(getEvent(eventId)),
-        onEdit: eventId => dispatch(editEvent(eventId)),
-        getTrip: tripId => dispatch(getTrip(tripId)),
-        setTrip: trip => dispatch(setTrip(trip))
+        onEdit: eventId => dispatch(editEvent(eventId))
     }
 }
 
