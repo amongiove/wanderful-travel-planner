@@ -7,6 +7,7 @@ import TripInfo from '../components/trips/TripInfo.js';
 import ItineraryContainer from './ItineraryContainer.js';
 import Container from 'react-bootstrap/Container';
 import EditEventForm from '../components/itinerary/EditEventForm.js';
+import PackingListContainer from './PackingListContainer.js';
 
 const TripContainer = ({getTrip}) => {
     const {tripId} = useParams();
@@ -39,10 +40,10 @@ const TripContainer = ({getTrip}) => {
                                 <EditEventForm trip={trip} />
                                 )}
                             />
-                            {/* <Route exact path={`/groups/:tripId/packing-list`} render={() => (
-                                <PackingList />
+                            <Route exact path={`/trips/:tripId/packing-list`} render={() => (
+                                <PackingListContainer />
                                 )}
-                            /> */}
+                            />
                         </Switch> 
                     : "Loading..."}
                 </Container>
