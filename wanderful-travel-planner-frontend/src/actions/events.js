@@ -1,5 +1,4 @@
 export const getEvent = (eventId) => {
-    console.log('get event action', eventId)
     return (dispatch) => {
         dispatch({ type: 'GET_EVENT' });
         return fetch(`http://localhost:3000/api/v1/events/${eventId}`, {
@@ -14,8 +13,6 @@ export const getEvent = (eventId) => {
             if (response.error) {
                 alert(response.error)
             } else {
-                console.log("action response", response.data)
-                // dispatch(setEvent(response.data))
                 return (response.data)
             }
         })

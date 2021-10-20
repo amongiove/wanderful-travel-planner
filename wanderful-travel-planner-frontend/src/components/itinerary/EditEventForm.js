@@ -27,19 +27,17 @@ const EditEventForm = ({trip, getEvent, onEdit}) => {
     const {tripId, eventId} = useParams()
     const [event_name, setName] = useState('');
     const [location, setLocation] = useState('');
-    const [event_date_time, setDateTime] = useState('');
+    const [event_date_time, setDateTime] = useState(new Date());
     const [notes, setNotes] = useState('');
 
     useEffect(() => {
         async function fetchData() {
-        const response = await getEvent(eventId);
+            const response = await getEvent(eventId);
 
-        console.log("form response", response)
-
-        setName(response.attributes.event_name);
-        setLocation(response.attributes.location);
-        // setDateTime(response.attributes.event_date_time);
-        setNotes(response.attributes.notes);
+            setName(response.attributes.event_name);
+            setLocation(response.attributes.location);
+            setDateTime(new Date(response.attributes.event_date_time));
+            setNotes(response.attributes.notes);
         }
         fetchData();
     }, [getEvent, eventId]);
