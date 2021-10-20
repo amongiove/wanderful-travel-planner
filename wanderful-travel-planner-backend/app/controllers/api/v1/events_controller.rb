@@ -1,5 +1,4 @@
 class Api::V1::EventsController < ApplicationController
-    # before_action :set_event, only: [:show, :update, :destroy]
 
     def index
         if logged_in?
@@ -15,11 +14,10 @@ class Api::V1::EventsController < ApplicationController
     end
 
     def show
-        puts("inside show")
+        # TODO: do i need this ??
         event = Event.find(params[:id])
 
         if event
-            puts ("got event")
             render json: EventSerializer.new(event), status: :ok
         else
             render json: { error: "Unable to locate event" }, status: :not_found
@@ -36,8 +34,6 @@ class Api::V1::EventsController < ApplicationController
     end
 
     def update
-        puts ("update method")
-        puts params
         event = Event.find(params[:id])
 
         if event.update(event_params)
@@ -59,10 +55,6 @@ class Api::V1::EventsController < ApplicationController
     end
 
     private
-
-    # def set_trip
-    #     @event = Event.find(params[:id])
-    # end
 
     def event_params
       params.require(:event).permit(:event_name, :location, :event_date_time, :notes, :trip_id)

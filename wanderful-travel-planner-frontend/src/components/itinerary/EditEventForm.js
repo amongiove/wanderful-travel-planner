@@ -50,13 +50,16 @@ const EditEventForm = ({trip, getEvent, onEdit}) => {
         e.preventDefault();
         const result = await onEdit(updatedEvent);
         if (result && !result.error) {
-            return history.push(`/trips/${tripId}/itinerary`)
+            window.location.reload(); //why is this happening?? first 
+            return history.push(`/trips/${tripId}/itinerary`);
+            // TODO: reload itinerary page after redirect for updated events 
         }
     } 
 
     return (
         <Styles>
             <div className='edit-form'>
+                {/* TODO: change title */}
                 <h2>EDIT EVENT FORM</h2>
                 <Form onSubmit={e => {handleEdit(e, updatedEvent())}}>
                     <Form.Group as={Row} className="mb-3" controlId="name">
