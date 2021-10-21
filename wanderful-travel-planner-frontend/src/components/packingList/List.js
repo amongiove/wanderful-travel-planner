@@ -1,5 +1,6 @@
 import React from 'react';
 import ListItem from './ListItem.js';
+import NewItemForm from './NewItemForm.js';
 import Container from 'react-bootstrap/Container';
 import ListGroup from 'react-bootstrap/ListGroup';
 import styled from 'styled-components';
@@ -24,6 +25,7 @@ const List = ({tripItems}) => {
             <Container>
                 <h3 className="list-title">Packing List</h3>
                 <ListGroup as='ul' className="list">
+                    <NewItemForm /> 
                     {items}
                 </ListGroup>
             </Container>

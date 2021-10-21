@@ -27,3 +27,26 @@ export const getItems = () => {
     }
 }
 
+export const createNewItem = (item) => {
+    return (dispatch) => {
+            return fetch('http://localhost:3000/api/v1/items', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.token}`
+            },
+            body: JSON.stringify(item)
+            })
+        .then(resp => (resp.json()))
+        .then(response => {
+            if (response.error) {
+                alert(response.error)
+            } else {
+                return dispatch({ type: 'CREATE_ITEM', item: response.data });
+            }
+        })
+        .catch(error => {
+            return {error: error.message}
+        })
+    }
+}
