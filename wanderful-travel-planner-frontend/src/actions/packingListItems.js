@@ -4,6 +4,7 @@ export const setItems = items => {
         items 
     }
 }
+
 export const getItems = () => {
     return dispatch => {
         return fetch("http://localhost:3000/api/v1/packing_list_items", {

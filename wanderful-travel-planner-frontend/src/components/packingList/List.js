@@ -8,6 +8,7 @@ import styled from 'styled-components';
 const Styles = styled.div`
     .list-title {
         text-align: center;
+        margin-top: 20px;
     }
 
     .list {
