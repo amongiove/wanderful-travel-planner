@@ -9,7 +9,6 @@ import ListGroup from 'react-bootstrap/ListGroup'
 
 const DayCard = ({day, dayNum, tripEvents}) => {
 
-    // const tripEvents = trip.attributes.events
     const dayEvents = tripEvents.filter(event => (moment(event.attributes.event_date_time).format('MM-DD-YYYY') === day))
     let orderedEvents =  dayEvents.sort((a, b) => a.attributes.event_date_time > b.attributes.event_date_time ? 1 : -1)
 

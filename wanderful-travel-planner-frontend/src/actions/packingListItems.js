@@ -4,7 +4,7 @@ export const setItems = items => {
         items 
     }
 }
-export const getItems = (tripId) => {
+export const getItems = () => {
     return dispatch => {
         return fetch("http://localhost:3000/api/v1/packing_list_items", {
         credentials: "include",
@@ -13,9 +13,6 @@ export const getItems = (tripId) => {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${localStorage.token}`
         },
-        body: {
-            tripId: tripId
-        }
         })
         .then(r => r.json())
         .then(response => {

@@ -10,15 +10,13 @@ class PackingListContainer extends React.Component {
     }
           
     render () {
-        const { items } = this.props 
-        console.log (items)
+        
+        const { items, trip } = this.props 
+        const tripItems = items.filter(item => trip.id === item.relationships.trip.data.id)
         return (
             <div>
-                <h1>Packing list container</h1>
-                <List />
-
+                <List tripItems={tripItems}/>
             </div>
-            
         )
     }
 }

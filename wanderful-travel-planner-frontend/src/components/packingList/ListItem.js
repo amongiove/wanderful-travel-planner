@@ -1,7 +1,14 @@
-const ListItem = () => {
+import React from 'react';
+import ListGroup from 'react-bootstrap/esm/ListGroup';
+
+const ListItem = ({item}) => {
     return (
-        <h4>List Item</h4>
+        <ListGroup.Item>
+            {item.attributes.item}
+        </ListGroup.Item>
+        
     )
 }
 
 export default ListItem;
+

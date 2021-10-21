@@ -1,6 +1,5 @@
 const initialState = {
-    items: [],
-    item: null
+    items: []
 }
 
 const packingListItemsReducer = (state = initialState, action) => {
