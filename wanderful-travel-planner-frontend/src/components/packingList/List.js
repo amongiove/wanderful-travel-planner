@@ -10,7 +10,7 @@ const Styles = styled.div`
     }
 
     .list {
-        text-align: center;
+        
         margin: 30px;
     }
 `;
@@ -23,7 +23,7 @@ const List = ({tripItems}) => {
         <Styles>
             <Container>
                 <h3 className="list-title">Packing List</h3>
-                <ListGroup className="list">
+                <ListGroup as='ul' className="list">
                     {items}
                 </ListGroup>
             </Container>
