@@ -43,7 +43,7 @@ const ItineraryContainer = ({events, trip, getEvents, createNewEvent}) => {
     const tripEvents = events.filter(event => trip.id === event.relationships.trip.data.id )
     
     const daysArray = Array.from(range.by('day'));      
-    const dayCards = daysArray.map(day => <DayCard tripEvents={tripEvents} trip={trip} dayNum={daysArray.indexOf(day) +1 } day={day.format('MM-DD-YYYY')} key={day} id={day} />) 
+    const dayCards = daysArray.map(day => <DayCard tripEvents={tripEvents} dayNum={daysArray.indexOf(day) +1 } day={day.format('MM-DD-YYYY')} key={day} id={day} />) 
 
 
     return ( 

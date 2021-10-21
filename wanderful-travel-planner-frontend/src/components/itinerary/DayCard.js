@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col';
 import ListGroup from 'react-bootstrap/ListGroup'
 
 
-const DayCard = ({day, dayNum, trip, tripEvents}) => {
+const DayCard = ({day, dayNum, tripEvents}) => {
 
     // const tripEvents = trip.attributes.events
     const dayEvents = tripEvents.filter(event => (moment(event.attributes.event_date_time).format('MM-DD-YYYY') === day))
