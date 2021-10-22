@@ -22,8 +22,6 @@ class App extends React.Component {
 
     return (
       <Router>
-        {/* TODO: need this to direct at inital load but to void it after to access other pages */}
-        {/* { loggedIn ? <Redirect to="/home" /> : null}*/}
         { loggedIn? <NavigationBar /> : null }
           <Switch>
             <Route exact path="/" >
