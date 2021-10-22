@@ -14,6 +14,7 @@ const Styles = styled.div`
     .list {
         
         margin: 30px;
+        margin-bottom: 60px;
     }
 `;
 
