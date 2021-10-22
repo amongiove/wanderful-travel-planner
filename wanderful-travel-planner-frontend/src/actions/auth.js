@@ -9,13 +9,11 @@ export const setLoggedIn = () => {
       }
 }
 
-export const logout = (history) => {
+export const logout = () => {
     return (dispatch) => {
         localStorage.removeItem('token');
         localStorage.removeItem('userId');
         dispatch({ type: 'LOGOUT' });
-        // TODO: need to redirect to welcome page 
-        // history.push("/");
     }
 }
 

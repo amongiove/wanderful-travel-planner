@@ -23,7 +23,8 @@ const NewItemForm = ({currentTrip, onSubmit}) => {
         event.preventDefault();
         const result = await onSubmit(newItem);
         if (result && !result.error) {
-            console.log('result', result)
+            console.log('clear form')
+            setItem('')
         } 
     }
 
@@ -34,7 +35,8 @@ const NewItemForm = ({currentTrip, onSubmit}) => {
                     <Col xs={6} md={4}>
                         <Form.Group className="mb-2">
                             <Form.Control 
-                                id="inlineFormInputGroup" 
+                                id="inlineFormInputGroup"
+                                value={item} 
                                 placeholder="Add Item" 
                                 onChange={event => setItem(event.target.value)}
                             />
