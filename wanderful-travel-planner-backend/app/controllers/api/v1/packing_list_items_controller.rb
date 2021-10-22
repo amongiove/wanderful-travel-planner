@@ -10,6 +10,14 @@ class Api::V1::PackingListItemsController < ApplicationController
     end
   end
 
+  def create
+    item = PackingListItem.new(packing_list_item_params)
+    if item.save
+        render json: PackingListItemSerializer.new(item), status: :created
+    else
+        render json: { error: item.errors.full_messages[0] }, status: :not_acceptable
+    end
+  end
   
 
     private

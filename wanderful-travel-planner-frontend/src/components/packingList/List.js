@@ -17,7 +17,7 @@ const Styles = styled.div`
     }
 `;
 
-const List = ({tripItems}) => {
+const List = ({trip, tripItems, createNewItem}) => {
 
     const items = tripItems.map (item => <ListItem item={item} key={item.id} id={item.id}/>)
 
@@ -26,7 +26,7 @@ const List = ({tripItems}) => {
             <Container>
                 <h3 className="list-title">Packing List</h3>
                 <ListGroup as='ul' className="list">
-                    <NewItemForm /> 
+                    <NewItemForm  currentTrip={trip} onSubmit={createNewItem}/> 
                     {items}
                 </ListGroup>
             </Container>

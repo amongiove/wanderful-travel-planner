@@ -9,6 +9,11 @@ const packingListItemsReducer = (state = initialState, action) => {
                 ...state,
                 items: action.items
             }
+        case 'CREATE_ITEM':
+            return {
+                ...state,
+                items: [...state.items, action.item ]
+            }
         default: 
             return state
     }

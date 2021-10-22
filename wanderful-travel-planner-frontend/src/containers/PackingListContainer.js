@@ -1,6 +1,6 @@
 import React from 'react';
 import List from '../components/packingList/List.js';
-import { getItems } from '../actions/packingListItems.js'
+import { getItems, createNewItem } from '../actions/packingListItems.js'
 import { connect } from 'react-redux';
 
 class PackingListContainer extends React.Component {
@@ -10,12 +10,12 @@ class PackingListContainer extends React.Component {
     }
           
     render () {
-        
-        const { items, trip } = this.props 
+
+        const { items, trip, createNewItem } = this.props 
         const tripItems = items.filter(item => trip.id === item.relationships.trip.data.id)
         return (
             <div>
-                <List tripItems={tripItems}/>
+                <List trip={trip} tripItems={tripItems} createNewItem={createNewItem}/>
             </div>
         )
     }
@@ -23,7 +23,8 @@ class PackingListContainer extends React.Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        getItems: () => dispatch(getItems())
+        getItems: () => dispatch(getItems()),
+        createNewItem: newItem => dispatch(createNewItem(newItem))
     }
 }
 

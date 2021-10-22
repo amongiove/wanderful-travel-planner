@@ -20,7 +20,6 @@ export const getItems = () => {
             if (response.error) {
                 alert(response.error)
             } else {
-                console.log(response)
                 dispatch(setItems(response.data))
             }
         })
@@ -28,15 +27,15 @@ export const getItems = () => {
     }
 }
 
-export const createNewItem = (item) => {
+export const createNewItem = (newItem) => {
     return (dispatch) => {
-            return fetch('http://localhost:3000/api/v1/items', {
+            return fetch('http://localhost:3000/api/v1/packing_list_items', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${localStorage.token}`
             },
-            body: JSON.stringify(item)
+            body: JSON.stringify(newItem)
             })
         .then(resp => (resp.json()))
         .then(response => {
