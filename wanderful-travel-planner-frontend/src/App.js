@@ -24,7 +24,6 @@ class App extends React.Component {
       <Router>
         {/* TODO: need this to direct at inital load but to void it after to access other pages */}
         {/* { loggedIn ? <Redirect to="/home" /> : null}*/}
-        {/* { loggedIn ? null : <Redirect to="/" /> } */}
         { loggedIn? <NavigationBar /> : null }
           <Switch>
             <Route exact path="/" >
@@ -34,8 +33,12 @@ class App extends React.Component {
             <ProtectedRoute exact path="/trips" component={TripsContainer} />
             <ProtectedRoute path="/trips/:tripId" component={TripContainer} />
              
-            <Route path="/login" component={Login} />
-            <Route path="/signup" component={Signup} />
+            <Route path="/login" component={Login} >
+              { loggedIn? <Redirect to="/trips" /> : null }
+            </Route>
+            <Route path="/signup" component={Signup}> 
+              { loggedIn? <Redirect to="/trips" /> : null }
+            </Route>
             <Route component={Missing} />
           </Switch>
       </Router>
