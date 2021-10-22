@@ -14,6 +14,13 @@ const packingListItemsReducer = (state = initialState, action) => {
                 ...state,
                 items: [...state.items, action.item ]
             }
+        case "DELETE_TRIP":
+            return {
+                items: [
+                    ...state.items.slice(0, action.itemId),
+                    ...state.items.slice(action.itemId + 1)
+                ]
+            }
         default: 
             return state
     }

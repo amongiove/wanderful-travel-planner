@@ -18,9 +18,9 @@ const Styles = styled.div`
     }
 `;
 
-const List = ({trip, tripItems, createNewItem}) => {
+const List = ({trip, tripItems, createNewItem, deleteItem}) => {
 
-    const items = tripItems.map (item => <ListItem item={item} key={item.id} id={item.id}/>)
+    const items = tripItems.map (item => <ListItem item={item} key={item.id} id={item.id} onDelete={deleteItem}/>)
 
     return (
         <Styles>

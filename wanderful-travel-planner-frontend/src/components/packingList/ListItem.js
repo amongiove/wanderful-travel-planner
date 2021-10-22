@@ -20,11 +20,16 @@ const Styles = styled.div`
 `;
 
 
-const ListItem = ({item}) => {
+const ListItem = ({item, onDelete}) => {
 
-    const handleDelete = (event) => {
-        return (console.log('handle delete'))
-    }
+    const handleDelete = async (event) => {
+        event.preventDefault();
+        const result = await onDelete(item.id);
+        if (result && !result.error) {
+            // todo: can we get this to update without reload?
+            return window.location.reload();
+        }
+    } 
 
     const handleCheck = (event) => {
         return (console.log('handle check'))

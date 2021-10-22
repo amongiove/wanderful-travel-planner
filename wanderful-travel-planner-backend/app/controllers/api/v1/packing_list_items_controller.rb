@@ -19,6 +19,16 @@ class Api::V1::PackingListItemsController < ApplicationController
     end
   end
   
+  def destroy
+    item = PackingListItem.find(params[:id])
+
+    if item
+        item.destroy
+        render json:  { data: "Item successfully deleted" }, status: :ok
+    else
+        render json: { error: "Item not found and not deleted" }, status: :unprocessable_entity
+    end
+  end
 
     private
 

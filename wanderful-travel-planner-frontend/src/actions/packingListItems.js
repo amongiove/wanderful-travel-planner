@@ -50,3 +50,25 @@ export const createNewItem = (newItem) => {
         })
     }
 }
+
+export const deleteItem = (itemId) => {
+    return dispatch => {
+      return fetch(`http://localhost:3000/api/v1/packing_list_items/${itemId}`, {
+        credentials: "include",
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${localStorage.token}`
+        }
+      })
+      .then(resp => (resp.json()))
+      .then(response => {
+            if (response.error) {
+                alert(response.error)
+            } else {
+               return dispatch({ type: 'DELETE_ITEM', itemId: itemId })  
+            }
+        })
+        .catch(console.log)
+    }
+}
