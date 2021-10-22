@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Welcome from './components/Welcome.js';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import Login from './components/Login.js';
 import Signup from './components/Signup.js';
 import { connect } from "react-redux";
@@ -28,7 +27,9 @@ class App extends React.Component {
         {/* { loggedIn ? null : <Redirect to="/" /> } */}
         { loggedIn? <NavigationBar /> : null }
           <Switch>
-            <Route exact path="/" component={Welcome} />
+            <Route exact path="/" >
+              <Redirect to="/login" />
+            </Route>
 
             <ProtectedRoute exact path="/trips" component={TripsContainer} />
             <ProtectedRoute path="/trips/:tripId" component={TripContainer} />
