@@ -7,6 +7,7 @@ import Tab from 'react-bootstrap/Tab';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import EditTripForm from './EditTripForm.js';
+import FlightsContainer from '../../containers/FlightsContainer.js';
 
 const Styles = styled.div`
     .nav-link {
@@ -72,7 +73,7 @@ const TripInfo = ({trip, onEditSubmit, onDelete}) => {
                         </Card>
                     </Tab>
                     <Tab eventKey="profile" title="Flights">
-                        Flights component
+                        <FlightsContainer trip={trip} />
                     </Tab>
                     <Tab eventKey="contact" title="Accomodations" >
                         Accomodations component
