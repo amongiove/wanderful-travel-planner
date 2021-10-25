@@ -9,6 +9,10 @@ import styled from 'styled-components';
 
 const Styles = styled.div`
 
+    .airports, .airline, .date {
+        text-align: left;
+    }
+
     .edit {
         float: right;
         margin-right: 10px;
@@ -17,7 +21,6 @@ const Styles = styled.div`
     .delete {
         float:right;
     }
-
 `;
 
 const FlightInfo = ({flight}) => {
@@ -31,16 +34,16 @@ const FlightInfo = ({flight}) => {
         <Styles>
             <ListGroup.Item> 
                 <Row>
-                    <Col>
+                    <Col className="airports" md={4}>
                         {flight.starting_airport} <GrFormNextLink/> {flight.return_airport}
                     </Col>
-                    <Col>
+                    <Col className="airline" md={3}>
                         {flight.airline}
                     </Col>
-                    <Col>
+                    <Col className="date" md={3}>
                         {moment(flight.date_time).format("MMM Do, YYYY h:mm A")} 
                     </Col>
-                    <Col>
+                    <Col md={2}>
                         <Button onClick={(event) => (window.confirm('Are you sure you want to delete this flight?'))?handleDelete(event) : null} variant="outline-secondary" size="sm" className="delete">
                             <GrTrash />
                         </Button>

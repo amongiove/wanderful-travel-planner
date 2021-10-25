@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { getFlights } from '../actions/flights.js';
+import React from 'react';
+// import { getFlights } from '../actions/flights.js';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/esm/ListGroup';
@@ -28,28 +28,25 @@ const FlightsContainer = ({trip}) => {
     let orderedFlights = tripFlights.sort((a,b) => a.date_time > b.date_time ? 1 : -1)
     const flights = orderedFlights.map (flight => <FlightInfo flight={flight} key={flight.id} id={flight.id} /> )
 
-    console.log('flights', flights)
-
-
     return ( 
         <Styles>
-        <Card className="text-center">
-            <Card.Body>
-                <Card.Title>Flights</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">{trip.attributes.name}</Card.Subtitle>
-                <Card.Text>
-                    <ListGroup >
-                        {tripFlights.length > 0 ? flights : null}
-                        {/* TODO: no flights msg */}
-                    </ListGroup>
-                </Card.Text>
-            </Card.Body>
-            <Card.Footer>
-                <Button className="new-flight" variant="outline-secondary" style={{marginLeft: "10px"}}>
-                    <GrFormAdd/> New Flight
-                </Button>
-            </Card.Footer>
-        </Card>
+            <Card className="text-center">
+                <Card.Body>
+                    <Card.Title>Flights</Card.Title>
+                    <Card.Subtitle className="mb-2 text-muted">{trip.attributes.name}</Card.Subtitle>
+                    <Card.Text>
+                        <ListGroup >
+                            {tripFlights.length > 0 ? flights : null}
+                            {/* TODO: no flights msg */}
+                        </ListGroup>
+                    </Card.Text>
+                </Card.Body>
+                <Card.Footer>
+                    <Button className="new-flight" variant="outline-secondary" style={{marginLeft: "10px"}}>
+                        <GrFormAdd/> New Flight
+                    </Button>
+                </Card.Footer>
+            </Card>
         </Styles>
     );
 };
