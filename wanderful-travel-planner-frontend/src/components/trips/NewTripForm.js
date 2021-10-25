@@ -22,7 +22,7 @@ const NewTripForm = ({onSubmit}) => {
   const [location, setLocation] = useState('');
   const [start_date, setStartDate] = useState('');
   const [end_date, setEndDate] = useState('');
-  const [image, setImage] = useState(0)
+  const [image, setImage] = useState(null)
 
   const history = useHistory();
 
