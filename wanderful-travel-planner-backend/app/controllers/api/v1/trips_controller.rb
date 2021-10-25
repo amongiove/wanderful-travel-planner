@@ -15,16 +15,7 @@ class Api::V1::TripsController < ApplicationController
     end
 
     def show
-        puts 'show trip start'
-
         trip = Trip.find(params[:id])
-
-        puts 'trip'
-        puts url_for(trip.image)
-
-        serializedTrip = TripSerializer.new(trip)
-        puts 'serialized trip'
-        puts serializedTrip.inspect
 
         if trip
             render json: TripSerializer.new(trip, {params: {image_url: url_for(trip.image)}}), status: :ok
@@ -34,11 +25,6 @@ class Api::V1::TripsController < ApplicationController
     end
 
     def create
-        puts ('create')
-        puts ('params')
-        puts params
-        puts ('trip params')
-        # puts (trip_params)
         trip = Trip.new(trip_params)
         if trip.save
             UserTrip.create(user_id: current_user.id, trip_id: trip.id)

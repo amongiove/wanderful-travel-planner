@@ -1,80 +1,65 @@
 import React, { useEffect } from 'react';
-// import Moment from 'moment';
-// import { extendMoment } from 'moment-range';
-// import DayCard from '../components/itinerary/DayCard.js';
 import { getFlights } from '../actions/flights.js';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-// import NewEventForm from '../components/itinerary/NewEventForm.js';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import ListGroup from 'react-bootstrap/esm/ListGroup';
 import styled from 'styled-components';
-// import { createNewEvent } from '../actions/events.js';
+import FlightInfo from '../components/flights/FlightInfo.js';
 import { connect } from 'react-redux';
+import { GrFormAdd } from 'react-icons/gr';
 
 const Styles = styled.div`
-    .itinerary-container {
-        margin: 20px;
-        padding: 10px;
-    }
-
-    .new-event {
-        text-align: right;
+    .new-flight {
+        float: right;
     }
 
 `;
 
-const FlightsContainer = () => {
+const FlightsContainer = ({trip}) => {
 
+    // useEffect(() => {
+    //     async function fetchData() {
+    //         await getFlights();
+    //     }
+    //     fetchData();
+    // }, [getFlights]);
 
-    useEffect(() => {
-        async function fetchData() {
-            await getFlights();
-        }
-        fetchData();
-    }, [getFlights]);
+    const tripFlights = trip.attributes.flights.filter(flight => (parseInt(flight.user_id) === parseInt(localStorage['userId'])))
+    let orderedFlights = tripFlights.sort((a,b) => a.date_time > b.date_time ? 1 : -1)
+    const flights = orderedFlights.map (flight => <FlightInfo flight={flight} key={flight.id} id={flight.id} /> )
 
-    // const tripEvents = events.filter(event => trip.id === event.relationships.trip.data.id )
-    // //TODO: this is causing issues on reload after new event creation (relationships undefined error?)
-
-    // const daysArray = Array.from(range.by('day'));      
-    // const dayCards = daysArray.map(day => <DayCard tripEvents={tripEvents} dayNum={daysArray.indexOf(day) +1 } day={day.format('MM-DD-YYYY')} key={day} id={day} />) 
+    console.log('flights', flights)
 
 
     return ( 
         <Styles>
-            <div className="flights-container">
-                <Row> 
-                    <Col>
-                        <h2>Flights</h2>
-                    </Col>
-                    <Col className="new-flight">
-                        new flight form
-                        {/* <NewEventForm  currentTrip={trip} onSubmit={createNewEvent} /> */}
-                    </Col>
-                </Row>
-                
-                <Col>
-                    <Row xs={1} className="g-4">
-                        flight cards
-                    </Row>
-                </Col>
-            </div>
+        <Card className="text-center">
+            <Card.Body>
+                <Card.Title>Flights</Card.Title>
+                <Card.Subtitle className="mb-2 text-muted">{trip.attributes.name}</Card.Subtitle>
+                <Card.Text>
+                    <ListGroup >
+                        {tripFlights.length > 0 ? flights : null}
+                        {/* TODO: no flights msg */}
+                    </ListGroup>
+                </Card.Text>
+            </Card.Body>
+            <Card.Footer>
+                <Button className="new-flight" variant="outline-secondary" style={{marginLeft: "10px"}}>
+                    <GrFormAdd/> New Flight
+                </Button>
+            </Card.Footer>
+        </Card>
         </Styles>
     );
 };
 
-// const mapStateToProps = state => {
+
+// const mapDispatchToProps = dispatch => {
 //     return {
-//         events: state.events.events,
-//         trip: state.trips.trip
+//         getFlights: () => dispatch(getFlights()),
 //     }
 // }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        getFlights: () => dispatch(getFlights()),
-        // createNewEvent: newEvent => dispatch(createNewEvent(newEvent))
-    }
-}
-
-export default connect(null, mapDispatchToProps)(FlightsContainer); 
+export default connect(null, null)(FlightsContainer); 
 

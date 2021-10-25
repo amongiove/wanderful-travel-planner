@@ -6,6 +6,8 @@ import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import TripInfo from '../components/trips/TripInfo.js';
 import { editTrip, deleteTrip } from '../actions/trips.js';
+import { getFlights } from '../actions/flights.js';
+import FlightsContainer from './FlightsContainer.js';
 
 const Styles = styled.div`
     .nav-link {
@@ -47,9 +49,7 @@ const TripTabContainer = ({trip, editTrip, deleteTrip}) => {
                         <TripInfo trip={trip} onEditSubmit={editTrip} onDelete={deleteTrip}/>
                     </Tab>
                     <Tab eventKey="profile" title="Flights">
-                        flights component
-                        <Link to={`/trips/${trip.id}/flights`} />
-                        {/* <FlightsContainer trip={trip} /> */}
+                        <FlightsContainer trip={trip} />
                     </Tab>
                     <Tab eventKey="contact" title="Accomodations" >
                         Accomodations component
@@ -64,6 +64,7 @@ const mapDispatchToProps = dispatch => {
     return {
         editTrip: trip => dispatch(editTrip(trip)),
         deleteTrip: tripId => dispatch(deleteTrip(tripId)),
+        getFlights: () => dispatch(getFlights())
     }
 }
 

@@ -4,6 +4,8 @@ class Api::V1::FlightsController < ApplicationController
         if logged_in?
 
             user_id = current_user.id
+            puts(user_id)
+
             flights = Flight.find_by(user_id: user_id)
       
             render json: FlightSerializer.new(flights)
