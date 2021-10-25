@@ -5,7 +5,6 @@ import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import TripInfo from '../components/trips/TripInfo.js';
 import { editTrip, deleteTrip } from '../actions/trips.js';
-import { getFlights } from '../actions/flights.js';
 import FlightsContainer from './FlightsContainer.js';
 
 const Styles = styled.div`
@@ -34,7 +33,6 @@ const Styles = styled.div`
 `;
 
 const TripTabContainer = ({trip, editTrip, deleteTrip}) => {
-    
 
     return (
         <Styles>
@@ -63,7 +61,6 @@ const mapDispatchToProps = dispatch => {
     return {
         editTrip: trip => dispatch(editTrip(trip)),
         deleteTrip: tripId => dispatch(deleteTrip(tripId)),
-        getFlights: () => dispatch(getFlights())
     }
 }
 

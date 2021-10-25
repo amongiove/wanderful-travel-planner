@@ -35,13 +35,13 @@ const FlightInfo = ({flight}) => {
             <ListGroup.Item> 
                 <Row>
                     <Col className="airports" md={4}>
-                        {flight.starting_airport} <GrFormNextLink/> {flight.return_airport}
+                        {flight.attributes.starting_airport} <GrFormNextLink/> {flight.attributes.return_airport}
                     </Col>
                     <Col className="airline" md={3}>
-                        {flight.airline}
+                        {flight.attributes.airline}
                     </Col>
                     <Col className="date" md={3}>
-                        {moment(flight.date_time).format("MMM Do, YYYY h:mm A")} 
+                        {moment(flight.attributes.date_time).format("MMM Do, YYYY h:mm A")} 
                     </Col>
                     <Col md={2}>
                         <Button onClick={(event) => (window.confirm('Are you sure you want to delete this flight?'))?handleDelete(event) : null} variant="outline-secondary" size="sm" className="delete">

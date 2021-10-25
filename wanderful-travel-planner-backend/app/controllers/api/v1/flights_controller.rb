@@ -2,12 +2,7 @@ class Api::V1::FlightsController < ApplicationController
 
     def index
         if logged_in?
-
-            user_id = current_user.id
-            puts(user_id)
-
-            flights = Flight.find_by(user_id: user_id)
-      
+            flights = current_user.flights
             render json: FlightSerializer.new(flights)
         else
             render json: {
@@ -15,17 +10,6 @@ class Api::V1::FlightsController < ApplicationController
             }
         end
     end
-
-    # def show
-    #     # TODO: do i need this ??
-    #     event = Event.find(params[:id])
-
-    #     if event
-    #         render json: EventSerializer.new(event), status: :ok
-    #     else
-    #         render json: { error: "Unable to locate event" }, status: :not_found
-    #     end
-    # end
 
     # def create
     #     event = Event.new(event_params)
@@ -60,7 +44,7 @@ class Api::V1::FlightsController < ApplicationController
     private
 
     def flight_params
-      params.require(:flight).permit(:airline, :date_time, :user_id, :trip_id)
+      params.require(:flight).permit(:airline, :date_time, :user, :trip_id)
     end
 
 end

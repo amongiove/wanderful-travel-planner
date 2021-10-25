@@ -23,18 +23,18 @@ class TripSerializer
   #   end
   # end
 
-  attribute :flights do |trip|
-    trip.flights.map do |flight|
-      {
-        user_id: flight.user_id,
-        id: flight.id,
-        airline: flight.airline,
-        date_time: flight.date_time,
-        starting_airport: flight.starting_airport,
-        return_airport: flight.return_airport
-      }
-    end
-  end
+  # attribute :flights do |trip|
+  #   trip.flights.map do |flight|
+  #     {
+  #       user_id: flight.user_id,
+  #       id: flight.id,
+  #       airline: flight.airline,
+  #       date_time: flight.date_time,
+  #       starting_airport: flight.starting_airport,
+  #       return_airport: flight.return_airport
+  #     }
+  #   end
+  # end
 
   attribute :image_url do |trip, params|
     params[:image_url]
