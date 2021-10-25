@@ -26,6 +26,11 @@ const Styles = styled.div`
         padding: 10px;
     }
 
+    .image {
+        height: 200px;
+        width: 200px;
+    }
+
 `;
 
 const TripInfo = ({trip, onEditSubmit, onDelete}) => {
@@ -54,9 +59,9 @@ const TripInfo = ({trip, onEditSubmit, onDelete}) => {
                             <Card.Body>
                                 <Card.Title>{trip.attributes.name}</Card.Title>
                                 <Card.Subtitle className="mb-2 text-muted">{trip.attributes.location}</Card.Subtitle>
-                                <Card.Img variant="top" src={trip.attributes.image_url} />
-                                {/* TODO: image in middle - set size */}
+                                <Card.Img className="image" variant="top" src={trip.attributes.image_url} />
                                 <Card.Text>
+                                    <br/>
                                     <Moment format="MMMM Do, YYYY">{trip.attributes.start_date}</Moment> - <Moment format="MMMM Do, YYYY">{trip.attributes.end_date}</Moment>
                                 </Card.Text>
                             </Card.Body>
