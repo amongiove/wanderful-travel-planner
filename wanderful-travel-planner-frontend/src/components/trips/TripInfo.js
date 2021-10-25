@@ -34,7 +34,6 @@ const Styles = styled.div`
 `;
 
 const TripInfo = ({trip, onEditSubmit, onDelete}) => {
-    // console.log(trip.attributes.image)
     let history = useHistory();
 
     const handleDelete = async (event) => {
@@ -43,7 +42,6 @@ const TripInfo = ({trip, onEditSubmit, onDelete}) => {
         if (result && !result.error) {
             return history.push(`/trips`)
         }
-        // return result
     }   
 
     return (
