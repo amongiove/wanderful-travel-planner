@@ -1,6 +1,6 @@
 class TripSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :name, :location, :start_date, :end_date, :image
+  attributes :name, :location, :start_date, :end_date
 
   attribute :events do |trip|
     trip.events.map do |event|
@@ -22,8 +22,9 @@ class TripSerializer
       }
     end
   end
-  # def image
-  #   rails_blob_path(object.image, only_path: true) if object.image.attached?
-  # end
 
+  attribute :image_url do |trip, params|
+    params[:image_url]
+  end
+ 
 end

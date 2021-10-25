@@ -22,13 +22,23 @@ const NewTripForm = ({onSubmit}) => {
   const [location, setLocation] = useState('');
   const [start_date, setStartDate] = useState('');
   const [end_date, setEndDate] = useState('');
+  const [image, setImage] = useState(0)
 
-  const newTrip = () => {return {name: name, location: location, start_date: start_date, end_date: end_date}};
   const history = useHistory();
 
-  const handleSubmitNewTrip = async (event, newTrip) => {
+  const handleSubmitNewTrip = async (event) => {
     event.preventDefault();
-    const result = await onSubmit(newTrip);
+    console.log('image', image)
+
+    const formData = new FormData()
+      formData.append('name', name);
+      formData.append('location', location);
+      formData.append('start_date', start_date);
+      formData.append('end_date', end_date);
+      formData.append('image', image);
+
+
+    const result = await onSubmit(formData);
     if (result && !result.error) {
       return history.push(`/trips/${result.trip.id}`)
     }
@@ -106,13 +116,24 @@ const NewTripForm = ({onSubmit}) => {
                 />
               </Col>
             </Form.Group>
+            <Form.Group>
+              <Form.Label column sm="2">
+                Image
+              </Form.Label>
+              <Form.Control
+                type="file"
+                accept="image/*"
+                multiple={false}
+                onChange={event => setImage(event.target.files[0])}
+              />
+            </Form.Group>
           </Form>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="outline-secondary" onClick={event => handleSubmitNewTrip(event, newTrip())}>
+          <Button variant="outline-secondary" onClick={event => handleSubmitNewTrip(event)}>
             Create Trip
           </Button>
         </Modal.Footer>

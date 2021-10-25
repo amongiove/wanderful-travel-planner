@@ -18,7 +18,10 @@ const TripCard = ({trip}) => {
             <Card className="card" >
                 <Card.Body>
                     <Card.Text>image?</Card.Text>
-                    <Card.Img variant="top" src="holder.js/100px160" />
+                    {/* TODO: this is not working as expected */}
+                    {trip.image ? 
+                    <Card.Img variant="top" src={trip.image.attributes.image} /> :
+                    'no image'}
                     <Card.Title>{trip.attributes.name}</Card.Title>
                     <Card.Subtitle className="mb-2 text-muted">{trip.attributes.location}</Card.Subtitle>
                     <Card.Text>

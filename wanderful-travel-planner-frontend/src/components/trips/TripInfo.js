@@ -29,7 +29,7 @@ const Styles = styled.div`
 `;
 
 const TripInfo = ({trip, onEditSubmit, onDelete}) => {
-    
+    // console.log(trip.attributes.image)
     let history = useHistory();
 
     const handleDelete = async (event) => {
@@ -54,7 +54,7 @@ const TripInfo = ({trip, onEditSubmit, onDelete}) => {
                             <Card.Body>
                                 <Card.Title>{trip.attributes.name}</Card.Title>
                                 <Card.Subtitle className="mb-2 text-muted">{trip.attributes.location}</Card.Subtitle>
-                                <Card.Img variant="top" src="#" />
+                                <Card.Img variant="top" src={trip.attributes.image_url} />
                                 {/* TODO: image in middle - set size */}
                                 <Card.Text>
                                     <Moment format="MMMM Do, YYYY">{trip.attributes.start_date}</Moment> - <Moment format="MMMM Do, YYYY">{trip.attributes.end_date}</Moment>

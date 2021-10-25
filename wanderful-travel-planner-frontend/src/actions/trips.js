@@ -59,15 +59,16 @@ export const setTrip = trip => {
     }
 }
 
-export const createNewTrip = (trip) => {
+export const createNewTrip = (formData) => {
     return (dispatch) => {
             return fetch('http://localhost:3000/api/v1/trips', {
             method: "POST",
             headers: {
-                "Content-Type": "application/json",
+                // "Content-Type": 'multipart/form-data;',
+                // "application/json",
                 "Authorization": `Bearer ${localStorage.token}`
             },
-            body: JSON.stringify(trip)
+            body: formData
             })
         .then(resp => (resp.json()))
         .then(response => {
