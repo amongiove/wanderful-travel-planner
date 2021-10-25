@@ -2,13 +2,13 @@ import React, { useEffect } from 'react';
 // import Moment from 'moment';
 // import { extendMoment } from 'moment-range';
 // import DayCard from '../components/itinerary/DayCard.js';
-// import { getEvents } from '../actions/events.js';
+import { getFlights } from '../actions/flights.js';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 // import NewEventForm from '../components/itinerary/NewEventForm.js';
 import styled from 'styled-components';
 // import { createNewEvent } from '../actions/events.js';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
 const Styles = styled.div`
     .itinerary-container {
@@ -25,12 +25,12 @@ const Styles = styled.div`
 const FlightsContainer = () => {
 
 
-    // useEffect(() => {
-    //     async function fetchData() {
-    //         await getEvents();
-    //     }
-    //     fetchData();
-    // }, [getEvents]);
+    useEffect(() => {
+        async function fetchData() {
+            await getFlights();
+        }
+        fetchData();
+    }, [getFlights]);
 
     // const tripEvents = events.filter(event => trip.id === event.relationships.trip.data.id )
     // //TODO: this is causing issues on reload after new event creation (relationships undefined error?)
@@ -69,12 +69,12 @@ const FlightsContainer = () => {
 //     }
 // }
 
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         getEvents: (tripId) => dispatch(getEvents(tripId)),
-//         createNewEvent: newEvent => dispatch(createNewEvent(newEvent))
-//     }
-// }
+const mapDispatchToProps = dispatch => {
+    return {
+        getFlights: () => dispatch(getFlights()),
+        // createNewEvent: newEvent => dispatch(createNewEvent(newEvent))
+    }
+}
 
-export default (FlightsContainer); 
+export default connect(null, mapDispatchToProps)(FlightsContainer); 
 

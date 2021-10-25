@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Switch, Route, useParams } from "react-router-dom";
-import { getTrip, editTrip, deleteTrip } from '../actions/trips.js';
+import { getTrip } from '../actions/trips.js';
 import { connect } from 'react-redux';
 import SideBar from "../components/SideBar.js";
-import TripInfo from '../components/trips/TripInfo.js';
 import ItineraryContainer from './ItineraryContainer.js';
 import Container from 'react-bootstrap/Container';
 import EditEventForm from '../components/itinerary/EditEventForm.js';
 import PackingListContainer from './PackingListContainer.js';
+import TripTabContainer from './TripTabContainer.js';
 
 const TripContainer = ({getTrip}) => {
     const {tripId} = useParams();
@@ -29,7 +29,7 @@ const TripContainer = ({getTrip}) => {
                     {trip ?  
                         <Switch>
                             <Route exact path={`/trips/:tripId`} render={() => (
-                                <TripInfo trip={trip} onEditSubmit={editTrip} onDelete={deleteTrip} />
+                                <TripTabContainer trip={trip} />
                                 )}
                             />
                             <Route exact path={`/trips/:tripId/itinerary`} render={() => (
@@ -54,9 +54,7 @@ const TripContainer = ({getTrip}) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        getTrip: tripId => dispatch(getTrip(tripId)),
-        editTrip: trip => dispatch(editTrip(trip)),
-        deleteTrip: tripId => dispatch(deleteTrip(tripId)),
+        getTrip: tripId => dispatch(getTrip(tripId))
     }
 }
 
