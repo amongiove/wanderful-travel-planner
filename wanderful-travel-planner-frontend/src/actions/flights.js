@@ -26,3 +26,25 @@ export const getFlights = () => {
         .catch(console.log)
     }
 }
+
+export const deleteFlight = (flightId) => {
+    return dispatch => {
+      return fetch(`http://localhost:3000/api/v1/flights/${flightId}`, {
+        credentials: "include",
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${localStorage.token}`
+        }
+      })
+      .then(resp => (resp.json()))
+      .then(response => {
+            if (response.error) {
+                alert(response.error)
+            } else {
+               return dispatch({ type: 'DELETE_FLIGHT', flightId: flightId })  
+            }
+        })
+        .catch(console.log)
+    }
+}

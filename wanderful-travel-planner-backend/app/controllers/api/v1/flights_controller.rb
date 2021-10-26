@@ -30,16 +30,17 @@ class Api::V1::FlightsController < ApplicationController
     #     end
     # end
 
-    # def destroy
-    #     event = Event.find(params[:id])
-
-    #     if event
-    #         event.destroy
-    #         render json:  { data: "Event successfully destroyed" }, status: :ok
-    #     else
-    #         render json: { error: "Event not found and not destroyed" }, status: :unprocessable_entity
-    #     end
-    # end
+    def destroy
+        puts ('destroy')
+        flight = Flight.find(params[:id])
+        puts(flight)
+        if flight
+            flight.destroy
+            render json:  { data: "Flight successfully destroyed" }, status: :ok
+        else
+            render json: { error: "Flight not found and not destroyed" }, status: :unprocessable_entity
+        end
+    end
 
     private
 

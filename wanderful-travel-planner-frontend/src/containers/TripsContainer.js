@@ -10,7 +10,6 @@ class TripsContainer extends React.Component {
   componentDidMount = () => {
     this.props.getTrips()
   }
-    
   render () {
     const { trips } = this.props
     return (

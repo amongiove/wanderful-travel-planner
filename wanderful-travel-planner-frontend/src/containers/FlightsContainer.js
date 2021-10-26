@@ -1,5 +1,5 @@
 import React from 'react';
-import { getFlights } from '../actions/flights.js';
+import { getFlights, deleteFlight } from '../actions/flights.js';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/esm/ListGroup';
@@ -22,11 +22,11 @@ class FlightsContainer extends React.Component {
     }
         
     render () {
-        const { flights, trip } = this.props
+        const { flights, trip, deleteFlight } = this.props
 
         const matchedFlights = flights.filter(flight => (parseInt(flight.attributes.trip_id) === parseInt(trip.id)))
-        let orderedFlights = matchedFlights.sort((a,b) => a.date_time > b.date_time ? 1 : -1)
-        const tripFlights = orderedFlights.map (flight => <FlightInfo flight={flight} key={flight.id} id={flight.id} /> )
+        let orderedFlights = matchedFlights.sort((a,b) => a.attributes.date_time > b.attributes.date_time ? 1 : -1)
+        const tripFlights = orderedFlights.map (flight => <FlightInfo flight={flight} key={flight.id} id={flight.id} onDelete={deleteFlight}/> )
 
         return ( 
             <Styles>
@@ -60,6 +60,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         getFlights: () => dispatch(getFlights()),
+        deleteFlight: flightId => dispatch(deleteFlight(flightId))
     }
 }
 

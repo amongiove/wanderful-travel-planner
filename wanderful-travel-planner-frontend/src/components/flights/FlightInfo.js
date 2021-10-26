@@ -23,11 +23,15 @@ const Styles = styled.div`
     }
 `;
 
-const FlightInfo = ({flight}) => {
+const FlightInfo = ({flight, onDelete}) => {
 
-    const handleDelete = (event) => {
+    const handleDelete = async (event) => {
         event.preventDefault();
-        console.log('handle delete')
+        const result = await onDelete(flight.id);
+        if (result && !result.error) {
+            return alert('Flight Deleted')
+            // return reload();
+        }
     }
 
     return (
