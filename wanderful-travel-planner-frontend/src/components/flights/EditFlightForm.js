@@ -6,16 +6,17 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import { GrFormAdd } from 'react-icons/gr';
+import { GrEdit } from 'react-icons/gr';
 import styled from 'styled-components';
 
 const Styles = styled.div`
-    .new-button {
+    .edit-button {
         float:right;
+        margin-right: 10px;
     }
 `;
 
-const NewFlightForm = ({onSubmit, currentTrip}) => {
+const EditFlightForm = ({onSubmit, currentTrip, flight}) => {
     const reload=()=>window.location.reload();
     const [show, setShow] = useState(false);
 
@@ -25,15 +26,15 @@ const NewFlightForm = ({onSubmit, currentTrip}) => {
     };
     const handleShow = () => setShow(true);
 
-    const [airline, setAirline] = useState('');
-    const [starting_airport, setStartingAirport] = useState('');
-    const [return_airport, setReturnAirport] = useState('');
-    const [date_time, setDateTime] = useState(new Date(currentTrip.attributes.start_date));
-    const newFlight = () => {return {airline: airline, starting_airport: starting_airport, return_airport: return_airport, date_time: date_time, trip_id: currentTrip.id, user_id: localStorage['userId']}};
+    const [airline, setAirline] = useState(flight.attributes.airline);
+    const [starting_airport, setStartingAirport] = useState(flight.attributes.starting_airport);
+    const [return_airport, setReturnAirport] = useState(flight.attributes.return_airport);
+    const [date_time, setDateTime] = useState(new Date(flight.attributes.date_time));
+    const updatedFlight = () => {return {id: flight.id, airline: airline, starting_airport: starting_airport, return_airport: return_airport, date_time: date_time, trip_id: currentTrip.id, user_id: localStorage['userId']}};
 
-    const handleSubmitNewEvent = async (event, newFlight) => {
+    const handleSubmitNewEvent = async (event, updatedFlight) => {
         event.preventDefault();
-        const result = await onSubmit(newFlight);
+        const result = await onSubmit(updatedFlight);
         if (result && !result.error) {
             handleClose();
             //TODO: reload to flights tab on close
@@ -42,13 +43,13 @@ const NewFlightForm = ({onSubmit, currentTrip}) => {
 
     return (
         <Styles>
-            <Button className="new-button" variant="outline-secondary" onClick={handleShow}>
-                <GrFormAdd/> New Flight
+            <Button className="edit-button" size="sm" variant="outline-secondary" onClick={handleShow}>
+                <GrEdit/>
             </Button>
 
             <Modal show={show} onHide={handleClose} animation={false}>
                 <Modal.Header>
-                <Modal.Title>Create a new Flight</Modal.Title>
+                <Modal.Title>Edit Flight</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                 <Form>
@@ -118,10 +119,10 @@ const NewFlightForm = ({onSubmit, currentTrip}) => {
                 </Modal.Body>
                 <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
-                    Cancel
+                    Close
                 </Button>
-                <Button variant="outline-secondary" onClick={event => handleSubmitNewEvent(event, newFlight())}>
-                    Create Flight
+                <Button variant="outline-secondary" onClick={event => handleSubmitNewEvent(event, updatedFlight())}>
+                    Save Changes
                 </Button>
                 </Modal.Footer>
             </Modal>
@@ -130,4 +131,4 @@ const NewFlightForm = ({onSubmit, currentTrip}) => {
 }
 
 
-export default NewFlightForm;
+export default EditFlightForm;

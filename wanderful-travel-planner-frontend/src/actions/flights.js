@@ -50,6 +50,30 @@ export const createNewFlight = (newFlight) => {
     }
 }
 
+export const editFlight = (updatedFlight) => {
+    return (dispatch) => {
+        return fetch(`http://localhost:3000/api/v1/flights/${updatedFlight.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.token}`
+            },
+            body: JSON.stringify(updatedFlight)
+        })
+        .then(resp => (resp.json()))
+        .then(response => {
+            if (response.error) {
+                alert(response.error)
+            } else {
+                return dispatch({ type: 'EDIT_FLIGHT', event: response.data });
+            }
+        })
+        .catch(error => {
+            return {error: error.message}
+        })
+    }
+}
+
 export const deleteFlight = (flightId) => {
     return dispatch => {
       return fetch(`http://localhost:3000/api/v1/flights/${flightId}`, {

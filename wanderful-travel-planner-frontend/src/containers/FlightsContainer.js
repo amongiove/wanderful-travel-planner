@@ -1,5 +1,5 @@
 import React from 'react';
-import { getFlights, deleteFlight, createNewFlight } from '../actions/flights.js';
+import { getFlights, deleteFlight, createNewFlight, editFlight } from '../actions/flights.js';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/esm/ListGroup';
 import styled from 'styled-components';
@@ -21,11 +21,11 @@ class FlightsContainer extends React.Component {
     }
         
     render () {
-        const { flights, trip, deleteFlight, createNewFlight } = this.props
+        const { flights, trip, deleteFlight, createNewFlight, editFlight } = this.props
 
         const matchedFlights = flights.filter(flight => (parseInt(flight.attributes.trip_id) === parseInt(trip.id)))
         let orderedFlights = matchedFlights.sort((a,b) => a.attributes.date_time > b.attributes.date_time ? 1 : -1)
-        const tripFlights = orderedFlights.map (flight => <FlightInfo flight={flight} key={flight.id} id={flight.id} onDelete={deleteFlight} /> )
+        const tripFlights = orderedFlights.map (flight => <FlightInfo flight={flight} key={flight.id} id={flight.id} onDelete={deleteFlight} trip={trip} onEdit={editFlight} /> )
 
         return ( 
             <Styles>
@@ -58,7 +58,8 @@ const mapDispatchToProps = dispatch => {
     return {
         getFlights: () => dispatch(getFlights()),
         deleteFlight: flightId => dispatch(deleteFlight(flightId)),
-        createNewFlight: newFlight => dispatch(createNewFlight(newFlight))
+        createNewFlight: newFlight => dispatch(createNewFlight(newFlight)),
+        editFlight: updatedFlight => dispatch(editFlight(updatedFlight))
     }
 }
 

@@ -6,6 +6,7 @@ import moment from 'moment';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { GrFormNextLink, GrTrash, GrEdit } from 'react-icons/gr';
 import styled from 'styled-components';
+import EditFlightForm from './EditFlightForm.js';
 
 const Styles = styled.div`
 
@@ -23,7 +24,7 @@ const Styles = styled.div`
     }
 `;
 
-const FlightInfo = ({flight, onDelete}) => {
+const FlightInfo = ({flight, trip, onDelete, onEdit}) => {
 
     const handleDelete = async (event) => {
         event.preventDefault();
@@ -51,9 +52,10 @@ const FlightInfo = ({flight, onDelete}) => {
                         <Button onClick={(event) => (window.confirm('Are you sure you want to delete this flight?'))?handleDelete(event) : null} variant="outline-secondary" size="sm" className="delete">
                             <GrTrash />
                         </Button>
-                        <Button variant="outline-secondary" size="sm"className="edit">
+                        <EditFlightForm flight={flight} currentTrip={trip} onSubmit={onEdit}/>
+                        {/* <Button variant="outline-secondary" size="sm"className="edit">
                             <GrEdit/>
-                        </Button>
+                        </Button> */}
                     </Col>
                 </Row>
             </ListGroup.Item>

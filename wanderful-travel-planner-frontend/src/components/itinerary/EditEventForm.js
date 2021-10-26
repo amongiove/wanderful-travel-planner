@@ -68,7 +68,7 @@ const EditEventForm = ({trip, getEvent, onEdit}) => {
     return (
         <Styles>
             <div className='edit-form'>
-                <h4>EDIT EVENT </h4>
+                <h4>Edit Event</h4>
                 <Form onSubmit={e => {handleEdit(e, updatedEvent())}}>
                     <Form.Group as={Row} className="mb-3" controlId="name">
                         <Form.Label column sm="2">

@@ -20,15 +20,15 @@ class Api::V1::FlightsController < ApplicationController
         end
     end
 
-    # def update
-    #     event = Event.find(params[:id])
+    def update
+        flight = Flight.find(params[:id])
 
-    #     if event.update(event_params)
-    #       render json: EventSerializer.new(event), status: :ok
-    #     else
-    #       render json: { error: event.errors.full_messages[0] }, status: :not_acceptable
-    #     end
-    # end
+        if flight.update(flight_params)
+          render json: FlightSerializer.new(flight), status: :ok
+        else
+          render json: { error: flight.errors.full_messages[0] }, status: :not_acceptable
+        end
+    end
 
     def destroy
         flight = Flight.find(params[:id])
