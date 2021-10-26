@@ -6,7 +6,7 @@ import moment from 'moment';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { GrTrash } from 'react-icons/gr';
 import styled from 'styled-components';
-// import EditFlightForm from './EditFlightForm.js';
+import EditAccomodationForm from './EditAccomodationForm.js';
 
 const Styles = styled.div`
 
@@ -52,7 +52,7 @@ const AccomodationInfo = ({accomodation, trip, onDelete, onEdit}) => {
                         <Button onClick={(event) => (window.confirm('Are you sure you want to delete this accomodation?'))?handleDelete(event) : null} variant="outline-secondary" size="sm" className="delete">
                             <GrTrash />
                         </Button>
-                        {/* <EditFlightForm flight={flight} currentTrip={trip} onSubmit={onEdit}/> */}
+                        <EditAccomodationForm accomodation={accomodation} currentTrip={trip} onSubmit={onEdit}/>
                         {/* <Button variant="outline-secondary" size="sm"className="edit">
                             <GrEdit/>
                         </Button> */}

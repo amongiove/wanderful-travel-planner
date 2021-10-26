@@ -20,15 +20,15 @@ class Api::V1::AccomodationsController < ApplicationController
     #     end
     # end
 
-    # def update
-    #     flight = Flight.find(params[:id])
+    def update
+        accomodation = Accomodation.find(params[:id])
 
-    #     if flight.update(flight_params)
-    #       render json: FlightSerializer.new(flight), status: :ok
-    #     else
-    #       render json: { error: flight.errors.full_messages[0] }, status: :not_acceptable
-    #     end
-    # end
+        if accomodation.update(accomodation_params)
+          render json: AccomodationSerializer.new(accomodation), status: :ok
+        else
+          render json: { error: accomodation.errors.full_messages[0] }, status: :not_acceptable
+        end
+    end
 
     # def destroy
     #     flight = Flight.find(params[:id])

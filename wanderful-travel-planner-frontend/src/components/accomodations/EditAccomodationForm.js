@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import { GrEdit } from 'react-icons/gr';
+import { GrMore, GrLocation, GrSchedule, GrDocumentText } from 'react-icons/gr';
 import styled from 'styled-components';
 
 const Styles = styled.div`
@@ -16,7 +16,7 @@ const Styles = styled.div`
     }
 `;
 
-const EditFlightForm = ({onSubmit, currentTrip, flight}) => {
+const EditAccomodationForm = ({onSubmit, currentTrip, accomodation}) => {
     const reload=()=>window.location.reload();
     const [show, setShow] = useState(false);
 
@@ -26,92 +26,96 @@ const EditFlightForm = ({onSubmit, currentTrip, flight}) => {
     };
     const handleShow = () => setShow(true);
 
-    const [airline, setAirline] = useState(flight.attributes.airline);
-    const [starting_airport, setStartingAirport] = useState(flight.attributes.starting_airport);
-    const [return_airport, setReturnAirport] = useState(flight.attributes.return_airport);
-    const [date_time, setDateTime] = useState(new Date(flight.attributes.date_time));
-    const updatedFlight = () => {return {id: flight.id, airline: airline, starting_airport: starting_airport, return_airport: return_airport, date_time: date_time, trip_id: currentTrip.id, user_id: localStorage['userId']}};
+    const [location, setLocation] = useState(accomodation.attributes.location);
+    const [start_date_time, setStartDateTime] = useState(new Date(accomodation.attributes.start_date_time));
+    const [end_date_time, setEndDateTime] = useState(new Date(accomodation.attributes.end_date_time));
+    const [notes, setNotes] = useState(accomodation.attributes.notes);
+    const updatedAccomodation = () => {return {id: accomodation.id, location: location, start_date_time: start_date_time, end_date_time: end_date_time, notes: notes, trip_id: currentTrip.id, user_id: localStorage['userId']}};
 
-    const handleSubmitNewEvent = async (event, updatedFlight) => {
+    const handleSubmitNewEvent = async (event, updatedAccomodation) => {
         event.preventDefault();
-        const result = await onSubmit(updatedFlight);
+        const result = await onSubmit(updatedAccomodation);
         if (result && !result.error) {
             handleClose();
-            //TODO: reload to flights tab on close
+            //TODO: reload to accomodations tab on close
         }
     }
 
     return (
         <Styles>
             <Button className="edit-button" size="sm" variant="outline-secondary" onClick={handleShow}>
-                <GrEdit/>
+                <GrMore/>
             </Button>
 
             <Modal show={show} onHide={handleClose} animation={false}>
                 <Modal.Header>
-                <Modal.Title>Edit Flight</Modal.Title>
+                <Modal.Title>Edit Accomodation</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                 <Form>
-                    <Form.Group as={Row} className="mb-3" controlId="airline">
-                    <Form.Label column sm="2">
-                        Airline
-                    </Form.Label>
-                    <Col sm="10">
-                        <Form.Control 
-                        name="airline" 
-                        placeholder="Airline"
-                        value={airline}
-                        onChange={event => setAirline(event.target.value)}
-                        required
-                        />
-                    </Col>
-                    </Form.Group>
-
-                    <Form.Group as={Row} className="mb-3" controlId="starting_airport">
-                    <Form.Label column sm="2">
-                        From:
-                    </Form.Label>
-                    <Col sm="10">
-                        <Form.Control 
-                        name="starting_airport" 
-                        placeholder="Starting Airport"
-                        value={starting_airport}
-                        onChange={event => setStartingAirport(event.target.value)}  
-                        required
-                        />
-                    </Col>
-                    </Form.Group>
-
-                    <Form.Group as={Row} className="mb-3" controlId="return_airport">
-                    <Form.Label column sm="2">
-                        To:
-                    </Form.Label>
-                    <Col sm="10">
-                        <Form.Control 
-                        name="return_airport" 
-                        placeholder="Return Airport"
-                        value={return_airport}
-                        onChange={event => setReturnAirport(event.target.value)}  
-                        required
-                        />
-                    </Col>
-                    </Form.Group>
-
-                    <Form.Group as={Row} className="mb-3" controlId="date">
+                    <Form.Group as={Row} className="mb-3" controlId="location">
                     <Form.Label column sm="4">
-                        Date and Time
+                        <GrLocation /> Location
+                    </Form.Label>
+                    <Col >
+                        <Form.Control 
+                        name="location" 
+                        placeholder="Accomodation Location"
+                        value={location}
+                        onChange={event => setLocation(event.target.value)}  
+                        required
+                        />
+                    </Col>
+                    </Form.Group>
+
+                    <Form.Group as={Row} className="mb-3" controlId="checkin">
+                    <Form.Label column sm="4">
+                        <GrSchedule/> Check In 
                     </Form.Label>
                     <Col >
                         <DatePicker
-                        name="date_time"
-                        onChange={ event => setDateTime(event) }
-                        selected={date_time}
+                        name="start_date_time"
+                        onChange={ event => setStartDateTime(event) }
+                        selected={start_date_time}
                         showTimeSelect
                         timeFormat="hh:mm aa"
                         timeCaption="Time"
                         dateFormat="Pp"
                         required
+                        />
+                    </Col>
+                    </Form.Group>
+
+                    <Form.Group as={Row} className="mb-3" controlId="checkout">
+                    <Form.Label column sm="4">
+                    <GrSchedule/> Check Out 
+                    </Form.Label>
+                    <Col >
+                        <DatePicker
+                        name="end_date_time"
+                        onChange={ event => setEndDateTime(event) }
+                        selected={end_date_time}
+                        showTimeSelect
+                        timeFormat="hh:mm aa"
+                        timeCaption="Time"
+                        dateFormat="Pp"
+                        required
+                        />
+                    </Col>
+                    </Form.Group>
+
+                    <Form.Group as={Row} className="mb-3" controlId="notes">
+                    <Form.Label column sm="4">
+                        <GrDocumentText/> Notes
+                    </Form.Label>
+                    <Col>
+                        <Form.Control 
+                        as="textarea" 
+                        rows={3}
+                        name="notes" 
+                        placeholder="Notes (optional)"
+                        value={notes}
+                        onChange={event => setNotes(event.target.value)} 
                         />
                     </Col>
                     </Form.Group>
