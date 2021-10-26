@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import moment from 'moment';
 import ListGroup from 'react-bootstrap/ListGroup';
-import { GrFormNextLink, GrTrash, GrEdit } from 'react-icons/gr';
+import { GrFormNextLink, GrTrash } from 'react-icons/gr';
 import styled from 'styled-components';
 import EditFlightForm from './EditFlightForm.js';
 

@@ -6,6 +6,7 @@ import Tab from 'react-bootstrap/Tab';
 import TripInfo from '../components/trips/TripInfo.js';
 import { editTrip, deleteTrip } from '../actions/trips.js';
 import FlightsContainer from './FlightsContainer.js';
+import AccomodationsContainer from './AccomodationsContainer.js';
 
 const Styles = styled.div`
     .nav-link {
@@ -49,7 +50,7 @@ const TripTabContainer = ({trip, editTrip, deleteTrip}) => {
                         <FlightsContainer trip={trip} />
                     </Tab>
                     <Tab eventKey="contact" title="Accomodations" >
-                        Accomodations component
+                        <AccomodationsContainer trip={trip} />
                     </Tab>
                 </Tabs>
             </div>    
