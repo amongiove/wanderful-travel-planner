@@ -5,7 +5,7 @@ import ListGroup from 'react-bootstrap/esm/ListGroup';
 import styled from 'styled-components';
 import AccomodationInfo from '../components/accomodations/AccomodationInfo.js';
 import { connect } from 'react-redux';
-// import NewFlightForm from '../components/flights/NewFlightForm.js';
+import NewAccomodationForm from '../components/accomodations/NewAccomodationForm.js';
 
 const Styles = styled.div`
     .new-accomodation {
@@ -41,8 +41,7 @@ class AccomodationsContainer extends React.Component {
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer>
-                        new accomodation form
-                        {/* <NewFlightForm onSubmit={createNewFlight} currentTrip={trip} /> */}
+                        <NewAccomodationForm onSubmit={createNewAccomodation} currentTrip={trip} />
                     </Card.Footer>
                 </Card>
             </Styles>

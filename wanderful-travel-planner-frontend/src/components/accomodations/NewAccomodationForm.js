@@ -6,17 +6,17 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import { GrMore, GrLocation, GrSchedule, GrDocumentText } from 'react-icons/gr';
+import { GrFormAdd, GrLocation, GrSchedule, GrDocumentText } from 'react-icons/gr';
 import styled from 'styled-components';
 
 const Styles = styled.div`
-    .edit-button {
+    .new-button {
         float:right;
         margin-right: 10px;
     }
 `;
 
-const EditAccomodationForm = ({onSubmit, currentTrip, accomodation}) => {
+const NewAccomodationForm = ({onSubmit, currentTrip, accomodation}) => {
     const reload=()=>window.location.reload();
     const [show, setShow] = useState(false);
 
@@ -26,30 +26,30 @@ const EditAccomodationForm = ({onSubmit, currentTrip, accomodation}) => {
     };
     const handleShow = () => setShow(true);
 
-    const [location, setLocation] = useState(accomodation.attributes.location);
-    const [start_date_time, setStartDateTime] = useState(new Date(accomodation.attributes.start_date_time));
-    const [end_date_time, setEndDateTime] = useState(new Date(accomodation.attributes.end_date_time));
-    const [notes, setNotes] = useState(accomodation.attributes.notes);
-    const updatedAccomodation = () => {return {id: accomodation.id, location: location, start_date_time: start_date_time, end_date_time: end_date_time, notes: notes, trip_id: currentTrip.id, user_id: localStorage['userId']}};
+    const [location, setLocation] = useState('');
+    const [start_date_time, setStartDateTime] = useState(new Date(currentTrip.attributes.start_date));
+    const [end_date_time, setEndDateTime] = useState(new Date(currentTrip.attributes.end_date));
+    const [notes, setNotes] = useState('');
+    const newAccomodation = () => {return {location: location, start_date_time: start_date_time, end_date_time: end_date_time, notes: notes, trip_id: currentTrip.id, user_id: localStorage['userId']}};
 
-    const handleSubmitEvent = async (event, updatedAccomodation) => {
+    const handleSubmitEvent = async (event, newAccomodation) => {
         event.preventDefault();
-        const result = await onSubmit(updatedAccomodation);
+        const result = await onSubmit(newAccomodation);
         if (result && !result.error) {
-            handleClose();
+            // handleClose();
             //TODO: reload to accomodations tab on close
         }
     }
 
     return (
         <Styles>
-            <Button className="edit-button" size="sm" variant="outline-secondary" onClick={handleShow}>
-                <GrMore/>
+            <Button className="new-button" size="sm" variant="outline-secondary" onClick={handleShow}>
+            <GrFormAdd/> New Accomodation
             </Button>
 
             <Modal show={show} onHide={handleClose} animation={false}>
                 <Modal.Header>
-                <Modal.Title>Edit Accomodation</Modal.Title>
+                <Modal.Title>Craete a new Accomodation</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                 <Form>
@@ -123,10 +123,10 @@ const EditAccomodationForm = ({onSubmit, currentTrip, accomodation}) => {
                 </Modal.Body>
                 <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
-                    Close
+                    Cancel
                 </Button>
-                <Button variant="outline-secondary" onClick={event => handleSubmitEvent(event, updatedAccomodation())}>
-                    Save Changes
+                <Button variant="outline-secondary" onClick={event => handleSubmitEvent(event, newAccomodation())}>
+                    Create Accomodation
                 </Button>
                 </Modal.Footer>
             </Modal>
@@ -135,4 +135,4 @@ const EditAccomodationForm = ({onSubmit, currentTrip, accomodation}) => {
 }
 
 
-export default EditAccomodationForm;
+export default NewAccomodationForm;
