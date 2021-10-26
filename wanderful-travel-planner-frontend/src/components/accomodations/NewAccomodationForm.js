@@ -16,7 +16,7 @@ const Styles = styled.div`
     }
 `;
 
-const NewAccomodationForm = ({onSubmit, currentTrip, accomodation}) => {
+const NewAccomodationForm = ({onSubmit, currentTrip}) => {
     const reload=()=>window.location.reload();
     const [show, setShow] = useState(false);
 
@@ -36,7 +36,7 @@ const NewAccomodationForm = ({onSubmit, currentTrip, accomodation}) => {
         event.preventDefault();
         const result = await onSubmit(newAccomodation);
         if (result && !result.error) {
-            // handleClose();
+            handleClose();
             //TODO: reload to accomodations tab on close
         }
     }

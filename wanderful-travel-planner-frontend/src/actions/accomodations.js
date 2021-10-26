@@ -76,7 +76,7 @@ export const editAccomodation = (updatedAccomodation) => {
 
 export const deleteAccomodation = (accomodationId) => {
     return dispatch => {
-      return fetch(`http://localhost:3000/api/v1/flights/${accomodationId}`, {
+      return fetch(`http://localhost:3000/api/v1/accomodations/${accomodationId}`, {
         credentials: "include",
         method: "DELETE",
         headers: {
