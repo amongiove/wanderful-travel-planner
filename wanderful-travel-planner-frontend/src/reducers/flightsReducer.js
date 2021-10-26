@@ -9,7 +9,7 @@ const flightsReducer = (state = initialState, action) => {
                 ...state,
                 flights: action.flights
             }
-        case 'FLIGHT':
+        case 'CREATE_FLIGHT':
             return {
                 ...state,
                 flights: [...state.flights, action.flight ]

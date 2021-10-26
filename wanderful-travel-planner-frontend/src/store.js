@@ -6,6 +6,7 @@ import tripsReducer from './reducers/tripsReducer';
 import eventsReducer from './reducers/eventsReducer';
 import packingListItemsReducer from './reducers/packingListItemsReducer';
 import flightsReducer from './reducers/flightsReducer';
+import accomodationsReducer from './reducers/accomodationsReducer';
 import thunk from 'redux-thunk';
 
 const rootReducer = combineReducers({
@@ -15,8 +16,8 @@ const rootReducer = combineReducers({
     signupForm: signupFormReducer,
     events: eventsReducer,
     packingListItems: packingListItemsReducer,
-    flights: flightsReducer
-
+    flights: flightsReducer,
+    accomodations: accomodationsReducer
   })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
