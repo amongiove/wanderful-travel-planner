@@ -12,7 +12,7 @@ const BarItems = [
         route: '/packing-list'
     },
     {
-        name: "other",
+        name: "Return Home",
         route: '/'
     },
 ];
