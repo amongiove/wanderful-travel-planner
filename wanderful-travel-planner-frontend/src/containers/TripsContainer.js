@@ -16,7 +16,6 @@ class TripsContainer extends React.Component {
       <Container className="home">
 
         <div>
-        {/* TODO: do i want to have users name here? if so need to add current user to state to get the name attribute */}
           <h1>Trips</h1>
           <div className="justify-content-end" style={{marginBottom: "10px"}}>
             <NewTripForm onSubmit={this.props.createNewTrip} />
