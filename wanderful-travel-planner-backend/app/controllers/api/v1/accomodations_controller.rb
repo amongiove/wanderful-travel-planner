@@ -43,7 +43,7 @@ class Api::V1::AccomodationsController < ApplicationController
     private
 
     def accomodation_params
-      params.require(:accomodation).permit(:location, :start_date_time, :end_date_time, :user_id, :trip_id)
+      params.require(:accomodation).permit(:location, :start_date_time, :end_date_time, :notes, :user_id, :trip_id)
     end
 
 end
