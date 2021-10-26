@@ -53,9 +53,6 @@ const FlightInfo = ({flight, trip, onDelete, onEdit}) => {
                             <GrTrash />
                         </Button>
                         <EditFlightForm flight={flight} currentTrip={trip} onSubmit={onEdit}/>
-                        {/* <Button variant="outline-secondary" size="sm"className="edit">
-                            <GrEdit/>
-                        </Button> */}
                     </Col>
                 </Row>
             </ListGroup.Item>

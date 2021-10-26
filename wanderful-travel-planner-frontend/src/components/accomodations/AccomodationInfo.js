@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import moment from 'moment';
 import ListGroup from 'react-bootstrap/ListGroup';
-import { GrFormNextLink, GrTrash } from 'react-icons/gr';
+import { GrTrash } from 'react-icons/gr';
 import styled from 'styled-components';
 // import EditFlightForm from './EditFlightForm.js';
 
@@ -39,10 +39,10 @@ const AccomodationInfo = ({accomodation, trip, onDelete, onEdit}) => {
         <Styles>
             <ListGroup.Item> 
                 <Row>
-                    <Col className="location" md={4}>
+                    <Col className="location" md={3}>
                         {accomodation.attributes.location}
                     </Col>
-                    <Col className="checkin" md={3}>
+                    <Col className="checkin" md={4}>
                         Check in: {moment(accomodation.attributes.start_date_time).format("MMM Do, YYYY h:mm A")}  
                     </Col>
                     <Col className="checkout" md={3}>
