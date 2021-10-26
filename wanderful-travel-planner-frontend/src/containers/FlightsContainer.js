@@ -1,12 +1,11 @@
 import React from 'react';
-import { getFlights, deleteFlight } from '../actions/flights.js';
+import { getFlights, deleteFlight, createNewFlight } from '../actions/flights.js';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/esm/ListGroup';
 import styled from 'styled-components';
 import FlightInfo from '../components/flights/FlightInfo.js';
 import { connect } from 'react-redux';
-import { GrFormAdd } from 'react-icons/gr';
+import NewFlightForm from '../components/flights/NewFlightForm.js';
 
 const Styles = styled.div`
     .new-flight {
@@ -22,11 +21,11 @@ class FlightsContainer extends React.Component {
     }
         
     render () {
-        const { flights, trip, deleteFlight } = this.props
+        const { flights, trip, deleteFlight, createNewFlight } = this.props
 
         const matchedFlights = flights.filter(flight => (parseInt(flight.attributes.trip_id) === parseInt(trip.id)))
         let orderedFlights = matchedFlights.sort((a,b) => a.attributes.date_time > b.attributes.date_time ? 1 : -1)
-        const tripFlights = orderedFlights.map (flight => <FlightInfo flight={flight} key={flight.id} id={flight.id} onDelete={deleteFlight}/> )
+        const tripFlights = orderedFlights.map (flight => <FlightInfo flight={flight} key={flight.id} id={flight.id} onDelete={deleteFlight} /> )
 
         return ( 
             <Styles>
@@ -42,9 +41,7 @@ class FlightsContainer extends React.Component {
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer>
-                        <Button className="new-flight" variant="outline-secondary" style={{marginLeft: "10px"}}>
-                            <GrFormAdd/> New Flight
-                        </Button>
+                        <NewFlightForm onSubmit={createNewFlight} currentTrip={trip} />
                     </Card.Footer>
                 </Card>
             </Styles>
@@ -60,7 +57,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         getFlights: () => dispatch(getFlights()),
-        deleteFlight: flightId => dispatch(deleteFlight(flightId))
+        deleteFlight: flightId => dispatch(deleteFlight(flightId)),
+        createNewFlight: newFlight => dispatch(createNewFlight(newFlight))
     }
 }
 

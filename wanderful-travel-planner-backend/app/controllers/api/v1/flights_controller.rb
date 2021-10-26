@@ -11,14 +11,14 @@ class Api::V1::FlightsController < ApplicationController
         end
     end
 
-    # def create
-    #     event = Event.new(event_params)
-    #     if event.save
-    #         render json: EventSerializer.new(event), status: :created
-    #     else
-    #         render json: { error: event.errors.full_messages[0] }, status: :not_acceptable
-    #     end
-    # end
+    def create
+        flight = Flight.new(flight_params)
+        if flight.save
+            render json: FlightSerializer.new(flight), status: :created
+        else
+            render json: { error: flight.errors.full_messages[0] }, status: :not_acceptable
+        end
+    end
 
     # def update
     #     event = Event.find(params[:id])
@@ -31,9 +31,7 @@ class Api::V1::FlightsController < ApplicationController
     # end
 
     def destroy
-        puts ('destroy')
         flight = Flight.find(params[:id])
-        puts(flight)
         if flight
             flight.destroy
             render json:  { data: "Flight successfully destroyed" }, status: :ok
@@ -45,7 +43,7 @@ class Api::V1::FlightsController < ApplicationController
     private
 
     def flight_params
-      params.require(:flight).permit(:airline, :date_time, :user, :trip_id)
+      params.require(:flight).permit(:airline, :date_time, :starting_airport, :return_airport, :user_id, :trip_id)
     end
 
 end

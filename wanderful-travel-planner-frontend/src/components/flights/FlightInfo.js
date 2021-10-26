@@ -30,7 +30,7 @@ const FlightInfo = ({flight, onDelete}) => {
         const result = await onDelete(flight.id);
         if (result && !result.error) {
             return alert('Flight Deleted')
-            // return reload();
+            // TODO: reload page without switching tab??? 
         }
     }
 

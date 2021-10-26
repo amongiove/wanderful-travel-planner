@@ -27,6 +27,29 @@ export const getFlights = () => {
     }
 }
 
+export const createNewFlight = (newFlight) => {
+    return (dispatch) => {
+            return fetch('http://localhost:3000/api/v1/flights', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.token}`
+            },
+            body: JSON.stringify(newFlight)
+            })
+        .then(response => {
+            if (response.error) {
+                alert(response.error)
+            } else {
+                return dispatch({ type: 'CREATE_FLIGHT', flight: response.data });
+            }
+        })
+        .catch(error => {
+            return {error: error.message}
+        })
+    }
+}
+
 export const deleteFlight = (flightId) => {
     return dispatch => {
       return fetch(`http://localhost:3000/api/v1/flights/${flightId}`, {
