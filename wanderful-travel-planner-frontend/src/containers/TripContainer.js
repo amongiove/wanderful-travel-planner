@@ -9,7 +9,7 @@ import EditEventForm from '../components/itinerary/EditEventForm.js';
 import PackingListContainer from './PackingListContainer.js';
 import TripInfo from '../components/trips/TripInfo.js';
 import FlightsContainer from './FlightsContainer.js';
-import AccomodationsContainer from './AccomodationsContainer.js';
+import AccommodationsContainer from './AccommodationsContainer.js';
 
 const TripContainer = ({getTrip, editTrip, deleteTrip}) => {
     const {tripId} = useParams();
@@ -37,8 +37,8 @@ const TripContainer = ({getTrip, editTrip, deleteTrip}) => {
                             <FlightsContainer trip={trip} />
                             )}
                         />
-                        <Route exact path={`/trips/:tripId/accomodations`} render={() => (
-                            <AccomodationsContainer trip={trip} />
+                        <Route exact path={`/trips/:tripId/accommodations`} render={() => (
+                            <AccommodationsContainer trip={trip} />
                             )}
                         />
                         <Route exact path={`/trips/:tripId/itinerary`} render={() => (

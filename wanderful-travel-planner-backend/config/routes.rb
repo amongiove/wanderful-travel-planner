@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       resources :users
       resources :trips
       resources :flights
-      resources :accomodations
+      resources :accommodations
       resources :events
       resources :packing_list_items
       resources :messages

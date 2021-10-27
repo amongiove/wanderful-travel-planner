@@ -1,4 +1,4 @@
-class Accomodation < ApplicationRecord
+class Accommodation < ApplicationRecord
   belongs_to :user
   belongs_to :trip
 

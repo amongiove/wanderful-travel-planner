@@ -8,8 +8,8 @@ const BarItems = [
         route: '/flights'
     },
     {
-        name: "Accomodations",
-        route: '/accomodations'
+        name: "Accommodations",
+        route: '/accommodations'
     },
     {
         name: "Itinerary",

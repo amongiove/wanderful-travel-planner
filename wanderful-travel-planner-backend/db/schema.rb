@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_26_154842) do
+ActiveRecord::Schema.define(version: 2021_10_27_152917) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "accomodations", force: :cascade do |t|
+  create_table "accommodations", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "trip_id", null: false
     t.string "location"
@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 2021_10_26_154842) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "notes"
-    t.index ["trip_id"], name: "index_accomodations_on_trip_id"
-    t.index ["user_id"], name: "index_accomodations_on_user_id"
+    t.index ["trip_id"], name: "index_accommodations_on_trip_id"
+    t.index ["user_id"], name: "index_accommodations_on_user_id"
   end
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -123,8 +123,8 @@ ActiveRecord::Schema.define(version: 2021_10_26_154842) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "accomodations", "trips"
-  add_foreign_key "accomodations", "users"
+  add_foreign_key "accommodations", "trips"
+  add_foreign_key "accommodations", "users"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "events", "trips"
