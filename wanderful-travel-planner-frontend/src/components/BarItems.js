@@ -4,6 +4,14 @@ const BarItems = [
         route: ''
     },
     {
+        name: "Flights",
+        route: '/flights'
+    },
+    {
+        name: "Accomodations",
+        route: '/accomodations'
+    },
+    {
         name: "Itinerary",
         route: '/itinerary'
     },

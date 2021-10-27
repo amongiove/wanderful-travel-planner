@@ -1,15 +1,27 @@
 import React from 'react';
 import { getAccomodations, deleteAccomodation, createNewAccomodation, editAccomodation } from '../actions/accomodations';
-import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/esm/ListGroup';
 import styled from 'styled-components';
 import AccomodationInfo from '../components/accomodations/AccomodationInfo.js';
 import { connect } from 'react-redux';
 import NewAccomodationForm from '../components/accomodations/NewAccomodationForm.js';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const Styles = styled.div`
+    .accomodations-container {
+        margin: 20px;
+        padding: 10px;
+    }
+
+    .list {
+        margin: 40px;
+    }
+
     .new-accomodation {
-        float: right;
+        text-align: right;
+        marign-right: 20px;
     }
 
 `;
@@ -29,21 +41,20 @@ class AccomodationsContainer extends React.Component {
 
         return ( 
             <Styles>
-                <Card className="text-center">
-                    <Card.Body>
-                        <Card.Title>Accomodations</Card.Title>
-                        <Card.Subtitle className="mb-2 text-muted">{trip.attributes.name}</Card.Subtitle>
-                        <Card.Text>
-                            <ListGroup >
-                                {matchedAccomodations.length > 0 ? tripAccomodations : null}
-                                {/* TODO: no flights msg */}
-                            </ListGroup>
-                        </Card.Text>
-                    </Card.Body>
-                    <Card.Footer>
-                        <NewAccomodationForm onSubmit={createNewAccomodation} currentTrip={trip} />
-                    </Card.Footer>
-                </Card>
+                <Container className="accomodations-container"> 
+                    <Row> 
+                        <Col>
+                            <h2>Accomodations</h2>
+                        </Col>
+                        <Col className="new-accomodation">
+                            <NewAccomodationForm onSubmit={createNewAccomodation} currentTrip={trip} />
+                        </Col>
+                    </Row>
+                        <ListGroup className="list" >
+                            {matchedAccomodations.length > 0 ? tripAccomodations : null}
+                            {/* TODO: no accomodations msg */}
+                        </ListGroup>   
+                </Container>
             </Styles>
         );
     }

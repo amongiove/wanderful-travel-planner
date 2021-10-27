@@ -25,7 +25,7 @@ const List = ({trip, tripItems, createNewItem, deleteItem}) => {
     return (
         <Styles>
             <Container>
-                <h3 className="list-title">Packing List</h3>
+                <h2 className="list-title">Packing List</h2>
                 <ListGroup as='ul' className="list">
                     <NewItemForm  currentTrip={trip} onSubmit={createNewItem}/> 
                     {items}

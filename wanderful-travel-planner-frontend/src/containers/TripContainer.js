@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Switch, Route, useParams } from "react-router-dom";
-import { getTrip } from '../actions/trips.js';
+import { getTrip, editTrip, deleteTrip } from '../actions/trips.js';
 import { connect } from 'react-redux';
 import SideBar from "../components/SideBar.js";
 import ItineraryContainer from './ItineraryContainer.js';
 import Container from 'react-bootstrap/Container';
 import EditEventForm from '../components/itinerary/EditEventForm.js';
 import PackingListContainer from './PackingListContainer.js';
-import TripTabContainer from './TripTabContainer.js';
+import TripInfo from '../components/trips/TripInfo.js';
+import FlightsContainer from './FlightsContainer.js';
+import AccomodationsContainer from './AccomodationsContainer.js';
 
-const TripContainer = ({getTrip}) => {
+const TripContainer = ({getTrip, editTrip, deleteTrip}) => {
     const {tripId} = useParams();
     const [trip, setTrip] = useState(0);
     
@@ -28,7 +30,15 @@ const TripContainer = ({getTrip}) => {
                 {trip ?  
                     <Switch>
                         <Route exact path={`/trips/:tripId`} render={() => (
-                            <TripTabContainer trip={trip} />
+                            <TripInfo trip={trip} onEditSubmit={editTrip} onDelete={deleteTrip}/>
+                            )}
+                        />
+                        <Route exact path={`/trips/:tripId/flights`} render={() => (
+                            <FlightsContainer trip={trip} />
+                            )}
+                        />
+                        <Route exact path={`/trips/:tripId/accomodations`} render={() => (
+                            <AccomodationsContainer trip={trip} />
                             )}
                         />
                         <Route exact path={`/trips/:tripId/itinerary`} render={() => (
@@ -52,7 +62,9 @@ const TripContainer = ({getTrip}) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        getTrip: tripId => dispatch(getTrip(tripId))
+        getTrip: tripId => dispatch(getTrip(tripId)),
+        editTrip: trip => dispatch(editTrip(trip)),
+        deleteTrip: tripId => dispatch(deleteTrip(tripId))
     }
 }
 

@@ -1,15 +1,27 @@
 import React from 'react';
 import { getFlights, deleteFlight, createNewFlight, editFlight } from '../actions/flights.js';
-import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/esm/ListGroup';
 import styled from 'styled-components';
 import FlightInfo from '../components/flights/FlightInfo.js';
 import { connect } from 'react-redux';
 import NewFlightForm from '../components/flights/NewFlightForm.js';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const Styles = styled.div`
+    .flights-container {
+        margin: 20px;
+        padding: 10px;
+    }
+
+    .list {
+        margin: 40px;
+    }
+
     .new-flight {
-        float: right;
+        text-align: right;
+        margin-right: 20px;
     }
 
 `;
@@ -29,21 +41,20 @@ class FlightsContainer extends React.Component {
 
         return ( 
             <Styles>
-                <Card className="text-center">
-                    <Card.Body>
-                        <Card.Title>Flights</Card.Title>
-                        <Card.Subtitle className="mb-2 text-muted">{trip.attributes.name}</Card.Subtitle>
-                        <Card.Text>
-                            <ListGroup >
-                                {matchedFlights.length > 0 ? tripFlights : null}
-                                {/* TODO: no flights msg */}
-                            </ListGroup>
-                        </Card.Text>
-                    </Card.Body>
-                    <Card.Footer>
-                        <NewFlightForm onSubmit={createNewFlight} currentTrip={trip} />
-                    </Card.Footer>
-                </Card>
+                <Container className="flights-container"> 
+                    <Row> 
+                        <Col>
+                            <h2>Flights</h2>
+                        </Col>
+                        <Col className="new-flight">
+                            <NewFlightForm onSubmit={createNewFlight} currentTrip={trip} />
+                        </Col>
+                    </Row>
+                        <ListGroup className="list" >
+                            {matchedFlights.length > 0 ? tripFlights : null}
+                            {/* TODO: no flights msg */}
+                        </ListGroup>   
+                </Container>
             </Styles>
         );
     }
