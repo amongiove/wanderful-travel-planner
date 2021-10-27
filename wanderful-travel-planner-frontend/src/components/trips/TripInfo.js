@@ -4,6 +4,18 @@ import Moment from 'react-moment';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import EditTripForm from './EditTripForm.js';
+import styled from 'styled-components';
+
+const Styles = styled.div`
+    .trip-card {
+        margin: 30px;
+        padding: 10px;
+    }
+    .image {
+        height: 200px;
+        width: 200px;
+    }
+`;
 
 const TripInfo = ({trip, onDelete, onEditSubmit}) => {
     
@@ -17,7 +29,8 @@ const TripInfo = ({trip, onDelete, onEditSubmit}) => {
         }
     }   
     return (
-        <Card className="text-center">
+        <Styles>
+        <Card className="trip-card text-center">
             <Card.Body>
                 <Card.Title>{trip.attributes.name}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{trip.attributes.location}</Card.Subtitle>
@@ -34,6 +47,7 @@ const TripInfo = ({trip, onDelete, onEditSubmit}) => {
                 </Button>
             </Card.Footer>
         </Card>
+        </Styles>
     )
 }
 

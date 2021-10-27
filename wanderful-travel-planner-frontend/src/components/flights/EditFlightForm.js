@@ -30,12 +30,14 @@ const EditFlightForm = ({onSubmit, currentTrip, flight}) => {
     const [starting_airport, setStartingAirport] = useState(flight.attributes.starting_airport);
     const [return_airport, setReturnAirport] = useState(flight.attributes.return_airport);
     const [date_time, setDateTime] = useState(new Date(flight.attributes.date_time));
+
     const updatedFlight = () => {return {id: flight.id, airline: airline, starting_airport: starting_airport, return_airport: return_airport, date_time: date_time, trip_id: currentTrip.id, user_id: localStorage['userId']}};
 
-    const handleSubmitNewEvent = async (event, updatedFlight) => {
+    const handleSubmitEvent = async (event, updatedFlight) => {
         event.preventDefault();
         const result = await onSubmit(updatedFlight);
         if (result && !result.error) {
+            console.log('result', result)
             handleClose();
             //TODO: reload to flights tab on close
         }
@@ -49,7 +51,7 @@ const EditFlightForm = ({onSubmit, currentTrip, flight}) => {
 
             <Modal show={show} onHide={handleClose} animation={false}>
                 <Modal.Header>
-                <Modal.Title>Edit Flight</Modal.Title>
+                    <Modal.Title>Edit Flight</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                 <Form>
@@ -118,12 +120,12 @@ const EditFlightForm = ({onSubmit, currentTrip, flight}) => {
                 </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                    Close
-                </Button>
-                <Button variant="outline-secondary" onClick={event => handleSubmitNewEvent(event, updatedFlight())}>
-                    Save Changes
-                </Button>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                    <Button variant="outline-secondary" onClick={event => handleSubmitEvent(event, updatedFlight())}>
+                        Save Changes
+                    </Button>
                 </Modal.Footer>
             </Modal>
         </Styles>

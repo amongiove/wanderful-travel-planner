@@ -99,7 +99,7 @@ export const editTrip = (updatedTrip) => {
                 if (response.error) {
                     alert(response.error)
                 } else {
-                    return dispatch({ type: 'EDIT_TRIP', trip: response.data });
+                    dispatch({ type: 'EDIT_TRIP', trip: response.data });
                 }
         })
         .catch(error => {

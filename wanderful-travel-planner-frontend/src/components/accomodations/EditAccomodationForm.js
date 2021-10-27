@@ -122,12 +122,12 @@ const EditAccomodationForm = ({onSubmit, currentTrip, accomodation}) => {
                 </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                    Close
-                </Button>
-                <Button variant="outline-secondary" onClick={event => handleSubmitEvent(event, updatedAccomodation())}>
-                    Save Changes
-                </Button>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                    <Button variant="outline-secondary" onClick={event => handleSubmitEvent(event, updatedAccomodation())}>
+                        Save Changes
+                    </Button>
                 </Modal.Footer>
             </Modal>
         </Styles>

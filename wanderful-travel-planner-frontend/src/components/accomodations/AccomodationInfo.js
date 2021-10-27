@@ -30,7 +30,8 @@ const AccomodationInfo = ({accomodation, trip, onDelete, onEdit}) => {
         event.preventDefault();
         const result = await onDelete(accomodation.id);
         if (result && !result.error) {
-            return alert('Accomodation Deleted')
+            alert('Accomodation Deleted')
+            return window.location.reload();
         }
     }
 

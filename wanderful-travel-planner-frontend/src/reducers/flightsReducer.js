@@ -21,7 +21,7 @@ const flightsReducer = (state = initialState, action) => {
             return { 
                 ...state, 
                 flights: editedFlights
-            }            
+            }  
         case "DELETE_FLIGHT":
             return {
                 flights: [
