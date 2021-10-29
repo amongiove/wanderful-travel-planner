@@ -29,10 +29,12 @@ const Styles = styled.div`
 class FlightsContainer extends React.Component {
 
     componentDidMount = () => {
+        console.log('flights container')
         this.props.getFlights()
     }
         
     render () {
+        console.log(this.props.flights)
         const { flights, trip, deleteFlight, createNewFlight, editFlight } = this.props
 
         const matchedFlights = flights.filter(flight => (parseInt(flight.attributes.trip_id) === parseInt(trip.id)))
