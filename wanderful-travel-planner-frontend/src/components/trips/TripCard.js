@@ -20,7 +20,7 @@ const TripCard = ({trip}) => {
                     <Card.Text>image?</Card.Text>
                     {/* TODO: this is not working as expected */}
                     {trip.image ? 
-                    <Card.Img variant="top" src={trip.image.attributes.image} /> :
+                    <Card.Img variant="top" src={trip.attributes.image_url} /> :
                     'no image'}
                     <Card.Title>{trip.attributes.name}</Card.Title>
                     <Card.Subtitle className="mb-2 text-muted">{trip.attributes.location}</Card.Subtitle>

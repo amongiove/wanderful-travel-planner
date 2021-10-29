@@ -5,8 +5,29 @@ class Api::V1::TripsController < ApplicationController
     def index
         if logged_in?
             trips = current_user.trips
+
+            tripsCollection = []
+
+            for trip in trips
+                tripJson = trip.as_json
+                tripJson[:attributes] = trip.as_json
+
+                if trip.image.attached?
+                    tripJson[:image] = true
+                    tripJson[:attributes][:image_url] = url_for(trip.image)
+                end
+
+                tripsCollection.push(tripJson)
+                
+            end
+
+            tripsHash = {:data => tripsCollection}
+
+            render json: tripsHash
+
+            # render json: tripsCollection
       
-            render json: TripSerializer.new(trips)
+            # render json: TripSerializer.new(trips)
         else
             render json: {
               error: "You must be logged in to see trips"
@@ -18,7 +39,13 @@ class Api::V1::TripsController < ApplicationController
         trip = Trip.find(params[:id])
 
         if trip
-            render json: TripSerializer.new(trip, {params: {image_url: url_for(trip.image)}}), status: :ok
+            imageUrl = nil
+            if trip.image.attached?
+                imageUrl = url_for(trip.image)
+            end
+            render json: TripSerializer.new(trip, {params: {image_url: imageUrl}}), status: :ok
+            # render json: TripSerializer.new(trip), status: :ok
+
         else
             render json: { error: "Unable to locate trip" }, status: :not_found
         end
