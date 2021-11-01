@@ -5,5 +5,5 @@ class TripSerializer
   attribute :image_url do |trip, params|
     params[:image_url]
   end
- 
+
 end

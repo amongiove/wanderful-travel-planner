@@ -18,16 +18,10 @@ class Api::V1::TripsController < ApplicationController
                 end
 
                 tripsCollection.push(tripJson)
-                
             end
 
             tripsHash = {:data => tripsCollection}
-
             render json: tripsHash
-
-            # render json: tripsCollection
-      
-            # render json: TripSerializer.new(trips)
         else
             render json: {
               error: "You must be logged in to see trips"

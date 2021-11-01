@@ -21,7 +21,6 @@ const NewFlightForm = ({onSubmit, currentTrip}) => {
 
     const handleClose = () => {
         setShow(false)
-        reload();
     };
     const handleShow = () => setShow(true);
 
@@ -35,8 +34,8 @@ const NewFlightForm = ({onSubmit, currentTrip}) => {
         event.preventDefault();
         const result = await onSubmit(newFlight);
         if (result && !result.error) {
+            console.log('result' , result)
             handleClose();
-            //TODO: reload to flights tab on close
         }
     }
 

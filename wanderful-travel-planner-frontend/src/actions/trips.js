@@ -84,15 +84,15 @@ export const createNewTrip = (formData) => {
     }
 }
 
-export const editTrip = (updatedTrip) => {
+export const editTrip = (formData, id) => {
     return (dispatch) => {
-        return fetch(`http://localhost:3000/api/v1/trips/${updatedTrip.id}`, {
+        return fetch(`http://localhost:3000/api/v1/trips/${id}`, {
             method: "PATCH",
             headers: {
-                "Content-Type": "application/json",
+                // "Content-Type": "application/json",
                 "Authorization": `Bearer ${localStorage.token}`
             },
-            body: JSON.stringify(updatedTrip)
+            body: formData
         })
         .then(resp => (resp.json()))
         .then(response => {

@@ -37,10 +37,12 @@ export const createNewFlight = (newFlight) => {
             },
             body: JSON.stringify(newFlight)
             })
+        .then(resp => (resp.json()))
         .then(response => {
             if (response.error) {
                 alert(response.error)
             } else {
+                console.log('action resopnse', response.data)
                 return dispatch({ type: 'CREATE_FLIGHT', flight: response.data });
             }
         })

@@ -6,6 +6,18 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import styled from 'styled-components';
+
+const Styles = styled.div`
+  .image {
+    color: transparent;
+  }
+
+  #preview {
+    height: 100px;
+    width: 100px;
+  }
+`;
 
 const NewTripForm = ({onSubmit}) => {
 
@@ -28,7 +40,6 @@ const NewTripForm = ({onSubmit}) => {
 
   const handleSubmitNewTrip = async (event) => {
     event.preventDefault();
-    console.log('image', image)
 
     const formData = new FormData()
       formData.append('name', name);
@@ -42,6 +53,11 @@ const NewTripForm = ({onSubmit}) => {
     if (result && !result.error) {
       return history.push(`/trips/${result.trip.id}`)
     }
+  }
+
+  const preview = () => {
+    let url=URL.createObjectURL(image)
+    return url
   }
 
   return (
@@ -117,15 +133,23 @@ const NewTripForm = ({onSubmit}) => {
               </Col>
             </Form.Group>
             <Form.Group>
-              <Form.Label column sm="2">
-                Image
-              </Form.Label>
-              <Form.Control
-                type="file"
-                accept="image/*"
-                multiple={false}
-                onChange={event => setImage(event.target.files[0])}
-              />
+              <Styles>
+                <Form.Label column sm="2">
+                  Image
+                </Form.Label>
+                <Form.Control
+                  className="image"
+                  type="file"
+                  accept="image/*"
+                  multiple={false}
+                  onChange={event => setImage(event.target.files[0])}
+                />
+                <br/>
+                {image !== null ? 
+                  <><img id="preview" src={preview()}></img><br/></>
+                :
+                  null}
+              </Styles>
             </Form.Group>
           </Form>
         </Modal.Body>

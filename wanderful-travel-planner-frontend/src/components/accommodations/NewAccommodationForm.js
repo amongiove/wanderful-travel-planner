@@ -22,7 +22,6 @@ const NewAccommodationForm = ({onSubmit, currentTrip}) => {
 
     const handleClose = () => {
         setShow(false)
-        reload();
     };
     const handleShow = () => setShow(true);
 
@@ -37,7 +36,6 @@ const NewAccommodationForm = ({onSubmit, currentTrip}) => {
         const result = await onSubmit(newAccommodation);
         if (result && !result.error) {
             handleClose();
-            //TODO: reload to accommodations tab on close
         }
     }
 
