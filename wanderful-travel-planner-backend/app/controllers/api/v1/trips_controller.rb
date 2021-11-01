@@ -44,8 +44,6 @@ class Api::V1::TripsController < ApplicationController
                 imageUrl = url_for(trip.image)
             end
             render json: TripSerializer.new(trip, {params: {image_url: imageUrl}}), status: :ok
-            # render json: TripSerializer.new(trip), status: :ok
-
         else
             render json: { error: "Unable to locate trip" }, status: :not_found
         end

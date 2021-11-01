@@ -34,8 +34,9 @@ const TripInfo = ({trip, onDelete, onEditSubmit}) => {
             <Card.Body>
                 <Card.Title>{trip.attributes.name}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{trip.attributes.location}</Card.Subtitle>
-                {trip.image ? 
-                    <Card.Img variant="top" className='image' src={trip.attributes.image_url} /> :
+                {trip.attributes.image_url ? 
+                    <Card.Img variant="top" className='image' src={trip.attributes.image_url} /> 
+                :
                     <Card.Img variant="top" className='image' src={'https://www.thetravelingcompass.com/wp-content/uploads/advantages-of-a-travel-advisor-why-use-a-travel-agent.jpg'} />
                 }
                 <Card.Text>
