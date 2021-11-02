@@ -14,7 +14,6 @@ class Api::V1::EventsController < ApplicationController
     end
 
     def show
-        # TODO: do i need this ??
         event = Event.find(params[:id])
 
         if event

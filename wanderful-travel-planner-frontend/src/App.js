@@ -38,7 +38,6 @@ class App extends React.Component {
               { loggedIn? <Redirect to="/trips" /> : null }
             </Route>
             <Route component={Missing} />
-            {/* TODO: Build out missing page */}
           </Switch>
       </Router>
     );

@@ -43,7 +43,6 @@ export const getTrip = (tripId) => {
             if (response.error) {
                 alert(response.error)
             } else {
-                //TODO: may not need set trip in state here (or at all)
                 dispatch(setTrip(response.data))
                 return (response.data)
             }

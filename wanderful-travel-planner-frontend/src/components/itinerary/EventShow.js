@@ -26,19 +26,17 @@ const EventShow = ({event, onDelete}) => {
     } 
     
     const handleEdit = (e) => {
-        console.log('handle edit')
         return history.push(`/trips/${tripId}/itinerary/${event.id}`);
     }
 
     return (
         <>
             <GrMore onClick={handleShow} />
-                {/* TODO: fix how this looks */}
-
+            
             <Modal show={show} onHide={handleClose}>
-            {/* TODO: fix close button styling - may need to downgrade to bootstrap 4 */}
-            <Modal.Header closeButton>
+            <Modal.Header>
                 <Modal.Title>{event.attributes.event_name}</Modal.Title>
+                <button type="button" class="btn-close text-align-right" aria-label="Close" onClick={handleClose}></button>
             </Modal.Header>
             <Modal.Body>
                     <GrSchedule /> {moment(event.attributes.event_date_time).format("h:mm A")}

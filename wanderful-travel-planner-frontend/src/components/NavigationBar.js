@@ -28,11 +28,6 @@ const NavigationBar = () => (
                 <Nav className="justify-content-end" style={{ width: "100%" }} > 
                     <Nav.Item >
                         <Logout />
-                        {/* TODO: make this more appealing? */}
-                        {/* <Nav.Link>
-                            <Link to="/logout">Logout (fix this)</Link>
-                        </Nav.Link> */}
-                        {/* TODO: after logout , redirect welcome */}
                     </Nav.Item>
                 </Nav>
             </Navbar.Collapse>
