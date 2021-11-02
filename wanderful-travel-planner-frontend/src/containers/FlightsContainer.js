@@ -52,7 +52,6 @@ class FlightsContainer extends React.Component {
                     </Row>
                         <ListGroup className="list" >
                             {matchedFlights.length > 0 ? tripFlights : <h4>No flights currently listed. Add one now!</h4>}
-                            {/* TODO: no flights msg */}
                         </ListGroup>   
                 </Container>
             </Styles>

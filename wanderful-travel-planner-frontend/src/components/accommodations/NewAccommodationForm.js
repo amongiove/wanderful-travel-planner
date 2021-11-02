@@ -17,7 +17,6 @@ const Styles = styled.div`
 `;
 
 const NewAccommodationForm = ({onSubmit, currentTrip}) => {
-    const reload=()=>window.location.reload();
     const [show, setShow] = useState(false);
 
     const handleClose = () => {

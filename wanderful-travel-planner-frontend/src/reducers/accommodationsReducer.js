@@ -24,7 +24,7 @@ const accommodationsReducer = (state = initialState, action) => {
             }            
         case "DELETE_ACCOMMODATION":
             return {
-                accommodaions: [
+                accommodations: [
                     ...state.accommodations.slice(0, action.accommodationId),
                     ...state.accommodations.slice(action.accommodationId + 1)
                 ]

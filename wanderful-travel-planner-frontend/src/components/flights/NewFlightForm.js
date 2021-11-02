@@ -16,7 +16,6 @@ const Styles = styled.div`
 `;
 
 const NewFlightForm = ({onSubmit, currentTrip}) => {
-    const reload=()=>window.location.reload();
     const [show, setShow] = useState(false);
 
     const handleClose = () => {
@@ -34,7 +33,6 @@ const NewFlightForm = ({onSubmit, currentTrip}) => {
         event.preventDefault();
         const result = await onSubmit(newFlight);
         if (result && !result.error) {
-            console.log('result' , result)
             handleClose();
         }
     }

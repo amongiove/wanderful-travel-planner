@@ -51,8 +51,7 @@ class AccommodationsContainer extends React.Component {
                         </Col>
                     </Row>
                         <ListGroup className="list" >
-                            {matchedAccommodations.length > 0 ? tripAccommodations : <h4>No accomodations currently listed. Add one now!</h4>}
-                            {/* TODO: no accommodations msg */}
+                            {matchedAccommodations.length > 0 ? tripAccommodations : <h4>No accommodations currently listed. Add one now!</h4>}
                         </ListGroup>   
                 </Container>
             </Styles>
