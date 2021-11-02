@@ -17,12 +17,9 @@ const Styles = styled.div`
 `;
 
 const EditFlightForm = ({onSubmit, currentTrip, flight}) => {
-    const reload=()=>window.location.reload();
     const [show, setShow] = useState(false);
-
     const handleClose = () => {
         setShow(false)
-        reload();
     };
     const handleShow = () => setShow(true);
 
@@ -37,9 +34,7 @@ const EditFlightForm = ({onSubmit, currentTrip, flight}) => {
         event.preventDefault();
         const result = await onSubmit(updatedFlight);
         if (result && !result.error) {
-            console.log('result', result)
             handleClose();
-            //TODO: reload to flights tab on close
         }
     }
 

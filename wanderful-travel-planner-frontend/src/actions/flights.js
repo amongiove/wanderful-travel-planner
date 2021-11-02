@@ -67,7 +67,7 @@ export const editFlight = (updatedFlight) => {
             if (response.error) {
                 alert(response.error)
             } else {
-                return dispatch({ type: 'EDIT_FLIGHT', event: response.data });
+                return dispatch({ type: 'EDIT_FLIGHT', flight: response.data });
             }
         })
         .catch(error => {

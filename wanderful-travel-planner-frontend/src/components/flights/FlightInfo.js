@@ -31,7 +31,6 @@ const FlightInfo = ({flight, trip, onDelete, onEdit}) => {
         const result = await onDelete(flight.id);
         if (result && !result.error) {
              alert('Flight Deleted')
-             return window.location.reload();
         }
     }
 

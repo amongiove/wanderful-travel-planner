@@ -17,12 +17,10 @@ const Styles = styled.div`
 `;
 
 const EditAccommodationForm = ({onSubmit, currentTrip, accommodation}) => {
-    const reload=()=>window.location.reload();
     const [show, setShow] = useState(false);
 
     const handleClose = () => {
         setShow(false)
-        reload();
     };
     const handleShow = () => setShow(true);
 
@@ -30,6 +28,7 @@ const EditAccommodationForm = ({onSubmit, currentTrip, accommodation}) => {
     const [start_date_time, setStartDateTime] = useState(new Date(accommodation.attributes.start_date_time));
     const [end_date_time, setEndDateTime] = useState(new Date(accommodation.attributes.end_date_time));
     const [notes, setNotes] = useState(accommodation.attributes.notes);
+
     const updatedAccommodation = () => {return {id: accommodation.id, location: location, start_date_time: start_date_time, end_date_time: end_date_time, notes: notes, trip_id: currentTrip.id, user_id: localStorage['userId']}};
 
     const handleSubmitEvent = async (event, updatedAccommodation) => {
@@ -37,7 +36,6 @@ const EditAccommodationForm = ({onSubmit, currentTrip, accommodation}) => {
         const result = await onSubmit(updatedAccommodation);
         if (result && !result.error) {
             handleClose();
-            //TODO: reload to accommodations tab on close
         }
     }
 
@@ -49,7 +47,7 @@ const EditAccommodationForm = ({onSubmit, currentTrip, accommodation}) => {
 
             <Modal show={show} onHide={handleClose} animation={false}>
                 <Modal.Header>
-                <Modal.Title>Edit Accommodation</Modal.Title>
+                    <Modal.Title>Edit Accommodation</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                 <Form>
