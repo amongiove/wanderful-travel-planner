@@ -23,7 +23,7 @@ const TripCard = ({trip}) => {
     const countdown = (now.to(start_date, true))
 
     return (
-        // TODO: are we adding images? make card clickable or remove hover css
+        //  make card clickable or remove hover css
         <Col>
             <Styles>
                 <Card className="card" >
