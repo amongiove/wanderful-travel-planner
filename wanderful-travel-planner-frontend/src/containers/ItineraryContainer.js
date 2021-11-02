@@ -23,7 +23,6 @@ const Styles = styled.div`
 `;
 
 const ItineraryContainer = ({events, trip, getEvents, createNewEvent}) => {
-
     const start_date = trip.attributes.start_date
     const end_date = trip.attributes.end_date
     const moment = extendMoment(Moment);
@@ -41,7 +40,6 @@ const ItineraryContainer = ({events, trip, getEvents, createNewEvent}) => {
     }, [getEvents]);
 
     const tripEvents = events.filter(event => trip.id === event.relationships.trip.data.id )
-    //TODO: this is causing issues on reload after new event creation (relationships undefined error?)
 
     const daysArray = Array.from(range.by('day'));      
     const dayCards = daysArray.map(day => <DayCard tripEvents={tripEvents} dayNum={daysArray.indexOf(day) +1 } day={day.format('MM-DD-YYYY')} key={day} id={day} />) 

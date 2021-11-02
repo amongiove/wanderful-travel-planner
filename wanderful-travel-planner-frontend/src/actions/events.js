@@ -59,6 +59,7 @@ export const createNewEvent = (newEvent) => {
             },
             body: JSON.stringify(newEvent)
             })
+        .then(resp => (resp.json()))
         .then(response => {
             if (response.error) {
                 alert(response.error)
