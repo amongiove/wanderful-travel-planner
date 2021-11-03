@@ -6,7 +6,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import EventShow from './EventShow.js';
 import { deleteEvent } from '../../actions/events.js';
 import { connect } from 'react-redux';
-
+import titleize from 'titleize';
 
 const Events = ({event, deleteEvent}) => {
 
@@ -18,7 +18,7 @@ const Events = ({event, deleteEvent}) => {
                     {moment(event.attributes.event_date_time).format("h:mm A")}
                 </Col>
                 <Col md="8">
-                    {event.attributes.event_name} 
+                    {titleize(event.attributes.event_name)} 
                 </Col>
                 <Col>
                     <EventShow event={event} onDelete={deleteEvent} />

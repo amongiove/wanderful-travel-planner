@@ -7,6 +7,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import { GrTrash } from 'react-icons/gr';
 import styled from 'styled-components';
 import EditAccommodationForm from './EditAccommodationForm.js';
+import titleize from 'titleize';
 
 const Styles = styled.div`
 
@@ -40,7 +41,7 @@ const AccommodationInfo = ({accommodation, trip, onDelete, onEdit}) => {
             <ListGroup.Item> 
                 <Row>
                     <Col className="location" md={4}>
-                        {accommodation.attributes.location}
+                        {titleize(accommodation.attributes.location)}
                     </Col>
                     <Col className="checkin" md={3}>
                         Check in: {moment(accommodation.attributes.start_date_time).format("MM-DD-YYYY h:mm A")}  

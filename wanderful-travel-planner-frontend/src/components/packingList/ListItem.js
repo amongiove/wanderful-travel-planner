@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import { GrTrash } from 'react-icons/gr';
 import styled from 'styled-components';
+import titleize from 'titleize';
 
 const Styles = styled.div`
     
@@ -36,7 +37,7 @@ const ListItem = ({item, onDelete}) => {
             <Col className="container-fluid col-md-8  col-md-offset-2 col-sm-2 col-sm-offset-2">
                 <ListGroup.Item className="item"  as='li'>
 
-                    {item.attributes.item} 
+                    {titleize(item.attributes.item)} 
 
                     <Button onClick={(event) => (window.confirm('Are you sure you want to delete this item?'))?handleDelete(event) : null} variant="outline-secondary" size="sm" className="delete-button">
                             <GrTrash />

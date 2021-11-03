@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
+// import TimezoneSelect from "react-timezone-select"
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -25,6 +26,7 @@ const NewEventForm = ({currentTrip, onSubmit}) => {
   const [location, setLocation] = useState('');
   const [event_date_time, setDateTime] = useState(new Date(currentTrip.attributes.start_date));
   const [notes, setNotes] = useState('');
+  // const [selectedTimezone, setSelectedTimezone] = useState(Intl.DateTimeFormat().resolvedOptions().timeZone)
   const newEvent = () => {return {event_name: event_name, location: location, event_date_time: event_date_time, notes: notes, trip_id: currentTrip.id}};
 
   const handleSubmitNewEvent = async (event, newEvent) => {
@@ -95,6 +97,17 @@ const NewEventForm = ({currentTrip, onSubmit}) => {
                   required
                 />
               </Col>
+              {/* <Form.Label column sm="4">
+                Select Timezone
+              </Form.Label>
+              <Col>
+                <div className="select-wrapper">
+                  <TimezoneSelect
+                    value={selectedTimezone}
+                    onChange={event => setSelectedTimezone(event)}
+                  />
+                </div>
+              </Col> */}
             </Form.Group>
             <Form.Group as={Row} className="mb-3" controlId="notes">
               <Form.Label column sm="2">

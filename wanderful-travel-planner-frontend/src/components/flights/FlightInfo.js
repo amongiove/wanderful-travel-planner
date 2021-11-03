@@ -7,6 +7,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import { GrFormNextLink, GrTrash } from 'react-icons/gr';
 import styled from 'styled-components';
 import EditFlightForm from './EditFlightForm.js';
+import titleize from 'titleize';
 
 const Styles = styled.div`
 
@@ -40,10 +41,11 @@ const FlightInfo = ({flight, trip, onDelete, onEdit}) => {
             <ListGroup.Item> 
                 <Row>
                     <Col className="airports" md={4}>
+                        {/* TODO: capitalize these ?? */}
                         {flight.attributes.starting_airport} <GrFormNextLink/> {flight.attributes.return_airport}
                     </Col>
                     <Col className="airline" md={3}>
-                        {flight.attributes.airline}
+                        {titleize(flight.attributes.airline)}
                     </Col>
                     <Col className="date" md={3}>
                         {moment(flight.attributes.date_time).format("MMM Do, YYYY h:mm A")} 

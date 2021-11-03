@@ -46,7 +46,6 @@ const SidebarItem = styled.div`
 `;
 
 const SideBar = ({defaultActive}) => {
-    // TODO: do we need all of this logic?
     const { tripId } = useParams()
     const location = window.location;
     const lastActiveIndexString = localStorage.getItem("lastActiveIndex");

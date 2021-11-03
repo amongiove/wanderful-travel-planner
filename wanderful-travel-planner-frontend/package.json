@@ -23,10 +23,12 @@
     "react-redux": "^7.2.5",
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
+    "react-timezone-select": "^1.1.13",
     "redux": "^4.1.1",
     "redux-thunk": "^2.3.0",
     "start": "^5.1.0",
     "styled-components": "^5.3.1",
+    "titleize": "^3.0.0",
     "web-vitals": "^1.0.1"
   },
   "scripts": {

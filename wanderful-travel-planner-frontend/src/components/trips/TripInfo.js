@@ -5,6 +5,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import EditTripForm from './EditTripForm.js';
 import styled from 'styled-components';
+import titleize from 'titleize';
 
 const Styles = styled.div`
     .trip-card {
@@ -32,8 +33,8 @@ const TripInfo = ({trip, onDelete, onEditSubmit}) => {
         <Styles>
         <Card className="trip-card text-center">
             <Card.Body>
-                <Card.Title>{trip.attributes.name}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">{trip.attributes.location}</Card.Subtitle>
+                <Card.Title>{titleize(trip.attributes.name)}</Card.Title>
+                <Card.Subtitle className="mb-2 text-muted">{titleize(trip.attributes.location)}</Card.Subtitle>
                 {trip.attributes.image_url ? 
                     <Card.Img variant="top" className='image' src={trip.attributes.image_url} /> 
                 :
