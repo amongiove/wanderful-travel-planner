@@ -43,6 +43,7 @@ const TripCard = ({trip}) => {
     const past = (moment(start_date, "YYYY/MM/DD").isBefore(moment()));
     const countdown = (now.to(start_date, true))
     //TODO: this need to be a countdown to local time
+    const pic = (Math.floor(Math.random() * (7) + 1));
 
     return (
         <Col>
@@ -52,11 +53,11 @@ const TripCard = ({trip}) => {
                     {trip.image ? 
                         <Card.Img variant="top" className='image' src={trip.attributes.image_url} alt="Card image"/> 
                     :
-                        <Card.Img variant="top" className='image' src={'https://www.thetravelingcompass.com/wp-content/uploads/advantages-of-a-travel-advisor-why-use-a-travel-agent.jpg'} alt="Card image"/>
+                        <Card.Img variant="top" className='image' src={`/images/${pic}.jpg`} alt="Card image"/>
                     }
                         <Card.ImgOverlay>
                             <Card.Body className="body">
-                                <Card.Title><h2 class="title fw-bolder">{titleize(trip.attributes.name)}</h2></Card.Title>
+                                <Card.Title><h2 className="title fw-bolder">{titleize(trip.attributes.name)}</h2></Card.Title>
                                 <Card.Subtitle className="subtitle mb-2 text-muted fw-bold">{titleize(trip.attributes.location)}</Card.Subtitle>
                                 
                                 <Card.Text class="countdown fw-bold fst-italic">
