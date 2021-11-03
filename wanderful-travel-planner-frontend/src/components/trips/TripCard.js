@@ -2,7 +2,6 @@ import React from 'react';
 import moment from 'moment';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import titleize from 'titleize';
 
@@ -16,6 +15,24 @@ const Styles = styled.div`
     }
     .card {
         text-align: center;
+
+        &:hover {
+            cursor:pointer;
+            border: 2px solid #708090;
+          }
+    }
+    
+    .body {
+        margin: 30px;
+    }
+
+    .title {
+        color: black;
+    }
+
+    .countdown {
+        color: black;
+        padding: 20px;
     }
 `;
 
@@ -28,7 +45,6 @@ const TripCard = ({trip}) => {
     //TODO: this need to be a countdown to local time
 
     return (
-        //  make card clickable or remove hover css
         <Col>
             <Styles>
                 <a href={`/trips/${trip.id}`}>
@@ -39,15 +55,13 @@ const TripCard = ({trip}) => {
                         <Card.Img variant="top" className='image' src={'https://www.thetravelingcompass.com/wp-content/uploads/advantages-of-a-travel-advisor-why-use-a-travel-agent.jpg'} alt="Card image"/>
                     }
                         <Card.ImgOverlay>
-                            <Card.Body>
-                                <Card.Title><h2 class="fw-bolder">{titleize(trip.attributes.name)}</h2></Card.Title>
-                                <Card.Subtitle className="mb-2 text-muted fw-bold">{titleize(trip.attributes.location)}</Card.Subtitle>
+                            <Card.Body className="body">
+                                <Card.Title><h2 class="title fw-bolder">{titleize(trip.attributes.name)}</h2></Card.Title>
+                                <Card.Subtitle className="subtitle mb-2 text-muted fw-bold">{titleize(trip.attributes.location)}</Card.Subtitle>
                                 
-                                <Card.Text class="font-monospace">
+                                <Card.Text class="countdown fw-bold fst-italic">
                                 { past === true ? "0 days to go!" : `${countdown} to go!` }
                                 </Card.Text>
-                                {/* TODO: change link to make name of trip */}
-                                {/* <Link to={`/trips/${trip.id}`}>View Trip</Link> */}
                             </Card.Body>
                         </Card.ImgOverlay>
                     </Card>
