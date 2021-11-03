@@ -7,6 +7,7 @@ import EditTripForm from './EditTripForm.js';
 import styled from 'styled-components';
 import titleize from 'titleize';
 
+//TODO: image variant for sizing 
 const Styles = styled.div`
     .trip-card {
         margin: 30px;

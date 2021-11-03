@@ -83,22 +83,22 @@ export const createNewTrip = (formData) => {
     }
 }
 
-export const editTrip = (formData, id) => {
+export const editTrip = (updatedTrip) => {
     return (dispatch) => {
-        return fetch(`http://localhost:3000/api/v1/trips/${id}`, {
+        return fetch(`http://localhost:3000/api/v1/trips/${updatedTrip.id}`, {
             method: "PATCH",
             headers: {
-                // "Content-Type": "application/json",
+                "Content-Type": "application/json",
                 "Authorization": `Bearer ${localStorage.token}`
             },
-            body: formData
+            body: JSON.stringify(updatedTrip)
         })
         .then(resp => (resp.json()))
         .then(response => {
                 if (response.error) {
                     alert(response.error)
                 } else {
-                    dispatch({ type: 'EDIT_TRIP', trip: response.data });
+                   return dispatch({ type: 'EDIT_TRIP', trip: response.data });
                 }
         })
         .catch(error => {
