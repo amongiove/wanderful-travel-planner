@@ -29,7 +29,6 @@ const NewTripForm = ({onSubmit}) => {
     reload();
   };
   const handleShow = () => setShow(true);
-
   const [name, setName] = useState('');
   const [location, setLocation] = useState('');
   const [start_date, setStartDate] = useState('');
@@ -40,14 +39,15 @@ const NewTripForm = ({onSubmit}) => {
 
   const handleSubmitNewTrip = async (event) => {
     event.preventDefault();
-
     const formData = new FormData()
       formData.append('name', name);
       formData.append('location', location);
       formData.append('start_date', start_date);
       formData.append('end_date', end_date);
-      formData.append('image', image);
 
+      if (image !== null) {
+        formData.append('image', image);
+      }
 
     const result = await onSubmit(formData);
     if (result && !result.error) {
