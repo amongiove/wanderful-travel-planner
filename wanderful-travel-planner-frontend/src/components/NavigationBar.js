@@ -6,12 +6,12 @@ import Logout from './Logout.js'
 
 const Styles = styled.div`
     .navbar {
-        background-color: #E6E6FA;
+        background-color: #708090;
         padding: 10px;
     }
 
     a, .navbar-brand, .navbar-nav .nav-link {
-        color: #708090;
+        color: white;
 
         &:hover {
             color: #000000;

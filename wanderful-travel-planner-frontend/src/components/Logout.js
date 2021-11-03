@@ -8,7 +8,7 @@ const Logout = ({ logout }) => {
 
     return (
         <Form onSubmit={logout}>
-            <Button variant="outline-secondary" type="submit">
+            <Button variant="outline-light" type="submit">
                 Log Out
             </Button>
         </Form>

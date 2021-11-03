@@ -4,9 +4,9 @@ import BarItems from "./BarItems.js";
 import {Link, useParams} from "react-router-dom";
 
 const SidebarParent = styled.div`
-    background: #708090;
-  
-  a {
+    background: #E6E6FA;
+
+    a {
     text-decoration: none;
   }
   
@@ -28,7 +28,7 @@ const SidebarItem = styled.div`
   margin: 4px 12px;
   border-radius: 4px;
   p {
-    color: white;
+    color: #708090;
     font-weight: bold;
     text-decoration: none;
   }
