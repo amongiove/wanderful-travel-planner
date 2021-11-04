@@ -5,7 +5,6 @@ import Col from 'react-bootstrap/Col';
 import styled from 'styled-components';
 import titleize from 'titleize';
 
-
 const Styles = styled.div`
     .image {
         opacity: 30%;
