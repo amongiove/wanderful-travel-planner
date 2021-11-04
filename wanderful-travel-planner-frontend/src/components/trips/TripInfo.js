@@ -7,7 +7,6 @@ import EditTripForm from './EditTripForm.js';
 import styled from 'styled-components';
 import titleize from 'titleize';
 
-//TODO: image variant for sizing 
 const Styles = styled.div`
     .trip-card {
         margin: 30px;
@@ -16,6 +15,7 @@ const Styles = styled.div`
     .image {
         height: 200px;
         width: 200px;
+        object-fit: cover;
     }
 `;
 

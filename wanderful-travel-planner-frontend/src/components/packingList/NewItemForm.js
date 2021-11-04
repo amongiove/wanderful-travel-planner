@@ -23,7 +23,6 @@ const NewItemForm = ({currentTrip, onSubmit}) => {
         event.preventDefault();
         const result = await onSubmit(newItem);
         if (result && !result.error) {
-            console.log('clear form')
             setItem('')
         } 
     }
