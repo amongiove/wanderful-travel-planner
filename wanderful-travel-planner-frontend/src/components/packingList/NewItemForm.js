@@ -36,6 +36,7 @@ const NewItemForm = ({currentTrip, onSubmit}) => {
                             <Form.Control 
                                 id="inlineFormInputGroup"
                                 value={item} 
+                                maxLength="40"
                                 placeholder="Add Item" 
                                 onChange={event => setItem(event.target.value)}
                             />
