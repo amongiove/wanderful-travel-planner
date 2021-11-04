@@ -27,7 +27,6 @@ const ListItem = ({item, onDelete}) => {
         event.preventDefault();
         const result = await onDelete(item.id);
         if (result && !result.error) {
-            // todo: can we get this to update without reload?
             return window.location.reload();
         }
     } 

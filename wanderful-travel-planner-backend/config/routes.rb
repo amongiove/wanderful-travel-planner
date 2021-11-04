@@ -1,5 +1,3 @@
-#TODO: make routes more specific so only have what are using
-
 Rails.application.routes.draw do
   post "/api/v1/login", to: "api/v1/auth#login"
   delete "/api/v1/logout", to: "api/v1/auth#destroy"
@@ -7,7 +5,7 @@ Rails.application.routes.draw do
   get "/api/v1/get_current_user", to: "api/v1/auth#get_current_user"
   namespace :api do
     namespace :v1 do
-      resources :users
+      resources :users 
       resources :trips
       resources :flights
       resources :accommodations

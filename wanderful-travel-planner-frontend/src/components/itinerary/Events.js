@@ -14,7 +14,6 @@ const Events = ({event, deleteEvent}) => {
         <ListGroup.Item> 
             <Row>
                 <Col md="3">
-                    {/* todo: set timezone  */}
                     {moment(event.attributes.event_date_time).format("h:mm A")}
                 </Col>
                 <Col md="8">

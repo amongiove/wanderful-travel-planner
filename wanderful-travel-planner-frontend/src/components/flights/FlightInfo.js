@@ -41,7 +41,6 @@ const FlightInfo = ({flight, trip, onDelete, onEdit}) => {
             <ListGroup.Item> 
                 <Row>
                     <Col className="airports" md={4}>
-                        {/* TODO: capitalize these ?? */}
                         {flight.attributes.starting_airport} <GrFormNextLink/> {flight.attributes.return_airport}
                     </Col>
                     <Col className="airline" md={3}>

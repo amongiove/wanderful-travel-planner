@@ -42,7 +42,7 @@ const TripCard = ({trip}) => {
     const now = moment();
     const past = (moment(start_date, "YYYY/MM/DD").isBefore(moment()));
     const countdown = (now.to(start_date, true))
-    //TODO: this need to be a countdown to local time
+
     const pic = (Math.floor(Math.random() * (7) + 1));
 
     return (
