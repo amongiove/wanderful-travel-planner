@@ -35,6 +35,7 @@ const NewItemForm = ({currentTrip, onSubmit}) => {
                         <Form.Group className="mb-2">
                             <Form.Control 
                                 id="inlineFormInputGroup"
+                                required
                                 value={item} 
                                 maxLength="40"
                                 placeholder="Add Item" 
